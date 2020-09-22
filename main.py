@@ -1,4 +1,5 @@
 import logging
+import numpy as np
 
 # https://docs.python.org/3/howto/logging.html - Loggin meaning
 
