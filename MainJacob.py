@@ -1,7 +1,7 @@
 import logging
+import tkinter as tk
 import random
 import numpy as np
-
 # https://docs.python.org/3/howto/logging.html - Loggin meaning
 
 logger = logging.getLogger(__name__)
@@ -16,34 +16,32 @@ if __name__ == '__main__':
     main()
 
 
-# str = string
-# Class for player
-class Player:
-    __name = "Default"
-    __Lane = "Default"
 
-    def __init__(self, new_name="Default", new_lane="Default"):
-        self.__name = new_name
-        self.__Lane = new_lane
+class App(tk.Frame):
+    def __init__(self, master):
+        super().__init__(master)
+        self.pack()
 
-    def setName(self, new_name: str) -> None:
-        self.__name = new_name
+        self.entrythingy = tk.Entry()
+        self.entrythingy.pack()
 
-    def getName(self) -> str:
-        return self.__name
+        # Create the application variable.
+        self.contents = tk.StringVar()
+        # Set it to some value.
+        self.contents.set("this is a variable")
+        # Tell the entry widget to watch this variable.
+        self.entrythingy["textvariable"] = self.contents
 
-    def setLane(self, new_lane: str) -> None:
-        self.__Lane = new_lane
+        # Define a callback for when the user hits return.
+        # It prints the current value of the variable.
+        self.entrythingy.bind('<Key-Return>',
+                              self.print_contents)
 
-    def getLane(self) -> str:
-        return self.__Lane
+    def print_contents(self, event):
+        print("Hi. The current entry content is:",
+              self.contents.get())
 
 
-class PlayerRole(Player):
-    def __init__(self, new_name="Default", new_lane="Default", new_team="None", new_experience=0):
-        super(Player, self).__init__(new_name, new_lane)
-        self.__team = new_team
-        self.__experience = new_experience
-
-    def setLaneMid(self, midLane: str) -> None:
-        self.__Lane = midLane
+root = tk.Tk()
+myapp = App(root)
+myapp.mainloop()
