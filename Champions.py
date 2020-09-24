@@ -5,7 +5,7 @@ class champion:
     def __init__(self, new_name="Default", new_lane="Default", new_level=1):
         self.__name = new_name
         self.__lane = new_lane
-        self.__age = new_level
+        self.__level = new_level
 
     def setName(self, new_name: str) -> None:
         self.__name = new_name

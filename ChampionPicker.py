@@ -1,94 +1,54 @@
-from numpy import random
+import random
 from Champions import champion
+TopChamp = champion()
+JglChamp = champion()
+MidChamp = champion()
+AdcChamp = champion()
+SupChamp = champion()
 
-top = int
-jgl = int
-mid = int
-adc = int
-sup = int
-
-# Toplane champs
-Garen = champion()
-Garen.setName("Garen")
-Garen.setLane("top")
-
-Darius = champion()
-Darius.setName("Darius")
-Darius.setLane("top")
-
-# Jungle Champs
-Fiddlesticks = champion()
-Fiddlesticks.setName("Fiddlesticks")
-Fiddlesticks.setLane("jgl")
-
-Warwick = champion()
-Warwick.setName("Warwick")
-Warwick.setLane("jgl")
-
-# Mid Champs
-Ahri = champion()
-Ahri.setName("Ahri")
-Ahri.setLane("mid")
-
-Lux = champion()
-Lux.setName("Lux")
-Lux.setLane("mid")
-
-# ADC Champs
-Vayne = champion()
-Vayne.setName("Vayne")
-Vayne.setLane("adc")
-
-Draven = champion()
-Draven.setName("Draven")
-Draven.setLane("adc")
-
-# Support Champs
-Soraka = champion()
-Soraka.setName("Soraka")
-Soraka.setLane("sup")
-
-Alistar = champion()
-Alistar.setName("Alistar")
-Alistar.setLane("sup")
-
-
-def get_top_champion(top):
+def champ1(top):
     switcher = {
-        0: Garen.getName(),
-        1: Darius.getName(),
+        0: "Garen",
+        1: "Darius",
     }
+    return switcher.get(top, "Invalid day of week")
 
-
-def get_jgl_champion(jgl):
+def champ2(jgl):
     switcher = {
-        0: Fiddlesticks,
-        1: Warwick,
+        0: "Fiddlesticks",
+        1: "Warwick",
     }
+    return switcher.get(jgl, "Invalid day of week")
 
-
-def get_mid_champion(mid):
+def champ3(mid):
     switcher = {
-        0: Ahri,
-        1: Lux,
+        0: "Ahri",
+        1: "Lux",
     }
-    return switcher.get(mid)
+    return switcher.get(mid, "Invalid day of week")
 
-
-def get_adc_champion(adc):
+def champ4(adc):
     switcher = {
-        0: Vayne,
-        1: Draven,
+        0: "Vayne",
+        1: "Draven",
     }
+    return switcher.get(adc, "Invalid day of week")
 
-
-def get_sup_champion(sup):
+def champ5(sup):
     switcher = {
-        0: Soraka,
-        1: Alistar,
+        0: "Soraka",
+        1: "Alistar",
     }
+    return switcher.get(sup, "Invalid day of week")
 
+TopChamp.setName(champ1(random.randint(0,1)))
+JglChamp.setName(champ2(random.randint(0,1)))
+MidChamp.setName(champ3(random.randint(0,1)))
+AdcChamp.setName(champ4(random.randint(0,1)))
+SupChamp.setName(champ5(random.randint(0,1)))
 
-# Brug if statement til at hente champs, og switch til at store champions.
-
-print(get_mid_champion(0))
+print(TopChamp.getName(), "In toplane")
+print(JglChamp.getName(), "In Jungle")
+print(MidChamp.getName(), "In Midlane")
+print(AdcChamp.getName(), "In Botlane as ADC")
+print(SupChamp.getName(), "In Botlane as Support")
