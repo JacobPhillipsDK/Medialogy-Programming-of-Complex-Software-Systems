@@ -20,15 +20,16 @@ class PlayerRole(Player):
     def getReaction(self) -> int:
         return self.__reaction
 
-    def tryKill(self, deff: int) -> bool:
+    def tryKill(self, deaf: int) -> bool:
         r = random.randint(-2, 2)
         kill = self.getExperience() * self.getMotivation() + r
-        if kill >= deff:
+        if kill > deaf:
             return True
         else:
             return False
 
+
     def trydeff(self) -> int:
         r1 = random.randint(-2, 2)
-        deff = self.getExperience() + self.getReaction() + r1
-        return deff
+        deaf = self.getExperience() + self.getReaction() + r1
+        return deaf
