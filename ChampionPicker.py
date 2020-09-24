@@ -11,35 +11,35 @@ def champ1(top):
         0: "Garen",
         1: "Darius",
     }
-    return switcher.get(top, "Invalid day of week")
+    return switcher.get(top, "Invalid Champion")
 
 def champ2(jgl):
     switcher = {
         0: "Fiddlesticks",
         1: "Warwick",
     }
-    return switcher.get(jgl, "Invalid day of week")
+    return switcher.get(jgl, "Invalid Champion")
 
 def champ3(mid):
     switcher = {
         0: "Ahri",
         1: "Lux",
     }
-    return switcher.get(mid, "Invalid day of week")
+    return switcher.get(mid, "Invalid Champion")
 
 def champ4(adc):
     switcher = {
         0: "Vayne",
         1: "Draven",
     }
-    return switcher.get(adc, "Invalid day of week")
+    return switcher.get(adc, "Invalid Champion")
 
 def champ5(sup):
     switcher = {
         0: "Soraka",
         1: "Alistar",
     }
-    return switcher.get(sup, "Invalid day of week")
+    return switcher.get(sup, "Invalid Champion")
 
 TopChamp.setName(champ1(random.randint(0,1)))
 JglChamp.setName(champ2(random.randint(0,1)))
