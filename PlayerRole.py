@@ -11,32 +11,24 @@ class PlayerRole(Player):
         self.__experience = new_experience
         self.__reaction = new_reaction
 
-    def getMotivation(self) -> int:
+    def getMotivation(self):
         return self.__motivation
 
-    def getExperience(self) -> int:
+    def getExperience(self):
         return self.__experience
 
-    def getReaction(self) -> int:
+    def getReaction(self):
         return self.__reaction
 
-<<<<<<< Updated upstream
     def tryKill(self, PlayerRole):
-=======
-
-
-    def trykill(self, defff: int) -> bool:
->>>>>>> Stashed changes
         r = random.randint(-2, 2)
-        kill = self.getExperience() + (self.getMotivation()) + r
-        if kill >= self.trydeff():
+        kill = (self.getExperience() * (self.getMotivation() * 0.5)) + r
+        if kill >= PlayerRole.getReaction():
             return True
         else:
             return False
 
-
     def trydeff(self) -> int:
-        r1 = random.randint(-2,2)
+        r1 = random.randint(-2, 2)
         deff = self.getExperience() + self.getReaction() + r1
         return deff
-
