@@ -1,7 +1,6 @@
 class Player:
     __name = "Default"
     __lane = "Default"
-    __age = 0
 
     def __init__(self, new_name="Default", new_lane="Default", new_age=0):
         self.__name = new_name

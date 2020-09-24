@@ -1,15 +1,19 @@
 import logging
 import numpy as np
 
-# https://docs.python.org/3/howto/logging.html - Loggin meaning
+print("Welcome to League of legends simulator!")
+number = 0
 
-logger = logging.getLogger(__name__)
+# output
 
-
-def main():
-    logging.basicConfig(level=logging.DEBUG)
-    logger.info("Just logger")
-
-
-if __name__ == '__main__':
-    main()
+print(""""
+    1 - Start game
+    """)
+startGameInput = (input())
+if startGameInput == 1:
+    print(""" 
+        1 - Battle against computer    
+        2 - Battle against other player
+         """)
+    if startGameInput == 2:
+        print("Currently Battle against other players wont work")
