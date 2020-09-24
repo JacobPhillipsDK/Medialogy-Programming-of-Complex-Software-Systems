@@ -1,14 +1,16 @@
 import logging
 import numpy as np
+from MatchHandler import MatchHandler
 
 print("Welcome to League of legends simulator!")
-
-print("""1 - Start game""")
-startGameInput = int(input())
-if startGameInput == 1:
+startGameInput = 0
+while startGameInput not in ['1']:
     print(""" 
-        1 - Battle against computer    
-        2 - Battle against other player
-         """)
-if startGameInput == 2:
-    print("Currently Battle against other players wont work")
+            1 - Battle against computer    
+            2 - Battle against other player""")
+    startGameInput = (input())
+    if startGameInput not in ['1', '2']:
+        print("Currently Battle against other players wont work")
+
+if startGameInput == ['1']:
+    print("Im gooood")
