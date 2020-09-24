@@ -20,7 +20,7 @@ class PlayerRole(Player):
     def getReaction(self):
         return self.__reaction
 
-    def tryKill(self, PlayerRole):
+    def tryKill(self, deff: int) -> bool:
         r = random.randint(-2, 2)
         kill = (self.getExperience() * (self.getMotivation() * 0.5)) + r
         if kill >= PlayerRole.getReaction():
