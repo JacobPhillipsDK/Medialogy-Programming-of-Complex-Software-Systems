@@ -1,4 +1,5 @@
-from PlayerRole import *
+from Player import Player
+from PlayerRole import PlayerRole
 
-
-player2 = PlayerRole("Frank","top",22,"lolfc",4,7,6)
+Mike = Player('Peter', 'mid', 15)
+Peter = PlayerRole('Jacob', 'Toplane', 'Red', '10', '10', '2')
