@@ -3,27 +3,27 @@ from numpy import random
 
 
 class PlayerRole(Player):
-    def __init__(self, new_name="Default", new_lane="Default", new_team="None", new_motivation=0, new_experience=0,
-                 new_reaction=0):
+    def __init__(self, new_name: str, new_lane: str, new_team: str, new_motivation: int, new_experience: int,
+                 new_reaction: int):
         Player.__init__(self, new_name, new_lane)
         self.__team = new_team
         self.__motivation = new_motivation
         self.__experience = new_experience
         self.__reaction = new_reaction
 
-    def getMotivation(self):
+    def getMotivation(self) -> int:
         return self.__motivation
 
-    def getExperience(self):
+    def getExperience(self) -> int:
         return self.__experience
 
-    def getReaction(self):
+    def getReaction(self) -> int:
         return self.__reaction
 
     def tryKill(self, deff: int) -> bool:
         r = random.randint(-2, 2)
-        kill = (self.getExperience() * (self.getMotivation() * 0.5)) + r
-        if kill >= PlayerRole.getReaction():
+        kill = self.getExperience() * self.getMotivation() + r
+        if kill >= deff:
             return True
         else:
             return False
