@@ -1,6 +1,6 @@
 import logging
 import numpy as np
-from MatchHandler import MatchHandler
+
 
 print("Welcome to League of legends simulator!")
 startGameInput = 0
