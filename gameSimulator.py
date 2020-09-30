@@ -79,7 +79,7 @@ class gameSimulator:
                 else:
                     killSuccess = False
 
-                print(str(Time) + ":" + "Seems like a blueteam player is trying to kill a redteam player")
+                print(str(Time) + ":" + "Seems like a redteam player is trying to kill a blueteam player")
 
                 if killSuccess:
                     self.__killsRed += 1
