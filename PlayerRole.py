@@ -22,8 +22,8 @@ class PlayerRole(Player):
 
     def tryKill(self, deaf: int) -> bool:
         r = random.randint(-2, 2)
-        kill = self.getExperience() * self.getMotivation() + r
-        if kill > deaf:
+        kill = self.getExperience() + self.getMotivation() + r
+        if kill >= deaf:
             return True
         else:
             return False
