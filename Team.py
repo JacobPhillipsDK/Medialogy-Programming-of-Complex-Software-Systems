@@ -16,16 +16,16 @@ class Team:
     def get_Player(self, num: int):
         return self.__players[num]
 
-    def getMotivationAvg(self):
+    def getMotivationAvg(self) -> int:
         total = 0
         for i in range(5):
-            total = self.__players[i].getMotivation()
+            total += self.__players[i].getMotivation()
         return total / 5
 
-    def getExperienceAvg(self):
+    def getExperienceAvg(self) -> int:
         total = 0
         for i in range(5):
-            total = self.__players[i].getExperience()
+            total += self.__players[i].getExperience()
         return total / 5
 
     def getName(self):

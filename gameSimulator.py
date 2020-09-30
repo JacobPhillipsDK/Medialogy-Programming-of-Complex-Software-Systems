@@ -40,19 +40,17 @@ class gameSimulator:
         while gameRuns:
             nextKill = random.randint(0, 6)
             if (Time + nextKill > gameTime or Time > gameTime):
-                if self.__killsBlue > self.__killsRed:
-                    print("Blue team wins!")
-                if self.__killsRed > self.__killsBlue:
-                    print("Red team wins!")
+
                 # Stops the game when it goes over the game time
-                break
+                gameRuns = False
+
 
             Time += nextKill
 
             blueSkill = blueteam.getExperienceAvg() + blueteam.getMotivationAvg()
             redSkill = redteam.getExperienceAvg() + redteam.getMotivationAvg()
 
-            playerNum = random.randint(0, 5)
+            playerNum = random.randint(0, 4)
 
             if random.randint(int(-blueSkill), int(redSkill)) <= 0:
                 bptk = blueteam.get_Player(playerNum)
@@ -67,7 +65,7 @@ class gameSimulator:
                 print(str(Time) + ":" + "Seems like a blueteam player is trying to kill a redteam player")
 
                 if killSuccess:
-                    self.__killsBlue = +1
+                    self.__killsBlue += 1
                     print("And blueteam player is succesfull, what a kill!")
                 else:
                     print("redteam player defends, very nice!")
@@ -84,8 +82,12 @@ class gameSimulator:
                 print(str(Time) + ":" + "Seems like a blueteam player is trying to kill a redteam player")
 
                 if killSuccess:
-                    self.__killsRed = +1
+                    self.__killsRed += 1
 
-                    print("And blueteam player is succesfull, what a kill!")
+                    print("And redteam player is succesfull, what a kill!")
                 else:
-                    print("redteam player defends, very nice!")
+                    print("blueteam player defends, very nice!")
+            if gameRuns == False and self.__killsBlue > self.__killsRed:
+                print("Blue team wins!")
+            if gameRuns == False and self.__killsRed > self.__killsBlue:
+                print("Red team wins!")
