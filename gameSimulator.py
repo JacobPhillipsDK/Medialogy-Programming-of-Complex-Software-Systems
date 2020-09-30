@@ -34,12 +34,16 @@ class gameSimulator:
         self.__killsRed = 0
 
         gameRuns = True
-        gameTime = 40 + random.int(-5, 5)
+        gameTime = 40 + random.randint(-5, 5)
         Time = 1
 
         while gameRuns:
             nextKill = random.randint(0, 6)
             if (Time + nextKill > gameTime or Time > gameTime):
+                if self.__killsBlue > self.__killsRed:
+                    print("Blue team wins!")
+                if self.__killsRed > self.__killsBlue:
+                    print("Red team wins!")
                 # Stops the game when it goes over the game time
                 break
 
