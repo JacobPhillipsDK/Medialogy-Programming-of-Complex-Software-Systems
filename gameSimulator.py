@@ -84,9 +84,9 @@ class gameSimulator:
 
                 if killSuccess:
                     self.__killsRed = +1
-                    print("And blueteam player is succesfull, what a kill!")
+                    print("And redteam player is succesfull, what a kill!")
                 else:
-                    print("redteam player defends, very nice!")
+                    print("blueteam player defends, very nice!")
 
 
 
