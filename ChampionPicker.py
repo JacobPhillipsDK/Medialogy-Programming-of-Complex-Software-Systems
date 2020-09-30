@@ -1,5 +1,6 @@
 import random
 from Champions import champion
+from colorama import Fore, Back, Style
 
 TopChamp = champion()
 JglChamp = champion()
@@ -7,6 +8,11 @@ MidChamp = champion()
 AdcChamp = champion()
 SupChamp = champion()
 
+TopChamp2 = champion()
+JglChamp2 = champion()
+MidChamp2 = champion()
+AdcChamp2 = champion()
+SupChamp2 = champion()
 
 def champ1(top):
     switcher = {
@@ -47,16 +53,31 @@ def champ5(sup):
     }
     return switcher.get(sup, "Invalid Champion")
 
+def setblueteam() -> None:
+    TopChamp.setName(champ1(random.randint(0, 1)))
+    JglChamp.setName(champ2(random.randint(0, 1)))
+    MidChamp.setName(champ3(random.randint(0, 1)))
+    AdcChamp.setName(champ4(random.randint(0, 1)))
+    SupChamp.setName(champ5(random.randint(0, 1)))
+    print(Fore.BLUE + "Top -", TopChamp.getName())
+    print("Jungle -", JglChamp.getName())
+    print("Mid -", MidChamp.getName())
+    print("ADC -", AdcChamp.getName())
+    print("Support -", SupChamp.getName())
+    print(Style.RESET_ALL, "vs")
 
-TopChamp.setName(champ1(random.randint(0, 1)))
-JglChamp.setName(champ2(random.randint(0, 1)))
-MidChamp.setName(champ3(random.randint(0, 1)))
-AdcChamp.setName(champ4(random.randint(0, 1)))
-SupChamp.setName(champ5(random.randint(0, 1)))
+def setredteam() -> None:
+    TopChamp2.setName(champ1(random.randint(0, 1)))
+    JglChamp2.setName(champ2(random.randint(0, 1)))
+    MidChamp2.setName(champ3(random.randint(0, 1)))
+    AdcChamp2.setName(champ4(random.randint(0, 1)))
+    SupChamp2.setName(champ5(random.randint(0, 1)))
+    print(Fore.RED + "Top -", TopChamp2.getName())
+    print("Jungle -", JglChamp2.getName())
+    print("Mid -", MidChamp2.getName())
+    print("ADC -", AdcChamp2.getName())
+    print("Support -", SupChamp2.getName())
 
+setblueteam()
+setredteam()
 
-print(TopChamp.getName(), "In toplane")
-print(JglChamp.getName(), "In Jungle")
-print(MidChamp.getName(), "In Midlane")
-print(AdcChamp.getName(), "In Botlane as ADC")
-print(SupChamp.getName(), "In Botlane as Support")
