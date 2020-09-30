@@ -18,12 +18,14 @@ class Team:
 
     def getMotivationAvg(self):
         total = 0
-        total = self.__playerSupp.getMotivation() + self.__playerAdc.getMotivation() + self.__playerJung.getMotivation() + self.__playerMid.getMotivation() + self.__playerTop.getMotivation()
+        for i in range(5):
+            total = self.__players[i].getMotivation()
         return total / 5
 
     def getExperienceAvg(self):
         total = 0
-        total = self.__playerSupp.getExperience() + self.__playerAdc.getExperience() + self.__playerJung.getExperience() + self.__playerMid.getExperience() + self.__playerTop.getExperience()
+        for i in range(5):
+            total = self.__players[i].getExperience()
         return total / 5
 
     def getName(self):
