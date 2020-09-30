@@ -78,6 +78,8 @@ def setredteam() -> None:
     print("ADC -", AdcChamp2.getName())
     print("Support -", SupChamp2.getName())
 
-setblueteam()
-setredteam()
+
+def SetTeam(setblueteam, setredteam ):
+    setblueteam()
+    setredteam()
 

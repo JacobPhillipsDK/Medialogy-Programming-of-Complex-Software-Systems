@@ -1,12 +1,7 @@
-from main import startGameInput
-
-
-def getStartGameInput():
-    return startGameInput
+from ChampionPicker import *
 
 
 class GameHandler:
-    team = {1: 'Team Blue', 2: 'Team Red'}
 
-    def __init__(self):
-        pass
+    def StartGame(self):
+        pickamp = SetTeam(setblueteam(), setredteam())

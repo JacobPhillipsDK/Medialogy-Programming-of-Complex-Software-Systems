@@ -1,5 +1,6 @@
 from Team import *
 import numpy as np
+from ChampionPicker import *
 from numpy import random
 
 class gameSimulator:
@@ -51,6 +52,10 @@ class gameSimulator:
                 ptk = blueteam
 
 
+
+
+ def StartGame(self):
+        pickamp = SetTeam(setblueteam(), setredteam())
 
 
 
