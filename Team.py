@@ -1,4 +1,4 @@
-import PlayerRole
+from PlayerRole import *
 from typing import List
 
 class Team:
@@ -6,9 +6,15 @@ class Team:
     __players = []
 
 
-    def __init__(self, name, players: List[PlayerRole]):
+    def __init__(self, name: str, players: List[PlayerRole]):
         self.__name = name
         self.__players = players
+
+    for i in range(5):
+        __players.append(PlayerRole("faker","mid",5,7,9))
+
+    def get_Player(self, num: int):
+        return self.__players[num]
 
     def getMotivationAvg(self):
         total = 0

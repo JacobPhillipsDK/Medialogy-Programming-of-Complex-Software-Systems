@@ -3,10 +3,12 @@ from numpy import random
 
 
 class PlayerRole(Player):
-    def __init__(self, new_name: str, new_lane: str, new_team: str, new_motivation: int, new_experience: int,
+    __motivation = 1
+    __experience = 1
+
+    def __init__(self, new_name: str, new_lane: str, new_motivation: int, new_experience: int,
                  new_reaction: int):
         Player.__init__(self, new_name, new_lane)
-        self.__team = new_team
         self.__motivation = new_motivation
         self.__experience = new_experience
         self.__reaction = new_reaction
