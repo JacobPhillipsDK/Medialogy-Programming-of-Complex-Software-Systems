@@ -88,8 +88,8 @@ class gameSimulator:
                 else:
                     print("blueteam player defends, very nice!")
             if gameRuns == False and self.__killsBlue > self.__killsRed:
-                print("Blue team wins!")
+                print("Blue team wins! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed))
             if gameRuns == False and self.__killsRed > self.__killsBlue:
-                print("Red team wins!")
+                print("Red team wins! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed))
 
             print(killSuccess)
