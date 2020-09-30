@@ -1,6 +1,6 @@
 from Team import *
 import numpy as np
-#from ChampionPicker import *
+# from ChampionPicker import *
 from numpy import random
 
 
@@ -27,16 +27,11 @@ class gameSimulator:
             self.__killsBlue)
               + self.__redSideteam + " - " + str(self.__killsRed))
 
-    #def StartGame(self):
-        #pickamp = SetTeam(setblueteam(), setredteam())
-
-    def game_start(self,blueteam: Team, redteam: Team):
+    def game_start(self, blueteam: Team, redteam: Team):
         self.__blueSideteam = blueteam.getName()
         self.__redSideteam = redteam.getName()
         self.__killsBlue = 0
         self.__killsRed = 0
-
-        self.StartGame()
 
         gameRuns = True
         gameTime = 40 + random.int(-5, 5)
@@ -55,7 +50,7 @@ class gameSimulator:
 
             playerNum = random.randint(0, 5)
 
-            if random.randint(int(-blueSkill),int(redSkill)) <= 0:
+            if random.randint(int(-blueSkill), int(redSkill)) <= 0:
                 bptk = blueteam.get_Player(playerNum)
                 rptd = redteam.get_Player(playerNum)
                 deff = rptd.trydeff()
@@ -86,25 +81,7 @@ class gameSimulator:
 
                 if killSuccess:
                     self.__killsRed = +1
-<<<<<<< HEAD
+
                     print("And blueteam player is succesfull, what a kill!")
                 else:
                     print("redteam player defends, very nice!")
-=======
-                    print("And redteam player is succesfull, what a kill!")
-                else:
-                    print("blueteam player defends, very nice!")
->>>>>>> main
-
-
-
-
-
-
-
-
-
-
-
-
-
