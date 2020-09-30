@@ -6,8 +6,7 @@ class PlayerRole(Player):
     __motivation = 1
     __experience = 1
 
-    def __init__(self, new_name: str, new_lane: str, new_motivation: int, new_experience: int,
-                 new_reaction: int):
+    def __init__(self, new_name: str, new_lane: str, new_motivation: int, new_experience: int, new_reaction: int):
         Player.__init__(self, new_name, new_lane)
         self.__motivation = new_motivation
         self.__experience = new_experience
@@ -29,7 +28,6 @@ class PlayerRole(Player):
             return True
         else:
             return False
-
 
     def trydeff(self) -> int:
         r1 = random.randint(-2, 2)

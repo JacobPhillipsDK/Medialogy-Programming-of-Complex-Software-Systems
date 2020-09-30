@@ -91,3 +91,5 @@ class gameSimulator:
                 print("Blue team wins!")
             if gameRuns == False and self.__killsRed > self.__killsBlue:
                 print("Red team wins!")
+
+            print(killSuccess)
