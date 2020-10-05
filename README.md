@@ -4,4 +4,4 @@ Medialogy-Programming-of-Complex Software-Systems
 Run main.py to simluate game
 
 
-![alt text](https://imgur.com/a/PWSPIfD)
+![Diagram](https://i.imgur.com/dNqbLAQ.png)
