@@ -1,11 +1,14 @@
 import gameSimulator as GS
 
 
-def contains(list, filter):
-    for x in list:
-        if filter(x):
-            return True
-    return False
+def Search(arry, value):
+    for i in range(len(players1)):
+        if arry[i].getExperience() == value:
+            print(arry[i].getName() + " The value was found at", i + 1)
+            break
+
+
+
 
 
 players1 = []
@@ -36,9 +39,13 @@ for i in range(len(players1) - 1, 0, -1):
 for i in range(len(players1)):
     print(players1[i].getName())
 
-value = 3
 
-for i in range(len(players1)):
-    if players1[i].getExperience() == value:
-        print("The value was found at", i+1)
-        break
+
+# value = 10
+
+# for i in range(len(players1)):
+#    if players1[i].getExperience() == value:
+#        print(players1[i].getName() + " The value was found at", i + 1)
+#        break
+
+Search(players1,10)
