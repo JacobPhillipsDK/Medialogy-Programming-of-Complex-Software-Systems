@@ -10,9 +10,9 @@ Main_window.title("League simulator")
 
 def vindueSkifter():
     print("test1")
-    selectWindow()
+    # selectWindow()
     getWindow()
-    matchWindow()
+   # matchWindow()
     print(window)
 
 def close_window():
@@ -34,7 +34,7 @@ if window == 1:
     # places the button.
     Startbutton.place(relx=0.35, rely=0.4, relwidth=0.25, relheight=0.15)
 
-def 
+
 def getWindow():
     print("test2")
     getTeams = tk.Button(Main_window, font=60, text ="Get Teams", bg ='grey', command = close_window)

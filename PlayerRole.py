@@ -1,5 +1,6 @@
 from Player import Player
 from numpy import random
+from ChampionPicker import *
 
 
 class PlayerRole(Player):
