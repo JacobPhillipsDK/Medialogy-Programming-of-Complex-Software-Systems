@@ -62,13 +62,13 @@ class gameSimulator:
                 else:
                     killSuccess = False
 
-                print(str(Time) + ":" + "Seems like a blueteam player is trying to kill a redteam player")
-
+                print(str(Time) + ":" + "Seems like " + bptk.getName() + " is trying to kill " + rptd.getName())
+                
                 if killSuccess:
                     self.__killsBlue += 1
-                    print("And blueteam player is succesfull, what a kill!")
+                    print("And " + bptk.getName() + " is succesfull, what a kill!")
                 else:
-                    print("redteam player defends, very nice!")
+                    print(rptd.getName() + " defends, very nice!")
             else:
                 bptk = blueteam.get_Player(playerNum)
                 rptd = redteam.get_Player(playerNum)
@@ -79,14 +79,14 @@ class gameSimulator:
                 else:
                     killSuccess = False
 
-                print(str(Time) + ":" + "Seems like a redteam player is trying to kill a blueteam player")
+                print(str(Time) + ":" + "Seems like " + rptd.getName() + " is trying to kill " + bptk.getName())
 
                 if killSuccess:
                     self.__killsRed += 1
 
-                    print("And redteam player is succesfull, what a kill!")
+                    print("And " + rptd.getName() + " is succesfull, what a kill!")
                 else:
-                    print("blueteam player defends, very nice!")
+                    print(bptk.getName() + " defends, very nice!")
             if gameRuns == False and self.__killsBlue > self.__killsRed:
                 print("Blue team wins! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed))
             if gameRuns == False and self.__killsRed > self.__killsBlue:
