@@ -63,7 +63,7 @@ class gameSimulator:
                     killSuccess = False
 
                 print(str(Time) + ":" + "Seems like " + bptk.getName() + " is trying to kill " + rptd.getName())
-                
+
                 if killSuccess:
                     self.__killsBlue += 1
                     print("And " + bptk.getName() + " is succesfull, what a kill!")

@@ -2,7 +2,6 @@ from Player import Player
 from numpy import random
 from ChampionPicker import *
 
-
 class PlayerRole(Player):
     __motivation = 1
     __experience = 1
@@ -15,7 +14,6 @@ class PlayerRole(Player):
 
     def getMotivation(self) -> int:
         return self.__motivation
-
 
     def getExperience(self) -> int:
         return self.__experience
