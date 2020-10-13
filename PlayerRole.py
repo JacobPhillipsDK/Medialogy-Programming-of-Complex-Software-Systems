@@ -2,13 +2,12 @@ from Player import Player
 from numpy import random
 from ChampionPicker import *
 
-
 class PlayerRole(Player):
     __motivation = 1
     __experience = 1
 
-    def __init__(self, new_name: str, new_lane: str, new_motivation: int, new_experience: int, new_reaction: int):
-        Player.__init__(self, new_name, new_lane)
+    def __init__(self, new_name: str, new_motivation: int, new_experience: int, new_reaction: int):
+        Player.__init__(self, new_name)
         self.__motivation = new_motivation
         self.__experience = new_experience
         self.__reaction = new_reaction
