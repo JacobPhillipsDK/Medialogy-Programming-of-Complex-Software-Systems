@@ -27,3 +27,10 @@ for i in range(len(players1)-1,0,-1):
 
 for i in range(len(players1)):
     print(players1[i].getName())
+
+value = 3
+
+for i in range(len(players1)):
+    if players1[i].getExperience() == value:
+        print("The value was found at", i+1)
+        break

@@ -1,6 +1,8 @@
+from PlayerRole import PlayerRole
+
 list = [6,4,8,1,3,5]
 players1 = []
-players1.append(GS.PlayerRole("Kristian", 8, 8, 9))
+players1.append(PlayerRole("Kristian", 8, 8, 9))
 players1.append(GS.PlayerRole("Jacob", 2, 3, 4))
 players1.append(GS.PlayerRole("Nicklas", 6, 8, 6))
 players1.append(GS.PlayerRole("Mikkel", 7, 9, 5))
