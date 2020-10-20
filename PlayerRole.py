@@ -5,12 +5,14 @@ from ChampionPicker import *
 class PlayerRole(Player):
     __motivation = 1
     __experience = 1
+    __cost = 1 #0-25
 
-    def __init__(self, new_name: str, new_motivation: int, new_experience: int, new_reaction: int):
+    def __init__(self, new_name: str, new_motivation: int, new_experience: int, new_reaction: int, new_cost: int):
         Player.__init__(self, new_name)
         self.__motivation = new_motivation
         self.__experience = new_experience
         self.__reaction = new_reaction
+        self.__cost = new_cost
 
     def getMotivation(self) -> int:
         return self.__motivation
@@ -20,6 +22,9 @@ class PlayerRole(Player):
 
     def getReaction(self) -> int:
         return self.__reaction
+
+    def getCost(self) -> int:
+        return self.__cost
 
     def tryKill(self, deaf: int) -> bool:
         r = random.randint(-2, 2)
@@ -33,3 +38,4 @@ class PlayerRole(Player):
         r1 = random.randint(-2, 2)
         deaf = self.getExperience() + self.getReaction() + r1
         return deaf
+
