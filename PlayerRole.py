@@ -13,6 +13,7 @@ class PlayerRole(Player):
         self.__experience = new_experience
         self.__reaction = new_reaction
         self.__cost = new_cost
+        self.__name = new_name
 
     def getMotivation(self) -> int:
         return self.__motivation
@@ -39,6 +40,5 @@ class PlayerRole(Player):
         deaf = self.getExperience() + self.getReaction() + r1
         return deaf
 
-
-
-
+    def getName(self) -> str:
+        return self.__name

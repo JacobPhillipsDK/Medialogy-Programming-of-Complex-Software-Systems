@@ -11,5 +11,3 @@ class Player:
     def getName(self) -> str:
         return self.__name
 
-
-

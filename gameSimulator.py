@@ -1,5 +1,4 @@
 from Team import *
-from playerList import *
 import numpy as np
 # from ChampionPicker import *
 from numpy import random
