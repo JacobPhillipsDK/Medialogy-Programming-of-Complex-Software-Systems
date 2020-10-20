@@ -1,4 +1,5 @@
 import gameSimulator as GS
+from Playerlist import playerList
 
 
 def Search(arry, value):
@@ -8,7 +9,7 @@ def Search(arry, value):
             break
 
 players1 = []
-players1.append(GS.PlayerRole("Kristian", 8, 8, 9,15))
+players1.append(GS.PlayerRole("Jacob", 2, 3, 4,6))
 players1.append(GS.PlayerRole("Jacob", 2, 3, 4,6))
 players1.append(GS.PlayerRole("Nicklas", 6, 8, 6,13))
 players1.append(GS.PlayerRole("Mikkel", 7, 9, 5,12))
