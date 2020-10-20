@@ -5,7 +5,7 @@ def Search(arry, value):
         if arry[i].getExperience() == value:
             print(arry[i].getName() + " The value was found at", i + 1)
             break
-def Sort(sorted):
+def sortafterCost(sorted):
     for i in range(len(allPlayers)-1,0,-1):
         for j in range(i):
             if allPlayers[j].getCost()>allPlayers[j+1].getCost():
@@ -83,5 +83,5 @@ for i in range(len(players1)):
         print(players1[i].getName() + " The value was found at", i + 1)
         break
 print(players1[0].getName())
-Sort(allPlayers)
+sortafterCost(allPlayers)
 print(allPlayers[0].getName())
