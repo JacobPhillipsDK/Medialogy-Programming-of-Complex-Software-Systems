@@ -5,36 +5,35 @@ def Search(arry, value):
         if arry[i].getExperience() == value:
             print(arry[i].getName() + " The value was found at", i + 1)
             break
+
 def sortafterCost(sorted):
     for i in range(len(allPlayers)-1,0,-1):
         for j in range(i):
             if allPlayers[j].getCost()>allPlayers[j+1].getCost():
-                temp = sorted[j]
-                sorted[j] = sorted[j+1]
-                sorted[j+1] = temp
+                sorted[j], sorted[j+1] = sorted[j+1], sorted[j]
 
 
 
 
 allPlayers = []
 
-allPlayers.append(GS.PlayerRole("BioFrost", 5, 7, 6, 20))
-allPlayers.append(GS.PlayerRole("Bjergsen", 6, 9, 7, 20))
-allPlayers.append(GS.PlayerRole("Broken_Blade", 6, 7, 7, 20))
-allPlayers.append(GS.PlayerRole("DoubleLift", 7, 9, 6, 20))
-allPlayers.append(GS.PlayerRole("Spica", 9, 7, 7, 20))
-allPlayers.append(GS.PlayerRole("Top369", 8, 8, 9, 20))
-allPlayers.append(GS.PlayerRole("JackeyLove", 8, 9, 8, 20))
-allPlayers.append(GS.PlayerRole("Karsa", 7, 9, 7, 20))
+allPlayers.append(GS.PlayerRole("BioFrost", 5, 7, 6, 5))
+allPlayers.append(GS.PlayerRole("Bjergsen", 6, 9, 7, 7))
+allPlayers.append(GS.PlayerRole("Broken_Blade", 6, 7, 7, 9))
+allPlayers.append(GS.PlayerRole("DoubleLift", 7, 9, 6, 2))
+allPlayers.append(GS.PlayerRole("Spica", 9, 7, 7, 8))
+allPlayers.append(GS.PlayerRole("Top369", 8, 8, 9, 13))
+allPlayers.append(GS.PlayerRole("JackeyLove", 8, 9, 8, 17))
+allPlayers.append(GS.PlayerRole("Karsa", 7, 9, 7, 19))
 allPlayers.append(GS.PlayerRole("knight", 8, 9, 9, 20))
 allPlayers.append(GS.PlayerRole("QiuQui", 7, 7, 7, 20))
 allPlayers.append(GS.PlayerRole("Caps", 10, 8, 10, 20))
 allPlayers.append(GS.PlayerRole("Jankos", 7, 9, 7, 20))
 allPlayers.append(GS.PlayerRole("Mikyx", 7, 9, 10, 20))
 allPlayers.append(GS.PlayerRole("Perkz", 8, 10, 7, 20))
-allPlayers.append(GS.PlayerRole("Wunder", 6, 9, 10, 20))
+allPlayers.append(GS.PlayerRole("Wunder", 6, 9, 10, 8))
 allPlayers.append(GS.PlayerRole("Bwipo", 7, 7, 9, 20))
-allPlayers.append(GS.PlayerRole("Hylissang", 7, 10, 7, 20))
+allPlayers.append(GS.PlayerRole("Hylissang", 7, 10, 7, 11))
 allPlayers.append(GS.PlayerRole("Nemesis", 5, 7, 6, 20))
 allPlayers.append(GS.PlayerRole("Rekkles", 8, 9, 8, 20))
 allPlayers.append(GS.PlayerRole("SelfMade", 10, 7, 9, 20))
@@ -72,15 +71,8 @@ for i in range(len(players1) - 1, 0, -1):
         if players1[j].getExperience() > players1[j + 1].getExperience():
             players1[j], players1[j + 1] = players1[j + 1], players1[j]
 
-for i in range(len(players1)):
-    print(players1[i].getName())
 
-value = 15
 
-for i in range(len(players1)):
-    if players1[i].getCost() == value:
-        print(players1[i].getName() + " The value was found at", i + 1)
-        break
 
 sortafterCost(allPlayers)
 for i in range(len(allPlayers)):
