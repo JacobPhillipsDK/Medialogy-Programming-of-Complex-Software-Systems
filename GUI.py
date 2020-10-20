@@ -51,8 +51,8 @@ window.mainloop()
 
 # Creates a window for the application.
 
-# Main_window = tk.Tk()
-# Main_window.title("League simulator")
+# root = tk.Tk()
+# root.title("League simulator")
 
 
 # class SampleApp(tk.Tk):
@@ -70,24 +70,24 @@ window.mainloop()
 
 
 # def close_window():
-#  Main_window.destroy()
+#  root.destroy()
 
 
 # creates a canvas for the application
-# canvas = tk.Canvas(Main_window, height=HEIGHT, width=WIDTH)
+# canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
 # packs in the canvas
 # canvas.pack()
 
 # background image for the startup.
 # background_image = tk.PhotoImage(file='startImage.jpeg')
-# background_label = tk.Label(Main_window)
+# background_label = tk.Label(root)
 
 
 # class startPage(tk.Frame):
 # def __init__(self, master):
 
 # creating a start button and inputs a text.
-# Startbutton = tk.Button(Main_window, font=60, text="start", bg='grey', command=close_window)
+# Startbutton = tk.Button(root, font=60, text="start", bg='grey', command=close_window)
 # places the button.
 # Startbutton.place(relx=0.35, rely=0.4, relwidth=0.25, relheight=0.15)
 
@@ -98,7 +98,7 @@ window.mainloop()
 
 # class getWindow(tk.Frame):
 # def __init__(self):
-# getTeams = tk.Button(Main_window, font=60, text="Get Teams", bg='grey', command=close_window)
+# getTeams = tk.Button(root, font=60, text="Get Teams", bg='grey', command=close_window)
 # getTeams.place(relx=0.35, rely=0.4, relwidth=0.25, relheight=0.15)
 
 
