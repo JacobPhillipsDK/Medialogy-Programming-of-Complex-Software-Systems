@@ -9,7 +9,7 @@ def Search(arry, value):
             break
 
 players1 = []
-playerList(playername=biofrost)
+playerList(playername)
 
 players2 = []
 players2.append(GS.PlayerRole("Poul", 5, 7, 6,20))

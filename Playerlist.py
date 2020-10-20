@@ -33,3 +33,4 @@ def playerList(playername):
     playername.Ghost = players1.append(GS.PlayerRole("Ghost", 5, 7, 6, 20))
     playername.Nuguri = players1.append(GS.PlayerRole("Nuguri", 5, 7, 6, 20))
     playername.ShowMaker = players1.append(GS.PlayerRole("ShowMaker", 5, 7, 6, 20))
+    
