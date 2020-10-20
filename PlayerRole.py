@@ -38,3 +38,4 @@ class PlayerRole(Player):
         r1 = random.randint(-2, 2)
         deaf = self.getExperience() + self.getReaction() + r1
         return deaf
+
