@@ -1,105 +1,64 @@
 from tkinter import *
+import tkinter as tk
 
-window = Tk()
-window.geometry('1500x720')
-moveBtn = 0.2
+btn_width = 20
+btn_height = 20
 
-startFrame = Frame(window)
-selectMode = Frame(window)
-getTeams = Frame(window)
-playerSelect = Frame(window)
-simMatch = Frame(window)
-results = Frame(window)
-
-
-def swap(frame):
-    frame.tkraise()
-
-
-for frame in (startFrame, selectMode, getTeams, simMatch, results):
-    frame.grid(row = 0, column = 0)
-
-Label(startFrame, text="Starting frame").pack()
-Button(startFrame, text="start", command = lambda: swap(selectMode)).pack()
-
-Label(selectMode, text="Select mode").pack
-Button(selectMode, text = "Singleplayer",command = lambda: swap(getTeams)).pack()
-Button(selectMode, text = "multiplayer",command = lambda: swap(getTeams)).pack()
-
-
-Label(getTeams, text = "Get teams").pack
-Button(getTeams, text = "get teams", command = lambda: swap(playerSelect)).pack()
-startFrame.tkraise()
-
-Label(playerSelect, text = "select players").pack
-
-    btn1 = Tk.Button(window, font=100, bg=btncolor, highlightthickness=0, bd='0', text="Top")
-    btn2 = Tk.Button(window, font=100, bg=btncolor, highlightthickness=0, bd='0', text="Jungle")
-    btn3 = Tk.Button(window, font=100, bg=btncolor, highlightthickness=0, bd='0', text="Mid")
-    btn4 = Tk.Button(window, font=100, bg=btncolor, highlightthickness=0, bd='0', text="ADC")
-    btn5 = Tk.Button(window, font=100, bg=btncolor, highlightthickness=0, bd='0', text="Support")
-    # places the button.
-    btn1.place(relx=0.05+moveBtn, rely=0.42, relwidth=0.10, relheight=0.10)
-    btn2.place(relx=0.16+moveBtn, rely=0.42, relwidth=0.10, relheight=0.10)
-    btn3.place(relx=0.27+moveBtn, rely=0.42, relwidth=0.10, relheight=0.10)
-    btn4.place(relx=0.38+moveBtn, rely=0.42, relwidth=0.10, relheight=0.10)
-    btn5.place(relx=0.49+moveBtn, rely=0.42, relwidth=0.10, relheight=0.10)
-
-
-
-window.mainloop()
-
-# Creates a window for the application.
-
-# Main_window = tk.Tk()
-# Main_window.title("League simulator")
-
-
-# class SampleApp(tk.Tk):
-#  def __init__(self):
-# tk.Tk.__init__(self)
-# self._frame = None
-# self.switch_frame(startPage)
-
-# def switch_frame(self, frame_class):
-# new_frame = frame_class(self)
-# if self._frame is not None:
-#     self._frame.destroy()
-# self._frame = new_frame
-#        self._frame.pack()
-
-
-# def close_window():
-#  Main_window.destroy()
-
+root = Tk()
+root.title("League of legends simulator game")
+root.geometry("1500x720")
+btncolor = '#884dbc'
+background_label = tk.Label(root)
 
 # creates a canvas for the application
-# canvas = tk.Canvas(Main_window, height=HEIGHT, width=WIDTH)
+canvas = tk.Canvas(root, width=1500, height=720, bg='#350f58', highlightthickness=0)
+
+
+def frame1():
+    return StartPage()
+
+
+def frame2():
+    return SecondPage()
+
+
+def frame3():
+    return SinglePLayerPage()
+
+
 # packs in the canvas
-# canvas.pack()
+canvas.pack()
 
-# background image for the startup.
-# background_image = tk.PhotoImage(file='startImage.jpeg')
-# background_label = tk.Label(Main_window)
-
-
-# class startPage(tk.Frame):
-# def __init__(self, master):
-
-# creating a start button and inputs a text.
-# Startbutton = tk.Button(Main_window, font=60, text="start", bg='grey', command=close_window)
-# places the button.
-# Startbutton.place(relx=0.35, rely=0.4, relwidth=0.25, relheight=0.15)
+frame1_btn1 = tk.Button(root, font=100, bg=btncolor, highlightthickness=0, bd='0', text="START", command=frame2)
+frame2_btn1 = tk.Button(root, font=100, bg=btncolor, highlightthickness=0, bd='0', text="Single Player", command=frame3)
+frame2_btn2 = tk.Button(root, font=100, bg=btncolor, highlightthickness=0, bd='0', text="MultiPlayer")
+frame3_btn1 = tk.Button(root, font=100, bg=btncolor, highlightthickness=0, bd='0', text="HELP ME")
 
 
-# class choseMode(tk.frame):
-#  def __init__(self):
+def StartPage():
+    print("StartPage")
+    frame1_btn1.place(relx=0.45, rely=0.42, relwidth=0.10, relheight=0.10)
 
 
-# class getWindow(tk.Frame):
-# def __init__(self):
-# getTeams = tk.Button(Main_window, font=60, text="Get Teams", bg='grey', command=close_window)
-# getTeams.place(relx=0.35, rely=0.4, relwidth=0.25, relheight=0.15)
+def SecondPage():
+    print("Second Page")
+    frame1_btn1.destroy()
+    frame2_btn1.place(relx=0.45, rely=0.3, relwidth=0.20, relheight=0.20)
+    frame2_btn2.place(relx=0.45, rely=0.7, relwidth=0.20, relheight=0.20)
 
 
-# makes the program loop the main thread until exited
+def SinglePLayerPage():
+    print("ThirdPage")
+    frame2_btn1.destroy()
+    frame2_btn2.destroy()
+    frame3_btn1.place(relx=0.45, rely=0.42, relwidth=0.20, relheight=0.20)
+
+
+
+def close_window():
+    root.destroy()
+
+
+StartPage()
+root.mainloop()
+'
