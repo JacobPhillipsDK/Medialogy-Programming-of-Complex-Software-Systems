@@ -11,7 +11,7 @@ class Team:
         self.__players = players
 
     for i in range(5):
-        __players.append(PlayerRole("faker",5,7,9))
+        __players.append(PlayerRole("faker",5,7,9,1))
 
     def get_Player(self, num: int):
         return self.__players[num]
