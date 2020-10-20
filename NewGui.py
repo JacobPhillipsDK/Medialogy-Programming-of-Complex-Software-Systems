@@ -67,6 +67,8 @@ def SearchName():
     Search(players1, NameSearch)
     return Search
 
+def close_window():
+    root.destroy()
 
 def close_window():
     root.destroy()

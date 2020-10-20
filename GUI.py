@@ -32,6 +32,10 @@ canvas.pack()
 frame1_btn1 = tk.Button(root, font=100, bg=btncolor, highlightthickness=0, bd='0', text="START", command=frame2)
 frame2_btn1 = tk.Button(root, font=100, bg=btncolor, highlightthickness=0, bd='0', text="Single Player", command=frame3)
 frame2_btn2 = tk.Button(root, font=100, bg=btncolor, highlightthickness=0, bd='0', text="MultiPlayer")
+<<<<<<< HEAD
+=======
+frame3_btn1 = tk.Button(root, font=100, bg=btncolor, highlightthickness=0, bd='0', text="HELP ME")
+>>>>>>> main
 
 
 def StartPage():
@@ -50,6 +54,10 @@ def SinglePLayerPage():
     print("ThirdPage")
     frame2_btn1.destroy()
     frame2_btn2.destroy()
+<<<<<<< HEAD
+=======
+    frame3_btn1.place(relx=0.45, rely=0.42, relwidth=0.20, relheight=0.20)
+>>>>>>> main
 
 
 
