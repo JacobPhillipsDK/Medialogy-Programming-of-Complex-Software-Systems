@@ -54,9 +54,9 @@ def SinglePLayerPage():
     print("ThirdPage")
     frame2_btn1.destroy()
     frame2_btn2.destroy()
-    canvas.create_line(0, 100, 900, 100,width=5,fill="white")
-    canvas.create_line(900, 1500, 900, 0,width=5,fill="white")
-    canvas.create_line(0, 400, 900, 400, width=5,fill="white")
+    frame3_btn1.place(relx=0.45, rely=0.42, relwidth=0.20, relheight=0.20)
+
+
 
 
 def close_window():
