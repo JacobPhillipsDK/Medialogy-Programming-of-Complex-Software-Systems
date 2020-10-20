@@ -14,9 +14,8 @@ def sortafterCost(sorted):
                 sorted[j+1] = temp
 
 
-
-
 allPlayers = []
+
 
 allPlayers.append(GS.PlayerRole("BioFrost", 5, 7, 6, 20))
 allPlayers.append(GS.PlayerRole("Bjergsen", 5, 7, 6, 21))
@@ -82,6 +81,7 @@ for i in range(len(players1)):
     if players1[i].getCost() == value:
         print(players1[i].getName() + " The value was found at", i + 1)
         break
-print(players1[0].getName())
+
 sortafterCost(allPlayers)
-print(allPlayers[0].getName())
+for i in range(len(allPlayers)):
+    print(allPlayers[i].getName())
