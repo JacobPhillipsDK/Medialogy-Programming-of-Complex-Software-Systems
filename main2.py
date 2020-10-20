@@ -1,5 +1,4 @@
 import gameSimulator as GS
-from Playerlist import playerList
 
 def Search(arry, value):
     for i in range(len(players1)):
@@ -13,25 +12,6 @@ def sortafterCost(sorted):
                 temp = sorted[j]
                 sorted[j] = sorted[j+1]
                 sorted[j+1] = temp
-
-
-players1 = []
-players1.append(GS.PlayerRole((Biofrost)))
-players1.append(GS.PlayerRole((Biofrost)))
-players1.append(GS.PlayerRole((Biofrost)))
-players1.append(GS.PlayerRole((Biofrost)))
-players1.append(GS.PlayerRole((Biofrost)))
-
-
-
-
-players2 = []
-players2.append(GS.PlayerRole("Poul", 5, 7, 6,20))
-players2.append(GS.PlayerRole("Frank", 7, 8, 9,19))
-players2.append(GS.PlayerRole("Erik", 5, 8, 9,14))
-players2.append(GS.PlayerRole("Lars", 10, 8, 9,19))
-players2.append(GS.PlayerRole("george", 6, 2, 9,22))
-
 
 
 
@@ -95,13 +75,13 @@ for i in range(len(players1) - 1, 0, -1):
 for i in range(len(players1)):
     print(players1[i].getName())
 
-
 value = 15
 
 for i in range(len(players1)):
     if players1[i].getCost() == value:
         print(players1[i].getName() + " The value was found at", i + 1)
         break
-print(players1[0].getName())
+
 sortafterCost(allPlayers)
-print(allPlayers[0].getName())
+for i in range(len(allPlayers)):
+    print(allPlayers[i].getName())
