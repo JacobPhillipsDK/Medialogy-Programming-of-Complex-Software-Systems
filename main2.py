@@ -9,11 +9,7 @@ def Search(arry, value):
             break
 
 players1 = []
-players1.append(GS.PlayerRole("Jacob", 2, 3, 4,6))
-players1.append(GS.PlayerRole("Jacob", 2, 3, 4,6))
-players1.append(GS.PlayerRole("Nicklas", 6, 8, 6,13))
-players1.append(GS.PlayerRole("Mikkel", 7, 9, 5,12))
-players1.append(GS.PlayerRole("Lukas", 6, 10, 5,18))
+playerList(playername)
 
 players2 = []
 players2.append(GS.PlayerRole("Poul", 5, 7, 6,20))
