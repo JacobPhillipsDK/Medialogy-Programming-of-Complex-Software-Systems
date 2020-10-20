@@ -39,3 +39,6 @@ class PlayerRole(Player):
         deaf = self.getExperience() + self.getReaction() + r1
         return deaf
 
+
+
+
