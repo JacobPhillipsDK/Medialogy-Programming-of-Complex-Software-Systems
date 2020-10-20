@@ -16,11 +16,8 @@ background_label = tk.Label(root)
 # creates a canvas for the application
 canvas = tk.Canvas(root, width=1500, height=720, bg='#350f58', highlightthickness=0)
 
-
 def frame1():
     return StartPage()
-
-
 def frame2():
     return SecondPage()
 
@@ -34,14 +31,16 @@ def notWorking():
 
 
 # packs in the canvas
-canvas.pack()
 
+
+canvas.pack()
 myFont = font.Font(family='Helvetica', size=50, weight='bold')
+
 frame1_btn1 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="START", command=frame2)
 frame2_btn1 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="Single-player",
                         command=frame3)
-frame2_btn2 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="MultiPlayer",
-                        command=notWorking)
+frame2_btn2 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="MultiPlayer")
+
 
 
 def StartPage():
@@ -60,6 +59,10 @@ def SinglePLayerPage():
     print("ThirdPage")
     frame2_btn1.destroy()
     frame2_btn2.destroy()
+    canvas.create_line(0, 100, 1500, 100, width=5, fill="white")
+
+    canvas.create_line(900, 1500, 900, 0, width=5, fill="white")
+    canvas.create_line(0, 400, 900, 400, width=5, fill="white")
 
 
 def SearchName():
@@ -67,14 +70,9 @@ def SearchName():
     Search(players1, NameSearch)
     return Search
 
-def close_window():
-    root.destroy()
 
 def close_window():
     root.destroy()
-
-
-
 
 
 # Remeber to change this to the StartPage
