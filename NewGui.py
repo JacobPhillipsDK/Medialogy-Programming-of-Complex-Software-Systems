@@ -2,19 +2,25 @@ from tkinter import *
 import tkinter as tk
 import tkinter.font as font
 from tkinter import messagebox
-from main2 import *
 
 btn_width = 20
 btn_height = 20
 
 root = Tk()
-root.title("League of legends simulator game")
+root.title("Sim League")
 root.geometry("1500x720")
-root.iconbitmap('/path/to/ico/icon.ico')
+root.iconbitmap("poro-icon.ico")
+root.config(background='#350f58')
+root.resizable(width=False, height=False)
 btncolor = '#884dbc'
 
 # creates a canvas for the application
-root.config(background='#350f58')
+
+
+
+
+
+
 def frame1():
     return StartPage()
 
@@ -32,7 +38,7 @@ def notWorking():
 
 
 myFont = font.Font(family='Helvetica', size=50, weight='bold')
-
+text = Label(root, font=myFont, text="Pane Title")
 frame1_btn1 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="START", command=frame2)
 frame2_btn1 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="Single-player",
                         command=frame3)
@@ -42,29 +48,22 @@ frame2_btn2 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd
 
 def StartPage():
     print("StartPage")
-    frame1_btn1.place(relx=0.31, rely=0.42, relwidth=0.40, relheight=0.20)
+    frame1_btn1.place(relx=0.30, rely=0.42, relwidth=0.40, relheight=0.20)
 
 
 def SecondPage():
     print("Second Page")
     frame1_btn1.destroy()
-    frame2_btn1.place(relx=0.31, rely=0.25, relwidth=0.40, relheight=0.20)
-    frame2_btn2.place(relx=0.31, rely=0.5, relwidth=0.40, relheight=0.20)
+    text.place(relx=0.30, rely=0.25)
+    frame2_btn1.place(relx=0.30, rely=0.25, relwidth=0.40, relheight=0.20)
+    frame2_btn2.place(relx=0.30, rely=0.5, relwidth=0.40, relheight=0.20)
 
 
 def SinglePLayerPage():
     print("ThirdPage")
     frame2_btn1.destroy()
     frame2_btn2.destroy()
-    #canvas.create_line(0, 100, 1500, 100, width=5, fill="white")
-    #canvas.create_line(900, 1500, 900, 0, width=5, fill="white")
-    #canvas.create_line(0, 400, 900, 400, width=5, fill="white")
 
-
-def SearchName():
-    NameSearch = str(" ")
-    Search(players1, NameSearch)
-    return Search
 
 
 def close_window():
@@ -72,5 +71,5 @@ def close_window():
 
 
 # Remeber to change this to the StartPage
-StartPage()
+SinglePLayerPage()
 root.mainloop()
