@@ -1,6 +1,6 @@
 debug = False
 import gameSimulator as GS
-from ChampionPicker import *
+
 #
 players1 = [GS.PlayerRole("Kristian", "top", 8, 8, 9), GS.PlayerRole("Jacob", "supp", 10, 10, 10),
             GS.PlayerRole("Nicklas", "adc", 6, 8, 6), GS.PlayerRole("Mikkel", "jung", 7, 9, 5),
