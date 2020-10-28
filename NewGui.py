@@ -3,7 +3,8 @@ import tkinter as tk
 import tkinter.font as font
 from tkinter import messagebox
 from PIL import Image, ImageTk
-from main2 import  *
+import tkinter.scrolledtext as st
+from main2 import *
 
 root = Tk()
 root.title("Sim League")
@@ -20,7 +21,23 @@ TotalMoney = 100
 moneyLeft = "MONEY :" + str(TotalMoney)
 
 
-# creates a canvas for the application
+# Reads TXT file and saves it Into a List
+def readFile(fileName):
+    fileObj = open(fileName, "r")  # opens the file in read mode
+    words = fileObj.read().splitlines()  # puts the file into an array
+    fileObj.close()
+    return words
+
+
+
+def applytoLabel(input):
+    n = len(input)
+    element = ''
+    for i in range(n):
+        element = element + input[i] + '\n'
+    return element
+
+
 def startProgram(frame):
     frame()
     return None
@@ -36,6 +53,10 @@ def frame2():
 
 def frame3():
     return SinglePLayerPage()
+
+
+def frame4():
+    return NextSinglePlayerPage()
 
 
 def notWorking():
@@ -59,7 +80,7 @@ frame2_btn1 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd
 frame2_btn2 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="MultiPlayer",
                         command=notWorking)
 buy_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
-                    command=SearchFont)
+                    command=frame4)
 
 # Texts
 MoneyText = Label(root, font=myFont2, text=moneyLeft, bg=backgroundColor, foreground='white')
@@ -98,6 +119,23 @@ def SinglePLayerPage():
     SearchCost_Text.place(relx=0.4, rely=0.35, anchor=CENTER)
     Search_cost.place(relx=0.4, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
     buy_btn.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
+    startGame()
+
+
+def NextSinglePlayerPage():
+    open("output.txt", "w").close()
+    canvas.destroy()
+    frame.destroy()
+    MoneyText.destroy()
+    PlayerCost.destroy()
+    SearchCost_Text.destroy()
+    Search_cost.destroy()
+    buy_btn.destroy()
+    GameResults = readFile("output.txt")
+    text_area = st.ScrolledText(root, width=50, height=10, font=myFont2, bg=backgroundColor,foreground='white')
+    text_area.place(relx=0.5, rely=0.4, anchor=CENTER)
+    text_area.insert(tk.INSERT, applytoLabel(GameResults))
+    text_area.configure(state='disabled')
 
 
 def close_window():
@@ -105,5 +143,5 @@ def close_window():
 
 
 # Remeber to change this to the StartPage
-startProgram(SinglePLayerPage)
+startProgram(frame1)
 root.mainloop()
