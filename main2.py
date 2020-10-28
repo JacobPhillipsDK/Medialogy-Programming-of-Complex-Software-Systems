@@ -49,7 +49,7 @@ allPlayers.append(GS.PlayerRole("BeryL", 8, 8, 9, 20))
 allPlayers.append(GS.PlayerRole("Canyon", 8, 8, 8, 20))
 allPlayers.append(GS.PlayerRole("Ghost", 7, 8, 9, 20))
 allPlayers.append(GS.PlayerRole("Nuguri", 10, 8, 9, 20))
-allPlayers.append(GS.PlayerRole("ShowMaker", 7, 9, 10, 20))
+allPlayers.append(GS.PlayerRole("ShowMaker", 7, 9, 10, 30))
 
 players2 = []
 players2.append(allPlayers[16])
@@ -83,9 +83,6 @@ sortafterCost(allPlayers)
 for i in range(len(allPlayers)):
     print(allPlayers[i].getName())
 
-sortafterCost(allPlayers)
-for i in range(len(allPlayers)):
-    print(allPlayers[i].getName())
 
 
 Search(allPlayers,20)
