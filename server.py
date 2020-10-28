@@ -1,4 +1,5 @@
 import socket
+from main2 import startGame
 
 s = socket.socket()
 print("socket created")
@@ -8,11 +9,17 @@ s.bind(('', port))
 print ("socket binded to %s" %(port) )
 s.listen(5)
 print("socket is listening")
+startGame()
 
+with open ("output.txt", "r") as File:
+    data=File.read()
 while True:
     c, addr = s.accept()
     print('connection from', addr)
-    msg = 'You are connected'
     #Str skal encodes når de sendes
-    c.send(msg.encode('ascii'))
+
+    c.send(data.encode('ascii'))
     c.close()
+
+
+

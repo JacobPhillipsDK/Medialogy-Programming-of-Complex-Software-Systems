@@ -7,12 +7,11 @@ def Search(arry, value):
         if arry[i].getName() == value:
             print(arry[i].getName())
 
-def Search(list, value):
+def SearchCost(list, value):
     for i in range(len(players1)):
         if list[i].getCost() == value:
             print(list[i].getName() + " The value was found at", i + 1)
 
-            break
 
 
 def sortafterCost(sorted):
@@ -22,8 +21,6 @@ def sortafterCost(sorted):
             if allPlayers[j].getCost() > allPlayers[j + 1].getCost():
                 sorted[j], sorted[j + 1] = sorted[j + 1], sorted[j]
 
-            if allPlayers[j].getCost()>allPlayers[j+1].getCost():
-                sorted[j], sorted[j+1] = sorted[j+1], sorted[j]
 
 
 allPlayers = []
@@ -68,11 +65,12 @@ players1.append(allPlayers[7])
 players1.append(allPlayers[10])
 players1.append(allPlayers[15])
 
-redteam = GS.Team("red FC", players1)
-blueteam = GS.Team("blue FC", players2)
+def startGame():
+    redteam = GS.Team("red FC", players1)
+    blueteam = GS.Team("blue FC", players2)
 
-game = GS.gameSimulator()
-game.game_start(blueteam, redteam)
+    game = GS.gameSimulator()
+    game.game_start(blueteam, redteam)
 
 
 
@@ -89,4 +87,6 @@ sortafterCost(allPlayers)
 for i in range(len(allPlayers)):
     print(allPlayers[i].getName())
 
+
 Search(allPlayers,20)
+
