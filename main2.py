@@ -7,12 +7,11 @@ def Search(arry, value):
         if arry[i].getName() == value:
             print(arry[i].getName())
 
-def Search(list, value):
+def SearchCost(list, value):
     for i in range(len(players1)):
         if list[i].getCost() == value:
             print(list[i].getName() + " The value was found at", i + 1)
 
-            break
 
 
 def sortafterCost(sorted):
@@ -22,9 +21,6 @@ def sortafterCost(sorted):
             if allPlayers[j].getCost() > allPlayers[j + 1].getCost():
                 sorted[j], sorted[j + 1] = sorted[j + 1], sorted[j]
 
-
-            if allPlayers[j].getCost()>allPlayers[j+1].getCost():
-                sorted[j], sorted[j+1] = sorted[j+1], sorted[j]
 
 
 allPlayers = []
@@ -55,7 +51,6 @@ allPlayers.append(GS.PlayerRole("Ghost", 7, 8, 9, 20))
 allPlayers.append(GS.PlayerRole("Nuguri", 10, 8, 9, 20))
 allPlayers.append(GS.PlayerRole("ShowMaker", 7, 9, 10, 20))
 
-
 players2 = []
 players2.append(allPlayers[16])
 players2.append(allPlayers[12])
@@ -78,6 +73,7 @@ def startGame():
     game.game_start(blueteam, redteam)
 
 
+
 for i in range(len(players1) - 1, 0, -1):
     for j in range(i):
         if players1[j].getCost() > players1[j + 1].getCost():
@@ -90,6 +86,7 @@ for i in range(len(allPlayers)):
 sortafterCost(allPlayers)
 for i in range(len(allPlayers)):
     print(allPlayers[i].getName())
+
 
 Search(allPlayers,20)
 
