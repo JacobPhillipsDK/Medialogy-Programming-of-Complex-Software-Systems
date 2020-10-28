@@ -1,31 +1,31 @@
 import gameSimulator as GS
 
-<<<<<<< Updated upstream
+
 
 def Search(arry, value):
     for i in range(len(players1)):
         if arry[i].getName() == value:
             print(arry[i].getName())
-=======
+
 def Search(list, value):
     for i in range(len(players1)):
         if list[i].getCost() == value:
             print(list[i].getName() + " The value was found at", i + 1)
->>>>>>> Stashed changes
+
             break
 
 
 def sortafterCost(sorted):
     for i in range(len(allPlayers) - 1, 0, -1):
         for j in range(i):
-<<<<<<< Updated upstream
+
             if allPlayers[j].getCost() > allPlayers[j + 1].getCost():
                 sorted[j], sorted[j + 1] = sorted[j + 1], sorted[j]
 
-=======
+
             if allPlayers[j].getCost()>allPlayers[j+1].getCost():
                 sorted[j], sorted[j+1] = sorted[j+1], sorted[j]
->>>>>>> Stashed changes
+
 
 allPlayers = []
 
@@ -55,6 +55,7 @@ allPlayers.append(GS.PlayerRole("Ghost", 7, 8, 9, 20))
 allPlayers.append(GS.PlayerRole("Nuguri", 10, 8, 9, 20))
 allPlayers.append(GS.PlayerRole("ShowMaker", 7, 9, 10, 20))
 
+
 players2 = []
 players2.append(allPlayers[16])
 players2.append(allPlayers[12])
@@ -69,14 +70,14 @@ players1.append(allPlayers[7])
 players1.append(allPlayers[10])
 players1.append(allPlayers[15])
 
-redteam = GS.Team("red FC", players1)
-blueteam = GS.Team("blue FC", players2)
+def startGame():
+    redteam = GS.Team("red FC", players1)
+    blueteam = GS.Team("blue FC", players2)
 
-game = GS.gameSimulator()
-game.game_start(blueteam, redteam)
+    game = GS.gameSimulator()
+    game.game_start(blueteam, redteam)
 
 
-<<<<<<< Updated upstream
 for i in range(len(players1) - 1, 0, -1):
     for j in range(i):
         if players1[j].getCost() > players1[j + 1].getCost():
@@ -85,10 +86,10 @@ for i in range(len(players1) - 1, 0, -1):
 sortafterCost(allPlayers)
 for i in range(len(allPlayers)):
     print(allPlayers[i].getName())
-=======
+
 sortafterCost(allPlayers)
 for i in range(len(allPlayers)):
     print(allPlayers[i].getName())
 
 Search(allPlayers,20)
->>>>>>> Stashed changes
+
