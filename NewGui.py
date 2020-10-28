@@ -15,6 +15,15 @@ root.resizable(width=False, height=False)
 btncolor = '#884dbc'
 
 # creates a canvas for the application
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+>>>>>>> main
 def frame1():
     return StartPage()
 
