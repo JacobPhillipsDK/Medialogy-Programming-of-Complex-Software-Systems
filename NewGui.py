@@ -11,9 +11,10 @@ root.title("Sim League")
 root.geometry("1500x720")
 root.iconbitmap("poro-icon.ico")
 backgroundColor = '#350f58'
+btncolor = '#884dbc'
 root.config(background=backgroundColor)
 root.resizable(width=False, height=False)
-btncolor = '#884dbc'
+
 
 backgroundImage = ImageTk.PhotoImage(file="Shape 3.png")
 
@@ -27,7 +28,6 @@ def readFile(fileName):
     words = fileObj.read().splitlines()  # puts the file into an array
     fileObj.close()
     return words
-
 
 
 def applytoLabel(input):
@@ -119,11 +119,11 @@ def SinglePLayerPage():
     SearchCost_Text.place(relx=0.4, rely=0.35, anchor=CENTER)
     Search_cost.place(relx=0.4, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
     buy_btn.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
-    startGame()
 
 
 def NextSinglePlayerPage():
     open("output.txt", "w").close()
+    startGame()
     canvas.destroy()
     frame.destroy()
     MoneyText.destroy()
@@ -132,8 +132,9 @@ def NextSinglePlayerPage():
     Search_cost.destroy()
     buy_btn.destroy()
     GameResults = readFile("output.txt")
-    text_area = st.ScrolledText(root, width=50, height=10, font=myFont2, bg=backgroundColor,foreground='white')
-    text_area.place(relx=0.5, rely=0.4, anchor=CENTER)
+    text_area = st.ScrolledText(root, width=50, height=20, font=SearchFont, bg=backgroundColor,
+                                foreground='white', relief=GROOVE, bd=0)
+    text_area.place(relx=0.5, rely=0.5, anchor=CENTER)
     text_area.insert(tk.INSERT, applytoLabel(GameResults))
     text_area.configure(state='disabled')
 
@@ -143,5 +144,5 @@ def close_window():
 
 
 # Remeber to change this to the StartPage
-startProgram(frame1)
+startProgram(frame4)
 root.mainloop()
