@@ -1,21 +1,19 @@
-import os
 from tkinter import *
 import tkinter as tk
 import tkinter.font as font
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import tkinter.scrolledtext as st
-from main2 import *
+from main2 import startGame
 
 root = Tk()
 root.title("Sim League")
 root.geometry("1500x720")
 root.iconbitmap("poro-icon.ico")
 backgroundColor = '#350f58'
-btncolor = '#884dbc'
 root.config(background=backgroundColor)
 root.resizable(width=False, height=False)
-
+btncolor = '#884dbc'
 
 backgroundImage = ImageTk.PhotoImage(file="Shape 3.png")
 
@@ -29,6 +27,7 @@ def readFile(fileName):
     words = fileObj.read().splitlines()  # puts the file into an array
     fileObj.close()
     return words
+
 
 
 def applytoLabel(input):
@@ -60,12 +59,6 @@ def frame4():
     return NextSinglePlayerPage()
 
 
-def reStart():
-    return restartGame()
-
-
-
-
 def notWorking():
     messagebox.showinfo("Under development", "This option does currently not work, please try Single-player mode")
 
@@ -88,16 +81,12 @@ frame2_btn2 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd
                         command=notWorking)
 buy_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
                     command=frame4)
-Restart_btn = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="RESTART",
-                    command=reStart)
 
 # Texts
 MoneyText = Label(root, font=myFont2, text=moneyLeft, bg=backgroundColor, foreground='white')
 PlayerName = Label(root, font=myFont2, text="Name", bg=backgroundColor, foreground='white')
 PlayerCost = Label(root, font=myFont2, text="Cost", bg=backgroundColor, foreground='white')
 SearchCost_Text = Label(root, font=SearchFont, text="Type to search after cost", bg=backgroundColor, foreground='white')
-text_area = st.ScrolledText(root, width=52, height=20, font=SearchFont, bg=backgroundColor,
-                            foreground='white', relief=GROOVE, bd=0)
 
 # Entry box
 Search_name = tk.Entry(root, bg=btncolor, font=SearchFont, foreground='white')
@@ -130,12 +119,11 @@ def SinglePLayerPage():
     SearchCost_Text.place(relx=0.4, rely=0.35, anchor=CENTER)
     Search_cost.place(relx=0.4, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
     buy_btn.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
+    startGame()
 
 
 def NextSinglePlayerPage():
-    print("Results page")
     open("output.txt", "w").close()
-    startGame()
     canvas.destroy()
     frame.destroy()
     MoneyText.destroy()
@@ -144,19 +132,10 @@ def NextSinglePlayerPage():
     Search_cost.destroy()
     buy_btn.destroy()
     GameResults = readFile("output.txt")
-    text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
+    text_area = st.ScrolledText(root, width=50, height=10, font=myFont2, bg=backgroundColor,foreground='white')
+    text_area.place(relx=0.5, rely=0.4, anchor=CENTER)
     text_area.insert(tk.INSERT, applytoLabel(GameResults))
     text_area.configure(state='disabled')
-    Restart_btn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
-
-
-def restartGame():
-    Restart_btn.destroy()
-    text_area.destroy()
-    text_area.frame.destroy()
-    startProgram(frame2)
-
-
 
 
 def close_window():

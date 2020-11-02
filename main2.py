@@ -65,6 +65,7 @@ players1.append(allPlayers[7])
 players1.append(allPlayers[10])
 players1.append(allPlayers[15])
 
+
 def startGame():
     redteam = GS.Team("red FC", players1)
     blueteam = GS.Team("blue FC", players2)
@@ -72,20 +73,10 @@ def startGame():
     game.game_start(blueteam, redteam)
 
 
-
-
-
-
-for i in range(len(players1) - 1, 0, -1):
-    for j in range(i):
-        if players1[j].getCost() > players1[j + 1].getCost():
-            players1[j], players1[j + 1] = players1[j + 1], players1[j]
-
 sortafterCost(allPlayers)
-for i in range(len(allPlayers)):
-    print(allPlayers[i].getName())
 
 
 
 
 
+startGame()

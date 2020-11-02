@@ -61,7 +61,7 @@ class gameSimulator:
                 else:
                     killSuccess = False
 
-                print(str(Time) + ":" + "Seems like " + bptk.getName() + " is trying to kill " + rptd.getName(), file=open('output.txt', 'a'))
+                print(str(Time) + "min: " + "Seems like " + bptk.getName() + " is trying to kill " + rptd.getName(), file=open('output.txt', 'a'))
 
                 if killSuccess:
                     self.__killsBlue += 1
@@ -78,7 +78,7 @@ class gameSimulator:
                 else:
                     killSuccess = False
 
-                print(str(Time) + ":" + "Seems like " + rptd.getName() + " is trying to kill " + bptk.getName(), file=open('output.txt', 'a'))
+                print(str(Time) + "min: " + "Seems like " + rptd.getName() + " is trying to kill " + bptk.getName(), file=open('output.txt', 'a'))
 
                 if killSuccess:
                     self.__killsRed += 1
