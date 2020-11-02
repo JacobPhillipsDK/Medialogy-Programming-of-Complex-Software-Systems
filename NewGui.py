@@ -117,7 +117,7 @@ def SecondPage():
     frame1_btn1.place_forget()
     frame2_btn1.place(relx=0.5, rely=0.35, relwidth=0.40, relheight=0.20, anchor=CENTER)
     frame2_btn2.place(relx=0.5, rely=0.65, relwidth=0.40, relheight=0.20, anchor=CENTER)
-
+    open("output.txt", "w").close()
 
 def SinglePLayerPage():
     print("ThirdPage")
@@ -148,7 +148,7 @@ def NextSinglePlayerPage():
     text_area.insert(tk.INSERT, applytoLabel(GameResults))
     text_area.configure(state='disabled')
     Restart_btn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
-
+    print(GameResults)
 
 def restartGame():
     Restart_btn.place_forget()
