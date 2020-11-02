@@ -114,15 +114,15 @@ def StartPage():
 
 def SecondPage():
     print("Second Page")
-    frame1_btn1.destroy()
+    frame1_btn1.place_forget()
     frame2_btn1.place(relx=0.5, rely=0.35, relwidth=0.40, relheight=0.20, anchor=CENTER)
     frame2_btn2.place(relx=0.5, rely=0.65, relwidth=0.40, relheight=0.20, anchor=CENTER)
 
 
 def SinglePLayerPage():
     print("ThirdPage")
-    frame2_btn1.destroy()
-    frame2_btn2.destroy()
+    frame2_btn1.place_forget()
+    frame2_btn2.place_forget()
     canvas.pack()
     frame.pack()
     MoneyText.place(relx=0.1, rely=0.1, anchor=CENTER)
@@ -136,13 +136,13 @@ def NextSinglePlayerPage():
     print("Results page")
     open("output.txt", "w").close()
     startGame()
-    canvas.destroy()
-    frame.destroy()
-    MoneyText.destroy()
-    PlayerCost.destroy()
-    SearchCost_Text.destroy()
-    Search_cost.destroy()
-    buy_btn.destroy()
+    canvas.forget()
+    frame.place_forget()
+    MoneyText.place_forget()
+    PlayerCost.place_forget()
+    SearchCost_Text.place_forget()
+    Search_cost.place_forget()
+    buy_btn.place_forget()
     GameResults = readFile("output.txt")
     text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
     text_area.insert(tk.INSERT, applytoLabel(GameResults))
@@ -151,11 +151,10 @@ def NextSinglePlayerPage():
 
 
 def restartGame():
-    Restart_btn.destroy()
-    text_area.destroy()
-    text_area.frame.destroy()
+    Restart_btn.place_forget()
+    text_area.place_forget()
+    text_area.frame.place_forget()
     startProgram(frame2)
-
 
 
 
