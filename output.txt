@@ -1,0 +1,720 @@
+1:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+6:Seems like DoubleLift is trying to kill Hylissang
+Hylissang defends, very nice!
+9:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+11:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+16:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+20:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+23:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+27:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+30:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+35:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+36:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+40:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+45:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+Red team wins! Final result: 
+Blue kills:2 Red kills:6
+3:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+4:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+4:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+7:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+7:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+11:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+15:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+17:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+18:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+23:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+24:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+26:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+31:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+36:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+37:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+39:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+40:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+43:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+Blue team wins! Final result: 
+Blue kills:11 Red kills:1
+2:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+3:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+4:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+5:Seems like DoubleLift is trying to kill Hylissang
+And DoubleLift is succesfull, what a kill!
+5:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+9:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+11:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+14:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+16:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+19:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+20:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+25:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+27:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+31:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+34:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+35:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+37:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+37:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+38:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+39:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+Blue team wins! Final result: 
+Blue kills:7 Red kills:5
+5:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+9:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+13:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+18:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+23:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+25:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+27:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+30:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+35:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+35:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+40:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+Blue team wins! Final result: 
+Blue kills:5 Red kills:2
+1:Seems like DoubleLift is trying to kill Hylissang
+And DoubleLift is succesfull, what a kill!
+2:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+2:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+7:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+12:Seems like DoubleLift is trying to kill Hylissang
+Hylissang defends, very nice!
+17:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+17:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+20:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+21:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+22:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+24:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+27:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+30:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+31:Seems like DoubleLift is trying to kill Hylissang
+And DoubleLift is succesfull, what a kill!
+36:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+41:Seems like DoubleLift is trying to kill Hylissang
+Hylissang defends, very nice!
+45:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+3:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+3:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+5:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+6:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+8:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+11:Seems like DoubleLift is trying to kill Hylissang
+Hylissang defends, very nice!
+15:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+19:Seems like DoubleLift is trying to kill Hylissang
+And DoubleLift is succesfull, what a kill!
+23:Seems like DoubleLift is trying to kill Hylissang
+Hylissang defends, very nice!
+25:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+25:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+26:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+27:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+27:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+27:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+32:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+33:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+34:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+34:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+35:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+39:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+39:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+42:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+Blue team wins! Final result: 
+Blue kills:10 Red kills:3
+6:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+9:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+9:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+12:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+14:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+17:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+22:Seems like DoubleLift is trying to kill Hylissang
+Hylissang defends, very nice!
+24:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+25:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+28:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+32:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+37:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+38:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+39:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+40:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+42:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+43:Seems like DoubleLift is trying to kill Hylissang
+Hylissang defends, very nice!
+Blue team wins! Final result: 
+Blue kills:6 Red kills:4
+2:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+6:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+8:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+8:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+12:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+15:Seems like DoubleLift is trying to kill Hylissang
+Hylissang defends, very nice!
+17:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+18:Seems like DoubleLift is trying to kill Hylissang
+Hylissang defends, very nice!
+22:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+23:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+28:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+28:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+32:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+32:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+37:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+Red team wins! Final result: 
+Blue kills:4 Red kills:5
+5:Seems like DoubleLift is trying to kill Hylissang
+Hylissang defends, very nice!
+10:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+14:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+16:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+19:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+23:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+26:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+26:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+29:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+30:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+33:Seems like DoubleLift is trying to kill Hylissang
+Hylissang defends, very nice!
+33:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+36:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+38:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+41:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+42:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+Blue team wins! Final result: 
+Blue kills:5 Red kills:4
+1:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+5:Seems like DoubleLift is trying to kill Hylissang
+Hylissang defends, very nice!
+10:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+10:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+13:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+13:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+15:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+18:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+20:Seems like DoubleLift is trying to kill Hylissang
+And DoubleLift is succesfull, what a kill!
+24:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+29:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+29:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+34:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+38:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+43:Seems like DoubleLift is trying to kill Hylissang
+And DoubleLift is succesfull, what a kill!
+Red team wins! Final result: 
+Blue kills:0 Red kills:3
+3:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+3:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+4:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+4:Seems like DoubleLift is trying to kill Hylissang
+And DoubleLift is succesfull, what a kill!
+7:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+8:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+11:Seems like DoubleLift is trying to kill Hylissang
+And DoubleLift is succesfull, what a kill!
+14:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+19:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+22:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+26:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+27:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+27:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+29:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+30:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+32:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+34:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+39:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+39:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+41:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+44:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+Red team wins! Final result: 
+Blue kills:7 Red kills:9
+4:Seems like DoubleLift is trying to kill Hylissang
+And DoubleLift is succesfull, what a kill!
+4:Seems like Broken_Blade is trying to kill Mikyx
+Mikyx defends, very nice!
+9:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+12:Seems like Hylissang is trying to kill DoubleLift
+And Hylissang is succesfull, what a kill!
+14:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+19:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+22:Seems like DoubleLift is trying to kill Hylissang
+Hylissang defends, very nice!
+27:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+29:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+33:Seems like Hylissang is trying to kill DoubleLift
+DoubleLift defends, very nice!
+37:Seems like Mikyx is trying to kill Broken_Blade
+And Mikyx is succesfull, what a kill!
+41:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+45:Seems like DoubleLift is trying to kill Hylissang
+Hylissang defends, very nice!
+1:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+4:Seems like DoubleLift is trying to kill Mikyx
+Mikyx defends, very nice!
+6:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+7:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+7:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+8:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+11:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+11:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+16:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+16:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+18:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+19:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+21:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+22:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+22:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+27:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+29:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+34:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+37:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+Blue team wins! Final result: 
+Blue kills:7 Red kills:4
+6:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+8:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+13:Seems like Broken_Blade is trying to kill Hylissang
+Hylissang defends, very nice!
+17:Seems like Broken_Blade is trying to kill Hylissang
+Hylissang defends, very nice!
+21:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+26:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+30:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+33:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+38:Seems like Broken_Blade is trying to kill Hylissang
+Hylissang defends, very nice!
+39:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+43:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+Blue team wins! Final result: 
+Blue kills:4 Red kills:2
+4:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+8:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+10:Seems like DoubleLift is trying to kill Mikyx
+And DoubleLift is succesfull, what a kill!
+13:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+18:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+23:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+24:Seems like DoubleLift is trying to kill Mikyx
+Mikyx defends, very nice!
+29:Seems like Broken_Blade is trying to kill Hylissang
+Hylissang defends, very nice!
+31:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+33:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+34:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+37:Seems like Broken_Blade is trying to kill Hylissang
+Hylissang defends, very nice!
+Blue team wins! Final result: 
+Blue kills:4 Red kills:3
+1:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+5:Seems like Mikyx is trying to kill DoubleLift
+DoubleLift defends, very nice!
+5:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+5:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+10:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+10:Seems like Mikyx is trying to kill DoubleLift
+DoubleLift defends, very nice!
+11:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+12:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+16:Seems like Broken_Blade is trying to kill Hylissang
+Hylissang defends, very nice!
+18:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+22:Seems like DoubleLift is trying to kill Mikyx
+Mikyx defends, very nice!
+23:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+24:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+27:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+27:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+29:Seems like Broken_Blade is trying to kill Hylissang
+Hylissang defends, very nice!
+34:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+37:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+39:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+40:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+45:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+Red team wins! Final result: 
+Blue kills:4 Red kills:5
+5:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+6:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+6:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+9:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+9:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+9:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+10:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+11:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+16:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+17:Seems like Broken_Blade is trying to kill Hylissang
+Hylissang defends, very nice!
+21:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+21:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+24:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+29:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+29:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+30:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+31:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+32:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+34:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+35:Seems like DoubleLift is trying to kill Mikyx
+Mikyx defends, very nice!
+40:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+Red team wins! Final result: 
+Blue kills:6 Red kills:8
+1:Seems like DoubleLift is trying to kill Mikyx
+Mikyx defends, very nice!
+3:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+4:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+7:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+12:Seems like DoubleLift is trying to kill Mikyx
+Mikyx defends, very nice!
+13:Seems like Broken_Blade is trying to kill Hylissang
+Hylissang defends, very nice!
+18:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+20:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+25:Seems like DoubleLift is trying to kill Mikyx
+Mikyx defends, very nice!
+28:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+31:Seems like Mikyx is trying to kill DoubleLift
+DoubleLift defends, very nice!
+31:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+32:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+32:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+32:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+34:Seems like Karsa is trying to kill Jankos
+Jankos defends, very nice!
+38:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+42:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+44:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+5:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+5:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+9:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+11:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+14:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+16:Seems like DoubleLift is trying to kill Mikyx
+Mikyx defends, very nice!
+18:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+21:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+26:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+26:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+31:Seems like Broken_Blade is trying to kill Hylissang
+Hylissang defends, very nice!
+31:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+36:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+37:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+38:Seems like Mikyx is trying to kill DoubleLift
+DoubleLift defends, very nice!
+42:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+46:Seems like Broken_Blade is trying to kill Hylissang
+Hylissang defends, very nice!
+Blue team wins! Final result: 
+Blue kills:9 Red kills:2
+6:Seems like DoubleLift is trying to kill Mikyx
+Mikyx defends, very nice!
+6:Seems like Mikyx is trying to kill DoubleLift
+And Mikyx is succesfull, what a kill!
+11:Seems like DoubleLift is trying to kill Mikyx
+Mikyx defends, very nice!
+16:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+19:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+20:Seems like DoubleLift is trying to kill Mikyx
+Mikyx defends, very nice!
+24:Seems like DoubleLift is trying to kill Mikyx
+Mikyx defends, very nice!
+29:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+33:Seems like Broken_Blade is trying to kill Hylissang
+Hylissang defends, very nice!
+35:Seems like Broken_Blade is trying to kill Hylissang
+Hylissang defends, very nice!
+38:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+42:Seems like Caps is trying to kill QiuQui
+And Caps is succesfull, what a kill!
+Blue team wins! Final result: 
+Blue kills:3 Red kills:2
+5:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+9:Seems like Karsa is trying to kill Jankos
+And Karsa is succesfull, what a kill!
+10:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+14:Seems like Hylissang is trying to kill Broken_Blade
+And Hylissang is succesfull, what a kill!
+15:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+20:Seems like DoubleLift is trying to kill Mikyx
+Mikyx defends, very nice!
+20:Seems like Jankos is trying to kill Karsa
+Karsa defends, very nice!
+24:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+28:Seems like Jankos is trying to kill Karsa
+And Jankos is succesfull, what a kill!
+33:Seems like QiuQui is trying to kill Caps
+Caps defends, very nice!
+38:Seems like Broken_Blade is trying to kill Hylissang
+Hylissang defends, very nice!
+Blue team wins! Final result: 
+Blue kills:4 Red kills:1
