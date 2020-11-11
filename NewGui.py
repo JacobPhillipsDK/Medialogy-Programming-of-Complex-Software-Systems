@@ -6,6 +6,9 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 import tkinter.scrolledtext as st
 from main2 import *
+from PlayerRole import *
+from gameSimulator import *
+from gameSimulator import *
 
 root = Tk()
 root.title("Sim League")
@@ -15,7 +18,6 @@ backgroundColor = '#350f58'
 btncolor = '#884dbc'
 root.config(background=backgroundColor)
 root.resizable(width=False, height=False)
-
 
 backgroundImage = ImageTk.PhotoImage(file="Shape 3.png")
 
@@ -64,8 +66,6 @@ def reStart():
     return restartGame()
 
 
-
-
 def notWorking():
     messagebox.showinfo("Under development", "This option does currently not work, please try Single-player mode")
 
@@ -89,7 +89,9 @@ frame2_btn2 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd
 buy_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
                     command=frame4)
 Restart_btn = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="RESTART",
-                    command=reStart)
+                        command=reStart)
+
+
 
 # Texts
 MoneyText = Label(root, font=myFont2, text=moneyLeft, bg=backgroundColor, foreground='white')
@@ -102,6 +104,8 @@ text_area = st.ScrolledText(root, width=52, height=20, font=SearchFont, bg=backg
 # Entry box
 Search_name = tk.Entry(root, bg=btncolor, font=SearchFont, foreground='white')
 Search_cost = tk.Entry(root, bg=btncolor, font=SearchFont, foreground='white')
+
+
 
 
 # Background
@@ -119,6 +123,7 @@ def SecondPage():
     frame2_btn2.place(relx=0.5, rely=0.65, relwidth=0.40, relheight=0.20, anchor=CENTER)
     open("output.txt", "w").close()
 
+
 def SinglePLayerPage():
     print("ThirdPage")
     frame2_btn1.place_forget()
@@ -130,6 +135,22 @@ def SinglePLayerPage():
     SearchCost_Text.place(relx=0.4, rely=0.35, anchor=CENTER)
     Search_cost.place(relx=0.4, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
     buy_btn.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
+
+    listbox = tk.Listbox(root)
+    scrollbar = Scrollbar(root)
+    #scrollbar.place(relx=0.4, rely=0.3, anchor=CENTER)
+    listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
+
+
+    for i in range(len(allPlayers)):
+        listbox.insert(i, str(i)+ "Name")
+    listbox.config(yscrollcommand=scrollbar.set)
+    scrollbar.config(command=listbox.yview)
+
+
+
+
+
 
 
 def NextSinglePlayerPage():
@@ -150,12 +171,12 @@ def NextSinglePlayerPage():
     Restart_btn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
     print(GameResults)
 
+
 def restartGame():
     Restart_btn.place_forget()
     text_area.place_forget()
     text_area.frame.place_forget()
     startProgram(frame2)
-
 
 
 def close_window():
