@@ -21,8 +21,12 @@ root.resizable(width=False, height=False)
 
 backgroundImage = ImageTk.PhotoImage(file="Shape 3.png")
 
+global totalmoney2
+totalmoney2 = 100
+global TotalMoney
 TotalMoney = 100
 moneyLeft = "MONEY :" + str(TotalMoney)
+newplayers = []
 
 
 # Reads TXT file and saves it Into a List
@@ -59,7 +63,20 @@ def frame3():
 
 
 def frame4():
-    return NextSinglePlayerPage()
+    if len(newplayers) == 0:
+        number = listbox.index(ANCHOR)
+    else:
+        number = listbox.index(ANCHOR)+1
+    newplayers.append(allPlayers[number])
+    totalmoney2 -= allPlayers[number].getCost()
+    TotalMoney = totalmoney2
+    listbox.delete(ANCHOR)
+    if len(newplayers) == 5:
+        return NextSinglePlayerPage()
+    for i in range(len(newplayers)):
+        print(newplayers[i])
+
+
 
 
 def reStart():
@@ -104,7 +121,8 @@ text_area = st.ScrolledText(root, width=52, height=20, font=SearchFont, bg=backg
 # Entry box
 Search_name = tk.Entry(root, bg=btncolor, font=SearchFont, foreground='white')
 Search_cost = tk.Entry(root, bg=btncolor, font=SearchFont, foreground='white')
-
+listbox = tk.Listbox(root)
+scrollbar = Scrollbar(root)
 
 
 
@@ -136,8 +154,7 @@ def SinglePLayerPage():
     Search_cost.place(relx=0.4, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
     buy_btn.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
 
-    listbox = tk.Listbox(root)
-    scrollbar = Scrollbar(root)
+
     #scrollbar.place(relx=0.4, rely=0.3, anchor=CENTER)
     listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
 
