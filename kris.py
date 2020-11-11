@@ -21,11 +21,9 @@ root.resizable(width=False, height=False)
 
 backgroundImage = ImageTk.PhotoImage(file="Shape 3.png")
 
-global totalmoney2
-totalmoney2 = 100
+
 global TotalMoney
 TotalMoney = 100
-moneyLeft = "MONEY :" + str(TotalMoney)
 newplayers = []
 
 
@@ -67,14 +65,21 @@ def frame4():
         number = listbox.index(ANCHOR)
     else:
         number = listbox.index(ANCHOR)+1
-    newplayers.append(allPlayers[number])
-    totalmoney2 -= allPlayers[number].getCost()
-    TotalMoney = totalmoney2
-    listbox.delete(ANCHOR)
-    if len(newplayers) == 5:
-        return NextSinglePlayerPage()
-    for i in range(len(newplayers)):
-        print(newplayers[i])
+    global TotalMoney
+    if TotalMoney - allPlayers[number].getCost() > 0:
+        newplayers.append(allPlayers[number])
+        TotalMoney -= allPlayers[number].getCost()
+        MoneyText = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
+        MoneyText.place(relx=0.1, rely=0.1, anchor=CENTER)
+        listbox.delete(ANCHOR)
+        print("total: ",TotalMoney)
+        if len(newplayers) == 5:
+            return NextSinglePlayerPage()
+        for i in range(len(newplayers)):
+            print(newplayers[i])
+    else:
+        failtekst = Label(root, font=myFont2, text="You don't have enough money!",bg=backgroundColor,foreground="white")
+        failtekst.place(relx=0.1,rely=0.1,anchor=CENTER)
 
 
 
@@ -111,7 +116,7 @@ Restart_btn = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, b
 
 
 # Texts
-MoneyText = Label(root, font=myFont2, text=moneyLeft, bg=backgroundColor, foreground='white')
+MoneyText = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
 PlayerName = Label(root, font=myFont2, text="Name", bg=backgroundColor, foreground='white')
 PlayerCost = Label(root, font=myFont2, text="Cost", bg=backgroundColor, foreground='white')
 SearchCost_Text = Label(root, font=SearchFont, text="Type to search after cost", bg=backgroundColor, foreground='white')
