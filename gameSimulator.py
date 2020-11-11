@@ -91,4 +91,4 @@ class gameSimulator:
             if gameRuns == False and self.__killsRed > self.__killsBlue:
                 print("Red team wins! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed), file=open('output.txt', 'a'))
             if gameRuns == False and self.__killsBlue == self.__killsRed:
-                print("The game ends in a draw! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed))
+                print("The game ends in a draw! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed),file=open('output.txt', 'a'))
