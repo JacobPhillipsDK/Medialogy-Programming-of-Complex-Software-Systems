@@ -33,11 +33,11 @@ def readFile(fileName):
     return words
 
 
-def applytoLabel(input):
-    n = len(input)
+def applytoLabel():
+    n = len(GameResults)
     element = ''
     for i in range(n):
-        element = element + input[i] + '\n'
+        element = element + GameResults[i] + '\n'
     return element
 
 
@@ -68,7 +68,6 @@ def reStart():
 
 def notWorking():
     messagebox.showinfo("Under development", "This option does currently not work, please try Single-player mode")
-
 
 canvas = tk.Canvas(root, width=1500, height=720, highlightthickness=0, borderwidth=0)
 img = ImageTk.PhotoImage(Image.open("BackgroundPic.png"), Image.ANTIALIAS)
@@ -113,6 +112,7 @@ Search_cost = tk.Entry(root, bg=btncolor, font=SearchFont, foreground='white')
 
 def StartPage():
     print("StartPage")
+    open("output.txt", "w").close()
     frame1_btn1.place(relx=0.5, rely=0.5, relwidth=0.40, relheight=0.20, anchor=CENTER)
 
 
@@ -164,18 +164,18 @@ def NextSinglePlayerPage():
     SearchCost_Text.place_forget()
     Search_cost.place_forget()
     buy_btn.place_forget()
-    GameResults = readFile("output.txt")
     text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
-    text_area.insert(tk.INSERT, applytoLabel(GameResults))
-    text_area.configure(state='disabled')
+    text_area.insert(tk.INSERT, applytoLabel())
     Restart_btn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
     print(GameResults)
 
 
 def restartGame():
     Restart_btn.place_forget()
-    text_area.place_forget()
+    text_area.forget()
     text_area.frame.place_forget()
+    GameResults.clear()
+    open("output.txt", "w").close()
     startProgram(frame2)
 
 
