@@ -59,11 +59,6 @@ players2.append(allPlayers[9])
 players2.append(allPlayers[17])
 
 players1 = []
-players1.append(allPlayers[2])
-players1.append(allPlayers[3])
-players1.append(allPlayers[7])
-players1.append(allPlayers[10])
-players1.append(allPlayers[15])
 
 
 def startGame():
@@ -79,4 +74,4 @@ sortafterCost(allPlayers)
 
 
 
-startGame()
+
