@@ -132,7 +132,12 @@ class Page2(tk.Frame):
         self.PlayerCost.place(relx=0.895, rely=0.1, anchor=CENTER)
         self.SearchCost_Text.place(relx=0.4, rely=0.35, anchor=CENTER)
         self.Search_cost.place(relx=0.4, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
-        self.buy_btn.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
+        self.buy_btn.place(relx=0.8, rely=0.9, relwidth=0.1, relheight=0.1, anchor=CENTER)
+
+
+        self.startGame = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="Start Game",
+                                   command=lambda: controller.show_frame(Page3))
+
 
         self.listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
 
@@ -140,7 +145,6 @@ class Page2(tk.Frame):
             self.listbox.insert(i, allPlayers[i].getName() + "        cost:" + str(allPlayers[i].getCost()))
         self.listbox.config(yscrollcommand=self.scrollbar.set)
         self.scrollbar.config(command=self.listbox.yview)
-
 
     def BuyMenu(self):
         global Pressed
@@ -159,8 +163,7 @@ class Page2(tk.Frame):
             self.listbox.delete(ANCHOR)
             print("total: ", TotalMoney)
             if len(players1) == 5:
-                print("Switch Page time")
-                return None
+                return self.startGame.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER), self.buy_btn.place_forget()
             else:
                 failtekst = Label(self, font=SmallFont, text="You don't have enough money!", bg=backgroundColor,
                                   foreground="white")
