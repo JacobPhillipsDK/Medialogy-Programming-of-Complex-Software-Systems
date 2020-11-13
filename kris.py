@@ -24,6 +24,8 @@ backgroundImage = ImageTk.PhotoImage(file="Shape 3.png")
 
 global TotalMoney
 TotalMoney = 100
+global Pressed
+Pressed = 0
 newplayers = []
 
 
@@ -61,22 +63,23 @@ def frame3():
 
 
 def frame4():
+    global Pressed
     if len(newplayers) == 0:
         number = listbox.index(ANCHOR)
     else:
-        number = listbox.index(ANCHOR)+1
+        Pressed += 1
+        number = listbox.index(ANCHOR)+Pressed
     global TotalMoney
-    if TotalMoney - allPlayers[number].getCost() > 0:
-        newplayers.append(allPlayers[number])
+    if TotalMoney - allPlayers[number].getCost() >= 0:
+        players1.append(allPlayers[number])
         TotalMoney -= allPlayers[number].getCost()
-        MoneyText = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
-        MoneyText.place(relx=0.1, rely=0.1, anchor=CENTER)
+        moneytext = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
+        moneytext.place(relx=0.1, rely=0.1, anchor=CENTER)
         listbox.delete(ANCHOR)
         print("total: ",TotalMoney)
-        if len(newplayers) == 5:
+        if len(players1) == 5:
+            moneytext.place_forget()
             return NextSinglePlayerPage()
-        for i in range(len(newplayers)):
-            print(newplayers[i])
     else:
         failtekst = Label(root, font=myFont2, text="You don't have enough money!",bg=backgroundColor,foreground="white")
         failtekst.place(relx=0.1,rely=0.1,anchor=CENTER)
@@ -100,6 +103,7 @@ frame = Frame(root)
 
 myFont = font.Font(family='Helvetica', size=50, weight='bold')
 myFont2 = font.Font(family='Helvetica', size=30, weight='bold')
+myFont3 = font.Font(family='Helvetica', size=20, weight='bold')
 SearchFont = font.Font(family='Helvetica', size=20, weight='bold')
 buy_btn = font.Font(family='Helvetica', size=30, weight='bold')
 # Buttons
@@ -116,12 +120,13 @@ Restart_btn = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, b
 
 
 # Texts
-MoneyText = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
+MoneyText = Label(root, font=myFont3, text=TotalMoney, bg=backgroundColor, foreground='white')
 PlayerName = Label(root, font=myFont2, text="Name", bg=backgroundColor, foreground='white')
 PlayerCost = Label(root, font=myFont2, text="Cost", bg=backgroundColor, foreground='white')
 SearchCost_Text = Label(root, font=SearchFont, text="Type to search after cost", bg=backgroundColor, foreground='white')
 text_area = st.ScrolledText(root, width=52, height=20, font=SearchFont, bg=backgroundColor,
                             foreground='white', relief=GROOVE, bd=0)
+root.update_idletasks()
 
 # Entry box
 Search_name = tk.Entry(root, bg=btncolor, font=SearchFont, foreground='white')
@@ -169,12 +174,6 @@ def SinglePLayerPage():
     listbox.config(yscrollcommand=scrollbar.set)
     scrollbar.config(command=listbox.yview)
 
-
-
-
-
-
-
 def NextSinglePlayerPage():
     print("Results page")
     open("output.txt", "w").close()
@@ -182,6 +181,7 @@ def NextSinglePlayerPage():
     canvas.forget()
     frame.place_forget()
     MoneyText.place_forget()
+    listbox.place_forget()
     PlayerCost.place_forget()
     SearchCost_Text.place_forget()
     Search_cost.place_forget()
@@ -199,6 +199,9 @@ def restartGame():
     text_area.place_forget()
     text_area.frame.place_forget()
     startProgram(frame2)
+    global TotalMoney
+    TotalMoney = 100
+    players1.clear()
 
 
 def close_window():
