@@ -8,7 +8,10 @@ s = socket.socket()
 
 
 print("socket created")
-port = 40001
+try:
+ port = 30000
+except:
+ port = 40000
 
 s.bind(('', port))
 print ("socket binded to %s" %(port) )
