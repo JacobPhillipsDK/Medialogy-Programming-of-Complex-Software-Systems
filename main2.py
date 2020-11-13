@@ -1,17 +1,16 @@
 import gameSimulator as GS
 
 
-
 def Search(arry, value):
     for i in range(len(players1)):
         if arry[i].getName() == value:
             print(arry[i].getName())
 
+
 def SearchCost(list, value):
     for i in range(len(players1)):
         if list[i].getCost() == value:
             print(list[i].getName() + " The value was found at", i + 1)
-
 
 
 def sortafterCost(sorted):
@@ -22,9 +21,7 @@ def sortafterCost(sorted):
                 sorted[j], sorted[j + 1] = sorted[j + 1], sorted[j]
 
 
-
 allPlayers = []
-
 allPlayers.append(GS.PlayerRole("BioFrost", 5, 7, 6, 5))
 allPlayers.append(GS.PlayerRole("Bjergsen", 6, 9, 7, 7))
 allPlayers.append(GS.PlayerRole("Broken_Blade", 6, 7, 7, 9))
@@ -70,8 +67,12 @@ def startGame():
 
 sortafterCost(allPlayers)
 
+<<<<<<< Updated upstream
 
 
 
 
 
+=======
+startGame()
+>>>>>>> Stashed changes
