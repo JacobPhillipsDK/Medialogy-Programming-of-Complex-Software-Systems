@@ -1,10 +1,9 @@
-from tkinter import *
 import tkinter as tk
+from tkinter import *
 from PIL import Image, ImageTk
 from main2 import *
-import main2
 
-LARGEFONT = ("Verdana", 20, "bold")
+SmallFont = ("Verdana", 20, "bold")
 myFont = ("Helvetica", 50)
 
 backgroundColor = '#350f58'
@@ -111,57 +110,64 @@ class Page1(tk.Frame):
     # Single player page
 
 
-def BuyFunction(self, listbox, frame, controller):
-    if len(newplayers) == 0:
-        number = listbox.index(ANCHOR)
-    else:
-        number = listbox.index(ANCHOR) + 1
-    global TotalMoney
-    if TotalMoney - allPlayers[number].getCost() > 0:
-        newplayers.append(allPlayers[number])
-        TotalMoney -= allPlayers[number].getCost()
-        MoneyText = Label(self, font=myFont, text=TotalMoney, bg=backgroundColor, foreground='white')
-        MoneyText.place(relx=0.1, rely=0.1, anchor=CENTER)
-        listbox.delete(ANCHOR)
-        print("total: ", TotalMoney)
-        if len(newplayers) == 5:
-            controller.show_frame(frame)
-        for i in range(len(newplayers)):
-            print(newplayers[i])
-    else:
-        failtekst = Label(self, font=myFont, text="You don't have enough money!", bg=backgroundColor,
-                          foreground="white")
-        failtekst.place(relx=0.1, rely=0.1, anchor=CENTER)
-
-
 class Page2(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.config(background=backgroundColor)
-        scrollbar = Scrollbar(self)
+        self.scrollbar = Scrollbar(self)
         PlaceImage(self)
-        listbox = tk.Listbox(self)
+        self.listbox = tk.Listbox(self)
         # Creating Labels,Entry,Button
-        PlayerCost = Label(self, font=LARGEFONT, text="Cost", bg=backgroundColor, foreground='white')
-        SearchCost_Text = Label(self, font=LARGEFONT, text="Type to search after cost", bg=backgroundColor,
-                                foreground='white')
-        buy_btn = tk.Button(self, font=LARGEFONT, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
-                            command=BuyFunction(self, listbox, Page3, controller))
-        Search_cost = tk.Entry(self, bg=btncolor, font=LARGEFONT, foreground='white')
+        self.PlayerCost = Label(self, font=SmallFont, text="Cost", bg=backgroundColor, foreground='white')
+        self.SearchCost_Text = Label(self, font=SmallFont, text="Type to search after cost", bg=backgroundColor,
+                                     foreground='white')
+        self.buy_btn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
+                                 command=self.BuyMenu)
+        self.Search_cost = tk.Entry(self, bg=btncolor, font=SmallFont, foreground='white')
+        self.Money = Label(self, font=myFont, text=TotalMoney, bg=backgroundColor, foreground='white')
+        self.Money.place(relx=0.1, rely=0.1, anchor=CENTER)
 
         # Placing the Labels,Entry,Button
-        PlayerCost.place(relx=0.895, rely=0.1, anchor=CENTER)
-        SearchCost_Text.place(relx=0.4, rely=0.35, anchor=CENTER)
-        Search_cost.place(relx=0.4, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
-        buy_btn.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
+        self.PlayerCost.place(relx=0.895, rely=0.1, anchor=CENTER)
+        self.SearchCost_Text.place(relx=0.4, rely=0.35, anchor=CENTER)
+        self.Search_cost.place(relx=0.4, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
+        self.buy_btn.place(relx=0.8, rely=0.9, relwidth=0.1, relheight=0.1, anchor=CENTER)
 
-        listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
+
+        self.startGame = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="Start Game",
+                                   command=lambda: controller.show_frame(Page3))
+
+
+        self.listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
 
         for i in range(len(allPlayers)):
-            listbox.insert(i, allPlayers[i].getName() + "        cost:" + str(allPlayers[i].getCost()))
-        listbox.config(yscrollcommand=scrollbar.set)
-        scrollbar.config(command=listbox.yview)
+            self.listbox.insert(i, allPlayers[i].getName() + "        cost:" + str(allPlayers[i].getCost()))
+        self.listbox.config(yscrollcommand=self.scrollbar.set)
+        self.scrollbar.config(command=self.listbox.yview)
+
+    def BuyMenu(self):
+        global Pressed
+        if len(newplayers) == 0:
+            number = self.listbox.index(ANCHOR)
+        else:
+            Pressed += 1
+            number = self.listbox.index(ANCHOR) + Pressed
+        global TotalMoney
+        if TotalMoney - allPlayers[number].getCost() >= 0:
+            players1.append(allPlayers[number])
+            TotalMoney -= allPlayers[number].getCost()
+            self.Money.destroy()
+            moneytext = Label(self, font=myFont, text=TotalMoney, bg=backgroundColor, foreground='white')
+            moneytext.place(relx=0.1, rely=0.1, anchor=CENTER)
+            self.listbox.delete(ANCHOR)
+            print("total: ", TotalMoney)
+            if len(players1) == 5:
+                return self.startGame.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER), self.buy_btn.place_forget()
+            else:
+                failtekst = Label(self, font=SmallFont, text="You don't have enough money!", bg=backgroundColor,
+                                  foreground="white")
+                failtekst.place(relx=0.3, rely=0.1, anchor=CENTER)
 
 
 class Page3(tk.Frame):
@@ -170,7 +176,6 @@ class Page3(tk.Frame):
         self.config(background=backgroundColor)
         print("Results page")
         open("output.txt", "w").close()
-        startGame()
 
 
 root = tkinterApp()
