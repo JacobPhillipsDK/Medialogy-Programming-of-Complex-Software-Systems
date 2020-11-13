@@ -64,9 +64,10 @@ def frame3():
 
 def frame4():
     global Pressed
-    if len(newplayers) == 0:
+    if len(players1) == 0:
         number = listbox.index(ANCHOR)
-    else:
+        print(players1)
+    elif len(players1)>0:
         Pressed += 1
         number = listbox.index(ANCHOR)+Pressed
     global TotalMoney
@@ -84,7 +85,17 @@ def frame4():
         failtekst = Label(root, font=myFont2, text="You don't have enough money!",bg=backgroundColor,foreground="white")
         failtekst.place(relx=0.1,rely=0.1,anchor=CENTER)
 
-
+def Sort():
+    for i in range(len(allPlayers) - 1, 0, -1):
+        for j in range(i):
+            if allPlayers[j].getCost() > allPlayers[j + 1].getCost():
+                allPlayers[j], allPlayers[j + 1] = allPlayers[j + 1], allPlayers[j]
+    listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
+    for i in range(len(allPlayers)):
+        listbox.insert(i, allPlayers[i].getName() + "        cost:" + str(allPlayers[i].getCost()))
+    listbox.config(yscrollcommand=scrollbar.set)
+    scrollbar.config(command=listbox.yview)
+    return
 
 
 def reStart():
@@ -116,6 +127,8 @@ buy_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0
                     command=frame4)
 Restart_btn = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="RESTART",
                         command=reStart)
+sortByCost_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="SORT",
+                    command=Sort)
 
 
 
@@ -163,7 +176,7 @@ def SinglePLayerPage():
     SearchCost_Text.place(relx=0.4, rely=0.35, anchor=CENTER)
     Search_cost.place(relx=0.4, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
     buy_btn.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
-
+    sortByCost_btn.place(relx=0.20,rely=0.85,relwidth=0.2,relheight=0.1,anchor=CENTER)
 
     #scrollbar.place(relx=0.4, rely=0.3, anchor=CENTER)
     listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
