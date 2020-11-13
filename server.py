@@ -25,16 +25,12 @@ with open("output.txt", "r") as File:
     first = File.read(1)
 
 def ServerThread(connection):
-    connection.send(str.encode('You are connected, type something'))
+    connection.send(str.encode('You are connected, type to recieve data'))
     while True:
         data2 = connection.recv(2048)
-        reply = 'Type yes to recieve data '
         error = 'Error: There is no data'
         if not data2:
             break
-
-        connection.send(str.encode(reply))
-
         if not first:
             connection.send(str.encode(error))
         else:
