@@ -36,32 +36,6 @@ def applytoLabel(input):
         element = element + input[i] + '\n'
     return element
 
-def BuyFunction(self,listbox,frame):
-    if len(newplayers) == 0:
-        number = listbox.index(ANCHOR)
-    else:
-        number = listbox.index(ANCHOR)+1
-    global TotalMoney
-    if TotalMoney - allPlayers[number].getCost() > 0:
-        newplayers.append(allPlayers[number])
-        TotalMoney -= allPlayers[number].getCost()
-        MoneyText = Label(self, font=myFont, text=TotalMoney, bg=backgroundColor, foreground='white')
-        MoneyText.place(relx=0.1, rely=0.1, anchor=CENTER)
-        listbox.delete(ANCHOR)
-        print("total: ",TotalMoney)
-        if len(newplayers) == 5:
-            controller.show_frame(frame)
-        for i in range(len(newplayers)):
-            print(newplayers[i])
-    else:
-        failtekst = Label(self, font=myFont, text="You don't have enough money!",bg=backgroundColor,foreground="white")
-        failtekst.place(relx=0.1,rely=0.1,anchor=CENTER)
-
-
-
-
-
-
 
 class tkinterApp(tk.Tk):
 
@@ -106,6 +80,7 @@ class tkinterApp(tk.Tk):
 
     # first window frame startpage
 
+
 class StartPage(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -133,8 +108,32 @@ class Page1(tk.Frame):
 
     # third window frame page2
 
+    # Single player page
 
-# Single player page
+
+def BuyFunction(self, listbox, frame, controller):
+    if len(newplayers) == 0:
+        number = listbox.index(ANCHOR)
+    else:
+        number = listbox.index(ANCHOR) + 1
+    global TotalMoney
+    if TotalMoney - allPlayers[number].getCost() > 0:
+        newplayers.append(allPlayers[number])
+        TotalMoney -= allPlayers[number].getCost()
+        MoneyText = Label(self, font=myFont, text=TotalMoney, bg=backgroundColor, foreground='white')
+        MoneyText.place(relx=0.1, rely=0.1, anchor=CENTER)
+        listbox.delete(ANCHOR)
+        print("total: ", TotalMoney)
+        if len(newplayers) == 5:
+            controller.show_frame(frame)
+        for i in range(len(newplayers)):
+            print(newplayers[i])
+    else:
+        failtekst = Label(self, font=myFont, text="You don't have enough money!", bg=backgroundColor,
+                          foreground="white")
+        failtekst.place(relx=0.1, rely=0.1, anchor=CENTER)
+
+
 class Page2(tk.Frame):
 
     def __init__(self, parent, controller):
@@ -148,7 +147,7 @@ class Page2(tk.Frame):
         SearchCost_Text = Label(self, font=LARGEFONT, text="Type to search after cost", bg=backgroundColor,
                                 foreground='white')
         buy_btn = tk.Button(self, font=LARGEFONT, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
-                            command=BuyFunction(self,listbox,Page3))
+                            command=BuyFunction(self, listbox, Page3, controller))
         Search_cost = tk.Entry(self, bg=btncolor, font=LARGEFONT, foreground='white')
 
         # Placing the Labels,Entry,Button
