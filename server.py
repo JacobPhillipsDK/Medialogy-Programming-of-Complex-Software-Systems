@@ -1,5 +1,8 @@
 import socket
+from _thread import *
+
 from main2 import startGame
+ThreadCount = 0
 
 s = socket.socket()
 print("socket created")
@@ -12,20 +15,41 @@ s.listen(2)
 print("socket is listening")
 
 #Sletter data i output før et nyt spil startes
-open("output.txt", "w").close()
+#open("output.txt", "w").close()
 
 #Kører et spil på serveren
-startGame()
+#startGame()
 
 with open("output.txt", "r") as File:
     data = File.read()
+    first = File.read(1)
+
+def ServerThread(connection):
+    connection.send(str.encode('You are connected, type something'))
+    while True:
+        data2 = connection.recv(2048)
+        reply = 'Type yes to recieve data '
+        error = 'Error: There is no data'
+        if not data2:
+            break
+
+        connection.send(str.encode(reply))
+
+        if not first:
+            connection.send(str.encode(error))
+        else:
+            connection.send(data.encode('ascii'))
+
+
 
 while True:
-    c, addr = s.accept()
-    print('connection from', addr)
-    #Str skal encodes når de sendes
-    c.send(data.encode('ascii'))
-    c.close()
+    Client, addr = s.accept()
+    print('Connected to: ' + addr[0] + ':' + str(addr[1]))
+    start_new_thread(ServerThread, (Client, ))
+    ThreadCount = ThreadCount + 1
+    print('Thread Number: ' + str(ThreadCount))
+ServerSocket.close()
+
 
 
 

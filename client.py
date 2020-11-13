@@ -1,16 +1,17 @@
 import socket
 
 #Laver ny socket
-s = socket.socket()
+c = socket.socket()
+
 
 #Port skal matches med server port
 port = 40000
 
 #Sættes til IPv4 som serveren køres på
-s.connect(('192.168.1.3', port))
+c.connect(('192.168.1.3', port))
 
 #Buffer size skal være 4096 eller derover ellers bliver alt data ikke sendt.
-Message = s.recv(4096)
+Message = c.recv(4096)
 
 #Str skal decodes når de bliver modtaget
 print(Message.decode('ascii'))
@@ -19,4 +20,8 @@ print(Message.decode('ascii'))
 open("output.txt", "w").close()
 
 #Lukker socket connecetion
-s.close()
+while True:
+    Input = input('Say Something: ')
+    c.send(str.encode(Input))
+    Response = c.recv(1024)
+    print(Response.decode('utf-8'))
