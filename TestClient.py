@@ -5,7 +5,7 @@ c = socket.socket()
 
 
 #Port skal matches med server port
-port = 40000
+port = 40001
 
 #Sættes til IPv4 som serveren køres på
 c.connect(('192.168.1.3', port))

@@ -3,12 +3,14 @@ import socket
 #Laver ny socket
 c = socket.socket()
 
+hostname = socket.gethostname()
+address = socket.gethostbyname(hostname)
 
 #Port skal matches med server port
-port = 40000
+port = 40001
 
 #Sættes til IPv4 som serveren køres på
-c.connect(('192.168.1.3', port))
+c.connect((address, port))
 
 #Buffer size skal være 4096 eller derover ellers bliver alt data ikke sendt.
 Message = c.recv(4096)

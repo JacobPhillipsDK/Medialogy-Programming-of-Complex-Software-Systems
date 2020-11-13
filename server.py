@@ -5,8 +5,10 @@ from main2 import startGame
 ThreadCount = 0
 
 s = socket.socket()
+
+
 print("socket created")
-port = 40000
+port = 40001
 
 s.bind(('', port))
 print ("socket binded to %s" %(port) )
@@ -33,8 +35,8 @@ def ServerThread(connection):
             break
         if not first:
             connection.send(str.encode(error))
-        else:
-            connection.send(data.encode('ascii'))
+
+        connection.send(data.encode('ascii'))
 
 
 
