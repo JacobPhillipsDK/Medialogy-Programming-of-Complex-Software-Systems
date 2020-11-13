@@ -1,6 +1,7 @@
-import tkinter as tk
 from tkinter import *
+import tkinter as tk
 from PIL import Image, ImageTk
+import tkinter.scrolledtext as st
 from main2 import *
 
 SmallFont = ("Verdana", 20, "bold")
@@ -11,6 +12,9 @@ btncolor = '#884dbc'
 TotalMoney = 100
 newplayers = []
 
+
+def close_window():
+    root.destroy()
 
 def PlaceImage(self):
     load = Image.open("BackgroundPic.png")
@@ -133,11 +137,8 @@ class Page2(tk.Frame):
         self.SearchCost_Text.place(relx=0.4, rely=0.35, anchor=CENTER)
         self.Search_cost.place(relx=0.4, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
         self.buy_btn.place(relx=0.8, rely=0.9, relwidth=0.1, relheight=0.1, anchor=CENTER)
-
-
         self.startGame = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="Start Game",
                                    command=lambda: controller.show_frame(Page3))
-
 
         self.listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
 
@@ -163,19 +164,32 @@ class Page2(tk.Frame):
             self.listbox.delete(ANCHOR)
             print("total: ", TotalMoney)
             if len(players1) == 5:
-                return self.startGame.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER), self.buy_btn.place_forget()
-            else:
-                failtekst = Label(self, font=SmallFont, text="You don't have enough money!", bg=backgroundColor,
-                                  foreground="white")
-                failtekst.place(relx=0.3, rely=0.1, anchor=CENTER)
+                return self.startGame.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1,
+                                            anchor=CENTER), self.buy_btn.place_forget()
+        else:
+            failtekst = Label(self, font=SmallFont, text="You don't have enough money!", bg=backgroundColor,
+                              foreground="white")
+            failtekst.place(relx=0.3, rely=0.1, anchor=CENTER)
 
 
 class Page3(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.config(background=backgroundColor)
+        self.text_area = st.ScrolledText(self, width=52, height=20, font=SmallFont, bg=backgroundColor,
+                                         foreground='white', relief=GROOVE, bd=0)
+        self.closeBtn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="Exit",
+                                command=close_window)
+
         print("Results page")
         open("output.txt", "w").close()
+        GameResults = readFile("output.txt")
+        startGame()
+        self.text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
+        self.text_area.insert(tk.INSERT, applytoLabel(GameResults))
+        self.text_area.configure(state='disabled')
+        self.closeBtn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
+        print(GameResults)
 
 
 root = tkinterApp()
