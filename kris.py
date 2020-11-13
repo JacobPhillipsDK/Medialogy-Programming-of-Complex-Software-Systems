@@ -27,6 +27,7 @@ TotalMoney = 100
 global Pressed
 Pressed = 0
 newplayers = []
+searchedPlayers = []
 
 
 # Reads TXT file and saves it Into a List
@@ -64,19 +65,13 @@ def frame3():
 
 def frame4():
     global Pressed
-    if len(players1) == 0:
-        number = listbox.index(ANCHOR)
-        print(players1)
-    elif len(players1)>0:
-        Pressed += 1
-        number = listbox.index(ANCHOR)+Pressed
+    number = listbox.index(ANCHOR)
     global TotalMoney
     if TotalMoney - allPlayers[number].getCost() >= 0:
         players1.append(allPlayers[number])
         TotalMoney -= allPlayers[number].getCost()
         moneytext = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
         moneytext.place(relx=0.1, rely=0.1, anchor=CENTER)
-        listbox.delete(ANCHOR)
         print("total: ",TotalMoney)
         if len(players1) == 5:
             moneytext.place_forget()
@@ -86,6 +81,7 @@ def frame4():
         failtekst.place(relx=0.1,rely=0.1,anchor=CENTER)
 
 def Sort():
+    listbox.delete(first=0,last=len(allPlayers))
     for i in range(len(allPlayers) - 1, 0, -1):
         for j in range(i):
             if allPlayers[j].getCost() > allPlayers[j + 1].getCost():
@@ -95,6 +91,54 @@ def Sort():
         listbox.insert(i, allPlayers[i].getName() + "        cost:" + str(allPlayers[i].getCost()))
     listbox.config(yscrollcommand=scrollbar.set)
     scrollbar.config(command=listbox.yview)
+    return
+
+def Search1():
+    listboxsearch.delete(first=0,last=len(allPlayers))
+    value = int(Search_cost.get())
+    for i in range(len(allPlayers)):
+        if allPlayers[i].getCost() == value:
+            searchedPlayers.append(allPlayers[i])
+    for i in range(len(searchedPlayers)):
+        listboxsearch.insert(i, searchedPlayers[i].getName() + "        cost:" + str(searchedPlayers[i].getCost()))
+    listboxsearch.config(yscrollcommand=scrollbar.set)
+    scrollbar.config(command=listbox.yview)
+    listbox.place_forget()
+    listboxsearch.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
+    buy_btn2.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
+    buy_btn.place_forget()
+    return
+
+def Buysearch():
+    listbox.delete(first=0,last=len(searchedPlayers))
+    number = listboxsearch.index(ANCHOR)
+    global TotalMoney
+    if TotalMoney - searchedPlayers[number].getCost() >= 0:
+        players1.append(searchedPlayers[number])
+        TotalMoney -= searchedPlayers[number].getCost()
+        moneytext = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
+        moneytext.place(relx=0.1, rely=0.1, anchor=CENTER)
+        print("total: ", TotalMoney)
+        if len(players1) == 5:
+            moneytext.place_forget()
+            return NextSinglePlayerPage()
+    else:
+        failtekst = Label(root, font=myFont2, text="You don't have enough money!", bg=backgroundColor,
+                          foreground="white")
+        failtekst.place(relx=0.1, rely=0.1, anchor=CENTER)
+    return
+
+def clearSearch():
+    listbox.delete(first=0,last=len(allPlayers))
+    listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
+    for i in range(len(allPlayers)):
+        listbox.insert(i, allPlayers[i].getName() + "        cost:" + str(allPlayers[i].getCost()))
+    listbox.config(yscrollcommand=scrollbar.set)
+    scrollbar.config(command=listbox.yview)
+    listboxsearch.place_forget()
+    searchedPlayers.clear()
+    buy_btn.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
+    buy_btn2.place_forget()
     return
 
 
@@ -125,11 +169,18 @@ frame2_btn2 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd
                         command=notWorking)
 buy_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
                     command=frame4)
+buy_btn2 = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
+                    command=Buysearch)
+buy_btn3 = tk.Button(root, font=myFont3, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
+                    command=frame4)
 Restart_btn = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="RESTART",
                         command=reStart)
 sortByCost_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="SORT",
                     command=Sort)
-
+searchByCost_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="SEARCH",
+                    command=Search1)
+clear_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="CLEAR SEARCH",
+                    command=clearSearch)
 
 
 # Texts
@@ -145,6 +196,7 @@ root.update_idletasks()
 Search_name = tk.Entry(root, bg=btncolor, font=SearchFont, foreground='white')
 Search_cost = tk.Entry(root, bg=btncolor, font=SearchFont, foreground='white')
 listbox = tk.Listbox(root)
+listboxsearch = tk.Listbox(root)
 scrollbar = Scrollbar(root)
 
 
@@ -173,10 +225,12 @@ def SinglePLayerPage():
     frame.pack()
     MoneyText.place(relx=0.1, rely=0.1, anchor=CENTER)
     PlayerCost.place(relx=0.895, rely=0.1, anchor=CENTER)
-    SearchCost_Text.place(relx=0.4, rely=0.35, anchor=CENTER)
+    SearchCost_Text.place(relx=0.4, rely=0.39, anchor=CENTER)
     Search_cost.place(relx=0.4, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
     buy_btn.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
     sortByCost_btn.place(relx=0.20,rely=0.85,relwidth=0.2,relheight=0.1,anchor=CENTER)
+    searchByCost_btn.place(relx=0.4,rely=0.57,relwidth=0.1,relheight=0.05,anchor=CENTER)
+    clear_btn.place(relx=0.15,rely=0.57,relwidth=0.1,relheight=0.05,anchor=CENTER)
 
     #scrollbar.place(relx=0.4, rely=0.3, anchor=CENTER)
     listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
