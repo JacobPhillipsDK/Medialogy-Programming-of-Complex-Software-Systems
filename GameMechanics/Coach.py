@@ -1,4 +1,4 @@
-from Player import *
+from GameMechanics.Player import *
 
 
 class Coach(Player):

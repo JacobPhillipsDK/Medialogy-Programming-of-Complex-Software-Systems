@@ -1,10 +1,9 @@
-from PlayerRole import *
+from GameMechanics.PlayerRole import *
 from typing import List
 
 class Team:
     __name = "LoL team"
     __players = []
-
 
     def __init__(self, name: str, players: List[PlayerRole]):
         self.__name = name

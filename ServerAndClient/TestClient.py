@@ -27,7 +27,7 @@ Message = c.recv(4096)
 print(Message.decode('ascii'))
 
 #Åbner output.txt i write mode for at slette content, derefter lukkes den
-open("output.txt", "w").close()
+open("../output.txt", "w").close()
 
 #Lukker socket connecetion
 while True:

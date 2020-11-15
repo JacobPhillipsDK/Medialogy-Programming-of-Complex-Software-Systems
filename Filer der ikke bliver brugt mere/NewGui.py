@@ -1,14 +1,10 @@
-import os
 from tkinter import *
 import tkinter as tk
 import tkinter.font as font
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import tkinter.scrolledtext as st
-from main2 import *
-from PlayerRole import *
-from gameSimulator import *
-from gameSimulator import *
+from GameMechanics.main2 import *
 
 root = Tk()
 root.title("Sim League")
@@ -19,7 +15,7 @@ btncolor = '#884dbc'
 root.config(background=backgroundColor)
 root.resizable(width=False, height=False)
 
-backgroundImage = ImageTk.PhotoImage(file="Shape 3.png")
+backgroundImage = ImageTk.PhotoImage(file="../Assets/Shape 3.png")
 
 
 global TotalMoney
@@ -100,7 +96,7 @@ def notWorking():
 
 
 canvas = tk.Canvas(root, width=1500, height=720, highlightthickness=0, borderwidth=0)
-img = ImageTk.PhotoImage(Image.open("BackgroundPic.png"), Image.ANTIALIAS)
+img = ImageTk.PhotoImage(Image.open("../Assets/BackgroundPic.png"), Image.ANTIALIAS)
 canvas.background = img  # Keep a reference in case this code is put in a function.
 bg = canvas.create_image(0, 0, anchor=tk.NW, image=img)
 frame = Frame(root)
@@ -153,7 +149,7 @@ def SecondPage():
     frame1_btn1.place_forget()
     frame2_btn1.place(relx=0.5, rely=0.35, relwidth=0.40, relheight=0.20, anchor=CENTER)
     frame2_btn2.place(relx=0.5, rely=0.65, relwidth=0.40, relheight=0.20, anchor=CENTER)
-    open("output.txt", "w").close()
+    open("../output.txt", "w").close()
 
 
 def SinglePLayerPage():
@@ -180,7 +176,7 @@ def SinglePLayerPage():
 
 def NextSinglePlayerPage():
     print("Results page")
-    open("output.txt", "w").close()
+    open("../output.txt", "w").close()
     startGame()
     canvas.forget()
     frame.place_forget()
@@ -190,7 +186,7 @@ def NextSinglePlayerPage():
     SearchCost_Text.place_forget()
     Search_cost.place_forget()
     buy_btn.place_forget()
-    GameResults = readFile("output.txt")
+    GameResults = readFile("../output.txt")
     text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
     text_area.insert(tk.INSERT, applytoLabel(GameResults))
     text_area.configure(state='disabled')

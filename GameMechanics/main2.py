@@ -1,4 +1,4 @@
-import gameSimulator as GS
+from GameMechanics import gameSimulator as GS
 
 
 def Search(arry, value):
@@ -65,7 +65,6 @@ def startGame():
     game.game_start(blueteam, redteam)
 
 
-sortafterCost(allPlayers)
 
 
 

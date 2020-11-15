@@ -1,5 +1,4 @@
-from Team import *
-import numpy as np
+from GameMechanics.Team import *
 from numpy import random
 
 
@@ -39,10 +38,8 @@ class gameSimulator:
         while gameRuns:
             nextKill = random.randint(0, 6)
             if (Time + nextKill > gameTime or Time > gameTime):
-
                 # Stops the game when it goes over the game time
                 gameRuns = False
-
 
             Time += nextKill
 
@@ -61,13 +58,15 @@ class gameSimulator:
                 else:
                     killSuccess = False
 
-                print(str(Time) + "min: " + "Seems like " + bptk.getName() + " is trying to kill " + rptd.getName(), file=open('output.txt', 'a'))
+                print(str(Time) + "min: " + "Seems like " + bptk.getName() + " is trying to kill " + rptd.getName(),
+                      file=open(
+                          '../output.txt', 'a'))
 
                 if killSuccess:
                     self.__killsBlue += 1
-                    print("And " + bptk.getName() + " is succesfull, what a kill!", file=open('output.txt', 'a'))
+                    print("And " + bptk.getName() + " is succesfull, what a kill!", file=open('../output.txt', 'a'))
                 else:
-                    print(rptd.getName() + " defends, very nice!", file=open('output.txt', 'a'))
+                    print(rptd.getName() + " defends, very nice!", file=open('../output.txt', 'a'))
             else:
                 bptk = blueteam.get_Player(playerNum)
                 rptd = redteam.get_Player(playerNum)
@@ -78,17 +77,25 @@ class gameSimulator:
                 else:
                     killSuccess = False
 
-                print(str(Time) + "min: " + "Seems like " + rptd.getName() + " is trying to kill " + bptk.getName(), file=open('output.txt', 'a'))
+                print(str(Time) + "min: " + "Seems like " + rptd.getName() + " is trying to kill " + bptk.getName(),
+                      file=open(
+                          '../output.txt', 'a'))
 
                 if killSuccess:
                     self.__killsRed += 1
 
-                    print("And " + rptd.getName() + " is succesfull, what a kill!", file=open('output.txt', 'a'))
+                    print("And " + rptd.getName() + " is succesfull, what a kill!", file=open('../output.txt', 'a'))
                 else:
-                    print(bptk.getName() + " defends, very nice!", file=open('output.txt', 'a'))
+                    print(bptk.getName() + " defends, very nice!", file=open('../output.txt', 'a'))
             if gameRuns == False and self.__killsBlue > self.__killsRed:
-                print("Blue team wins! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed), file=open('output.txt', 'a'))
+                print("Blue team wins! Final result: \n" + "Blue kills:" + str(
+                    self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed), file=open(
+                    '../output.txt', 'a'))
             if gameRuns == False and self.__killsRed > self.__killsBlue:
-                print("Red team wins! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed), file=open('output.txt', 'a'))
+                print("Red team wins! Final result: \n" + "Blue kills:" + str(
+                    self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed), file=open(
+                    '../output.txt', 'a'))
             if gameRuns == False and self.__killsBlue == self.__killsRed:
-                print("The game ends in a draw! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed),file=open('output.txt', 'a'))
+                print("The game ends in a draw! Final result: \n" + "Blue kills:" + str(
+                    self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed), file=open(
+                    '../output.txt', 'a'))

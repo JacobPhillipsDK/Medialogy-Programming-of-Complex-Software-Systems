@@ -1,7 +1,6 @@
 import socket
 from _thread import *
 
-from main2 import startGame
 ThreadCount = 0
 
 s = socket.socket()
@@ -25,7 +24,7 @@ print("socket is listening")
 #Kører et spil på serveren
 #startGame()
 
-with open("output.txt", "r") as File:
+with open("../output.txt", "r") as File:
     data = File.read()
     first = File.read(1)
 
