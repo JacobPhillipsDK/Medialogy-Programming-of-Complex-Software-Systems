@@ -24,8 +24,6 @@ backgroundImage = ImageTk.PhotoImage(file="Shape 3.png")
 
 global TotalMoney
 TotalMoney = 100
-global Pressed
-Pressed = 0
 newplayers = []
 searchedPlayers = []
 
@@ -64,7 +62,6 @@ def frame3():
 
 
 def frame4():
-    global Pressed
     number = listbox.index(ANCHOR)
     global TotalMoney
     if TotalMoney - allPlayers[number].getCost() >= 0:
@@ -74,6 +71,7 @@ def frame4():
         moneytext.place(relx=0.1, rely=0.1, anchor=CENTER)
         print("total: ",TotalMoney)
         if len(players1) == 5:
+            sortByCost_btn.place_forget()
             moneytext.place_forget()
             return NextSinglePlayerPage()
     else:
@@ -121,6 +119,7 @@ def Buysearch():
         print("total: ", TotalMoney)
         if len(players1) == 5:
             moneytext.place_forget()
+            sortByCost_btn.place_forget()
             return NextSinglePlayerPage()
     else:
         failtekst = Label(root, font=myFont2, text="You don't have enough money!", bg=backgroundColor,
