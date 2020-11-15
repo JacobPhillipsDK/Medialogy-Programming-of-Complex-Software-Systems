@@ -2,22 +2,25 @@ from tkinter import *
 import tkinter as tk
 from PIL import Image, ImageTk
 import tkinter.scrolledtext as st
-from main2 import *
+from GameMechanics.main2 import *
 
 SmallFont = ("Verdana", 20, "bold")
 myFont = ("Helvetica", 50)
 
 backgroundColor = '#350f58'
 btncolor = '#884dbc'
+
 TotalMoney = 100
 newplayers = []
+searchedPlayers = []
 
 
 def close_window():
     root.destroy()
 
+
 def PlaceImage(self):
-    load = Image.open("BackgroundPic.png")
+    load = Image.open("Assets/BackgroundPic.png")
     render = ImageTk.PhotoImage(load)
     # labels can be text or images
     img = Label(self, image=render)
@@ -48,7 +51,7 @@ class tkinterApp(tk.Tk):
         tk.Tk.__init__(self, *args, **kwargs)
         self.title("Sim League")
         self.geometry("1500x720")
-        self.iconbitmap("poro-icon.ico")
+        self.iconbitmap("Assets/poro-icon.ico")
         self.config(background=backgroundColor)
         self.resizable(width=False, height=False)
 
@@ -88,9 +91,9 @@ class StartPage(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.config(background=backgroundColor)
-        start = tk.Button(self, bg=btncolor, font=myFont, highlightthickness=0, bd='0', text="START",
-                          command=lambda: controller.show_frame(Page1))
-        start.place(relx=0.5, rely=0.5, relwidth=0.40, relheight=0.20, anchor=CENTER)
+        self.start = tk.Button(self, bg=btncolor, font=myFont, highlightthickness=0, bd='0', text="START",
+                               command=lambda: controller.show_frame(Page1))
+        self.start.place(relx=0.5, rely=0.5, relwidth=0.40, relheight=0.20, anchor=CENTER)
 
     # second window frame page1
 
@@ -99,15 +102,14 @@ class Page1(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.config(background=backgroundColor)
+        self.singeplayer = tk.Button(self, font=myFont, bg=btncolor, highlightthickness=0, bd='0',
+                                     text="Single-player",
+                                     command=lambda: controller.show_frame(Page2))
+        self.smultiplayer = tk.Button(self, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="MultiPlayer",
+                                      command=None)
 
-        singeplayer = tk.Button(self, font=myFont, bg=btncolor, highlightthickness=0, bd='0',
-                                text="Single-player",
-                                command=lambda: controller.show_frame(Page2))
-        multiplayer = tk.Button(self, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="MultiPlayer",
-                                command=None)
-
-        singeplayer.place(relx=0.5, rely=0.35, relwidth=0.40, relheight=0.20, anchor=CENTER)
-        multiplayer.place(relx=0.5, rely=0.65, relwidth=0.40, relheight=0.20, anchor=CENTER)
+        self.singeplayer.place(relx=0.5, rely=0.35, relwidth=0.40, relheight=0.20, anchor=CENTER)
+        self.smultiplayer.place(relx=0.5, rely=0.65, relwidth=0.40, relheight=0.20, anchor=CENTER)
 
     # third window frame page2
 
@@ -119,57 +121,138 @@ class Page2(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.config(background=backgroundColor)
-        self.scrollbar = Scrollbar(self)
         PlaceImage(self)
+
+        # Scrollbar and Listbox
+        self.scrollbar = Scrollbar(self)
         self.listbox = tk.Listbox(self)
-        # Creating Labels,Entry,Button
+        self.listboxsearch = tk.Listbox(self)
+        # Labels
         self.PlayerCost = Label(self, font=SmallFont, text="Cost", bg=backgroundColor, foreground='white')
         self.SearchCost_Text = Label(self, font=SmallFont, text="Type to search after cost", bg=backgroundColor,
                                      foreground='white')
+        self.Money = Label(self, font=myFont, text=TotalMoney, bg=backgroundColor, foreground='white')
+        self.sortByCost_btn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0',
+                                        text="Sort After Cost",
+                                        command=self.Sort)
+
+        # Buttons
         self.buy_btn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
                                  command=self.BuyMenu)
-        self.Search_cost = tk.Entry(self, bg=btncolor, font=SmallFont, foreground='white')
-        self.Money = Label(self, font=myFont, text=TotalMoney, bg=backgroundColor, foreground='white')
-        self.Money.place(relx=0.1, rely=0.1, anchor=CENTER)
+        self.buy_btn2 = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
+                                  command=self.Buysearch)
+        self.startGame = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="Start Game",
+                                   command=lambda: controller.show_frame(Page3))
+        self.searchByCost_btn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0',
+                                          text="SEARCH",
+                                          command=self.Search1)
+        self.clear_btn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="CLEAR SEARCH",
+                                   command=self.clearSearch)
 
-        # Placing the Labels,Entry,Button
+        # Entry
+        self.Search_cost = tk.Entry(self, bg=btncolor, font=SmallFont, foreground='white')
+
+        # Placing all
+        self.Money.place(relx=0.3, rely=0.1, anchor=CENTER)
         self.PlayerCost.place(relx=0.895, rely=0.1, anchor=CENTER)
         self.SearchCost_Text.place(relx=0.4, rely=0.35, anchor=CENTER)
         self.Search_cost.place(relx=0.4, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
         self.buy_btn.place(relx=0.8, rely=0.9, relwidth=0.1, relheight=0.1, anchor=CENTER)
-        self.startGame = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="Start Game",
-                                   command=lambda: controller.show_frame(Page3))
-
-        self.listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
+        self.sortByCost_btn.place(relx=0.20, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
+        self.listbox.place(relx=0.8, rely=0.55, relheight=0.50, relwidth=0.1, anchor=CENTER)
+        self.searchByCost_btn.place(relx=0.4, rely=0.57, relwidth=0.1, relheight=0.05, anchor=CENTER)
+        self.clear_btn.place(relx=0.15, rely=0.57, relwidth=0.2, relheight=0.05, anchor=CENTER)
 
         for i in range(len(allPlayers)):
             self.listbox.insert(i, allPlayers[i].getName() + "        cost:" + str(allPlayers[i].getCost()))
         self.listbox.config(yscrollcommand=self.scrollbar.set)
         self.scrollbar.config(command=self.listbox.yview)
+        print(TotalMoney)
 
     def BuyMenu(self):
-        global Pressed
-        if len(newplayers) == 0:
-            number = self.listbox.index(ANCHOR)
-        else:
-            Pressed += 1
-            number = self.listbox.index(ANCHOR) + Pressed
+        number = self.listbox.index(ANCHOR)
         global TotalMoney
         if TotalMoney - allPlayers[number].getCost() >= 0:
             players1.append(allPlayers[number])
             TotalMoney -= allPlayers[number].getCost()
-            self.Money.destroy()
-            moneytext = Label(self, font=myFont, text=TotalMoney, bg=backgroundColor, foreground='white')
-            moneytext.place(relx=0.1, rely=0.1, anchor=CENTER)
             self.listbox.delete(ANCHOR)
+            self.Money.destroy()
+            self.moneytext = Label(self, font=myFont, text=TotalMoney, bg=backgroundColor, foreground='white')
+            self.moneytext.place(relx=0.3, rely=0.1, anchor=CENTER)
             print("total: ", TotalMoney)
             if len(players1) == 5:
                 return self.startGame.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1,
                                             anchor=CENTER), self.buy_btn.place_forget()
         else:
-            failtekst = Label(self, font=SmallFont, text="You don't have enough money!", bg=backgroundColor,
-                              foreground="white")
-            failtekst.place(relx=0.3, rely=0.1, anchor=CENTER)
+
+            self.failtekst = Label(self, font=SmallFont, text="You don't have enough money!", bg=backgroundColor,
+                                   foreground="white")
+            self.failtekst.place(relx=0.3, rely=0.1, anchor=CENTER)
+
+    def Sort(self):
+        self.listbox.delete(first=0, last=len(allPlayers))
+        for i in range(len(allPlayers) - 1, 0, -1):
+            for j in range(i):
+                if allPlayers[j].getCost() > allPlayers[j + 1].getCost():
+                    allPlayers[j], allPlayers[j + 1] = allPlayers[j + 1], allPlayers[j]
+        self.listbox.place(relx=0.8, rely=0.55, relheight=0.50, relwidth=0.1, anchor=CENTER)
+        for i in range(len(allPlayers)):
+            self.listbox.insert(i, allPlayers[i].getName() + "        cost:" + str(allPlayers[i].getCost()))
+        self.listbox.config(yscrollcommand=self.scrollbar.set)
+        self.scrollbar.config(command=self.listbox.yview)
+        return
+
+    def Search1(self):
+        self.listboxsearch.delete(first=0, last=len(allPlayers))
+        value = int(self.Search_cost.get())
+        for i in range(len(allPlayers)):
+            if allPlayers[i].getCost() == value:
+                searchedPlayers.append(allPlayers[i])
+        for i in range(len(searchedPlayers)):
+            self.listboxsearch.insert(i, searchedPlayers[i].getName() + "        cost:" + str(
+                searchedPlayers[i].getCost()))
+        self.listboxsearch.config(yscrollcommand=self.scrollbar.set)
+        self.scrollbar.config(command=self.listbox.yview)
+        self.listbox.place_forget()
+        self.listboxsearch.place(relx=0.8, rely=0.55, relheight=0.50, relwidth=0.1, anchor=CENTER)
+        self.listboxsearch.delete(ANCHOR)
+        # self.buy_btn2.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
+        # self.buy_btn.place_forget()
+        return
+
+    def Buysearch(self):
+        self.listbox.delete(first=0, last=len(searchedPlayers))
+        number = self.listboxsearch.index(ANCHOR)
+        global TotalMoney
+        if TotalMoney - searchedPlayers[number].getCost() >= 0:
+            players1.append(searchedPlayers[number])
+            TotalMoney -= searchedPlayers[number].getCost()
+            self.moneytext = Label(self, font=SmallFont, text=TotalMoney, bg=backgroundColor, foreground='white')
+            self.moneytext.place(relx=0.3, rely=0.1, anchor=CENTER)
+            print("total: ", TotalMoney)
+            if len(players1) == 5:
+                self.moneytext.place_forget()
+                self.sortByCost_btn.place_forget()
+                return self.startGame.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1,
+                                            anchor=CENTER), self.buy_btn.place_forget()
+        else:
+            self.failtekst = Label(self, font=SmallFont, text="You don't have enough money!", bg=backgroundColor,
+                                   foreground="white")
+            self.failtekst.place(relx=0.1, rely=0.1, anchor=CENTER)
+        return
+
+    def clearSearch(self):
+        self.listbox.delete(first=0, last=len(allPlayers))
+        self.listbox.place(relx=0.8, rely=0.55, relheight=0.50, relwidth=0.1, anchor=CENTER)
+        for i in range(len(allPlayers)):
+            self.listbox.insert(i, allPlayers[i].getName() + "        cost:" + str(allPlayers[i].getCost()))
+        self.listbox.config(yscrollcommand=self.scrollbar.set)
+        self.scrollbar.config(command=self.listbox.yview)
+        self.listboxsearch.place_forget()
+        searchedPlayers.clear()
+        # self.buy_btn.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
+        self.buy_btn2.place_forget()
+        return
 
 
 class Page3(tk.Frame):
@@ -179,8 +262,7 @@ class Page3(tk.Frame):
         self.text_area = st.ScrolledText(self, width=52, height=20, font=SmallFont, bg=backgroundColor,
                                          foreground='white', relief=GROOVE, bd=0)
         self.closeBtn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="Exit",
-                                command=close_window)
-
+                                  command=close_window)
         print("Results page")
         open("output.txt", "w").close()
         GameResults = readFile("output.txt")

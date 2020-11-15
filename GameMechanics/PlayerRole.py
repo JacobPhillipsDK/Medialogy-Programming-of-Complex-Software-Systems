@@ -1,4 +1,4 @@
-from Player import Player
+from GameMechanics.Player import Player
 from numpy import random
 
 class PlayerRole(Player):

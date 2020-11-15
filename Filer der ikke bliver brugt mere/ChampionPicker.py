@@ -1,6 +1,6 @@
 import random
-from Champions import champion
-from colorama import Fore, Back, Style
+from GameMechanics.Champions import champion
+from colorama import Fore, Style
 
 __TopChamp = champion()
 __JglChamp = champion()
