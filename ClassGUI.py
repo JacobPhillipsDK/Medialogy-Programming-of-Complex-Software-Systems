@@ -10,6 +10,7 @@ myFont = ("Helvetica", 50)
 backgroundColor = '#350f58'
 btncolor = '#884dbc'
 
+
 TotalMoney = 100
 newplayers = []
 searchedPlayers = []
@@ -266,7 +267,7 @@ class Page3(tk.Frame):
         print("Results page")
         open("output.txt", "w").close()
         GameResults = readFile("output.txt")
-        startGame()
+        #startGame()
         self.text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
         self.text_area.insert(tk.INSERT, applytoLabel(GameResults))
         self.text_area.configure(state='disabled')

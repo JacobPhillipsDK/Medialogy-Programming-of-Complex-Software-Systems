@@ -8,18 +8,17 @@ import tkinter.scrolledtext as st
 from main2 import *
 from PlayerRole import *
 from gameSimulator import *
-from gameSimulator import *
 
 root = Tk()
 root.title("Sim League")
 root.geometry("1500x720")
-root.iconbitmap("poro-icon.ico")
+root.iconbitmap("Assets/poro-icon.ico")
 backgroundColor = '#350f58'
 btncolor = '#884dbc'
 root.config(background=backgroundColor)
 root.resizable(width=False, height=False)
 
-backgroundImage = ImageTk.PhotoImage(file="Shape 3.png")
+backgroundImage = ImageTk.PhotoImage(file="Assets/Shape 3.png")
 
 
 global TotalMoney
@@ -150,7 +149,7 @@ def notWorking():
 
 
 canvas = tk.Canvas(root, width=1500, height=720, highlightthickness=0, borderwidth=0)
-img = ImageTk.PhotoImage(Image.open("BackgroundPic.png"), Image.ANTIALIAS)
+img = ImageTk.PhotoImage(Image.open("Assets/BackgroundPic.png"), Image.ANTIALIAS)
 canvas.background = img  # Keep a reference in case this code is put in a function.
 bg = canvas.create_image(0, 0, anchor=tk.NW, image=img)
 frame = Frame(root)
