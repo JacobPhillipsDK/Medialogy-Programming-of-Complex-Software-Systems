@@ -2,7 +2,9 @@ from tkinter import *
 import tkinter as tk
 from PIL import Image, ImageTk
 import tkinter.scrolledtext as st
-from GameMechanics.main2 import *
+from main2 import *
+from gameSimulator import *
+from Team import *
 
 SmallFont = ("Verdana", 20, "bold")
 myFont = ("Helvetica", 50)
@@ -13,6 +15,7 @@ btncolor = '#884dbc'
 TotalMoney = 100
 newplayers = []
 searchedPlayers = []
+
 
 
 def close_window():
@@ -121,7 +124,7 @@ class Page1(tk.Frame):
 
         self.singeplayer.place(relx=0.5, rely=0.35, relwidth=0.40, relheight=0.20, anchor=CENTER)
         self.smultiplayer.place(relx=0.5, rely=0.65, relwidth=0.40, relheight=0.20, anchor=CENTER)
-
+        players1.clear()
     # third window frame page2
 
     # Single player page
@@ -180,6 +183,7 @@ class Page2(tk.Frame):
         self.listbox.config(yscrollcommand=self.scrollbar.set)
         self.scrollbar.config(command=self.listbox.yview)
         print(TotalMoney)
+        players1.clear()
 
     def BuyMenu(self):
         number = self.listbox.index(ANCHOR)
@@ -189,7 +193,7 @@ class Page2(tk.Frame):
             TotalMoney -= allPlayers[number].getCost()
             self.Money.destroy()
             self.moneytext = Label(self, font=myFont, text=TotalMoney, bg=backgroundColor, foreground='white')
-            self.moneytext.place(relx=0.3, rely=0.1, relwidth=0.2, anchor=CENTER)
+            self.moneytext.place(relx=0.5, rely=0.1, relwidth=0.2, anchor=CENTER)
             print("total: ", TotalMoney)
             if len(players1) == 5:
                 return self.startGame.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1,
@@ -239,7 +243,7 @@ class Page2(tk.Frame):
             players1.append(searchedPlayers[number])
             TotalMoney -= searchedPlayers[number].getCost()
             self.moneytext = Label(self, font=SmallFont, text=TotalMoney, bg=backgroundColor, foreground='white')
-            self.moneytext.place(relx=0.3, rely=0.1, anchor=CENTER)
+            self.moneytext.place(relx=0.5, rely=0.1, anchor=CENTER)
             print("total: ", TotalMoney)
             if len(players1) == 5:
                 self.moneytext.place_forget()
@@ -269,6 +273,7 @@ class Page2(tk.Frame):
 class Page3(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
+        self.update_idletasks()
         self.config(background=backgroundColor)
         # Button / Label
         self.text_area = st.ScrolledText(self, width=52, height=20, font=SmallFont, bg=backgroundColor,
@@ -278,12 +283,12 @@ class Page3(tk.Frame):
         print("Results page")
         open("output.txt", "w").close()
         GameResults = readFile("output.txt")
-        # startGame()
         self.text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
         self.text_area.insert(tk.INSERT, applytoLabel(GameResults))
         self.text_area.configure(state='disabled')
         self.closeBtn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
         print(GameResults)
+
 
 
 root = tkinterApp()
