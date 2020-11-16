@@ -1,12 +1,13 @@
 import socket
 
 # Laver ny socket
-c = socket.socket()
+c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Virker kun hvis server kører på egen computer, ellers skal der difeneres hvilken ipv4 adresse serveren kører på
 hostname = socket.gethostname()
 address = socket.gethostbyname(hostname)
 
+print(address)
 # Port skal matches med server port
 port1 = 30000
 port2 = 40000
