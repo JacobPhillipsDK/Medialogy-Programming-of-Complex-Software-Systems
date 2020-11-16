@@ -176,10 +176,9 @@ class Page2(tk.Frame):
         if TotalMoney - allPlayers[number].getCost() >= 0:
             players1.append(allPlayers[number])
             TotalMoney -= allPlayers[number].getCost()
-            self.listbox.delete(ANCHOR)
             self.Money.destroy()
             self.moneytext = Label(self, font=myFont, text=TotalMoney, bg=backgroundColor, foreground='white')
-            self.moneytext.place(relx=0.3, rely=0.1, anchor=CENTER)
+            self.moneytext.place(relx=0.3, rely=0.1, relwidth=0.2, anchor=CENTER)
             print("total: ", TotalMoney)
             if len(players1) == 5:
                 return self.startGame.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1,
@@ -260,6 +259,7 @@ class Page3(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.config(background=backgroundColor)
+        # Button / Label
         self.text_area = st.ScrolledText(self, width=52, height=20, font=SmallFont, bg=backgroundColor,
                                          foreground='white', relief=GROOVE, bd=0)
         self.closeBtn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="Exit",
