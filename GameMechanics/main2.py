@@ -55,7 +55,11 @@ players2.append(allPlayers[9])
 players2.append(allPlayers[17])
 
 players1 = []
-
+players1.append(allPlayers[16])
+players1.append(allPlayers[12])
+players1.append(allPlayers[11])
+players1.append(allPlayers[9])
+players1.append(allPlayers[17])
 
 def startGame():
     redteam = GS.Team("red FC", players1)
