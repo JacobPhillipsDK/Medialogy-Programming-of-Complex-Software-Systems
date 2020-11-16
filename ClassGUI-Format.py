@@ -10,7 +10,6 @@ myFont = ("Helvetica", 50)
 backgroundColor = '#350f58'
 btncolor = '#884dbc'
 
-
 TotalMoney = 100
 newplayers = []
 searchedPlayers = []
@@ -22,6 +21,15 @@ def close_window():
 
 def PlaceImage(self):
     load = Image.open("Assets/BackgroundPic.png")
+    render = ImageTk.PhotoImage(load)
+    # labels can be text or images
+    img = Label(self, image=render)
+    img.image = render
+    img.place(x=0, y=0)
+
+
+def PlaceImage2(self):
+    load = Image.open("Assets/Background2.jpg")
     render = ImageTk.PhotoImage(load)
     # labels can be text or images
     img = Label(self, image=render)
@@ -92,6 +100,7 @@ class StartPage(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.config(background=backgroundColor)
+        PlaceImage2(self)
         self.start = tk.Button(self, bg=btncolor, font=myFont, highlightthickness=0, bd='0', text="START",
                                command=lambda: controller.show_frame(Page1))
         self.start.place(relx=0.5, rely=0.5, relwidth=0.40, relheight=0.20, anchor=CENTER)
@@ -103,6 +112,7 @@ class Page1(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.config(background=backgroundColor)
+        PlaceImage2(self)
         self.singeplayer = tk.Button(self, font=myFont, bg=btncolor, highlightthickness=0, bd='0',
                                      text="Single-player",
                                      command=lambda: controller.show_frame(Page2))
@@ -128,7 +138,9 @@ class Page2(tk.Frame):
         self.scrollbar = Scrollbar(self)
         self.listbox = tk.Listbox(self)
         self.listboxsearch = tk.Listbox(self)
+
         # Labels
+        self.Total_money = Label(self, font=SmallFont, text="Total gold:", bg=backgroundColor, foreground='white')
         self.PlayerCost = Label(self, font=SmallFont, text="Cost", bg=backgroundColor, foreground='white')
         self.SearchCost_Text = Label(self, font=SmallFont, text="Type to search after cost", bg=backgroundColor,
                                      foreground='white')
@@ -140,8 +152,6 @@ class Page2(tk.Frame):
         # Buttons
         self.buy_btn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
                                  command=self.BuyMenu)
-        self.buy_btn2 = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
-                                  command=self.Buysearch)
         self.startGame = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="Start Game",
                                    command=lambda: controller.show_frame(Page3))
         self.searchByCost_btn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0',
@@ -154,14 +164,15 @@ class Page2(tk.Frame):
         self.Search_cost = tk.Entry(self, bg=btncolor, font=SmallFont, foreground='white')
 
         # Placing all
-        self.Money.place(relx=0.3, rely=0.1, anchor=CENTER)
-        self.PlayerCost.place(relx=0.895, rely=0.1, anchor=CENTER)
-        self.SearchCost_Text.place(relx=0.4, rely=0.35, anchor=CENTER)
-        self.Search_cost.place(relx=0.4, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
+        self.Total_money.place(relx=0.10, rely=0.1, anchor=CENTER)
+        self.Money.place(relx=0.5, rely=0.1, anchor=CENTER)
+        self.PlayerCost.place(relx=0.800, rely=0.1, anchor=CENTER)
+        self.SearchCost_Text.place(relx=0.45, rely=0.35, anchor=CENTER)
+        self.Search_cost.place(relx=0.45, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
         self.buy_btn.place(relx=0.8, rely=0.9, relwidth=0.1, relheight=0.1, anchor=CENTER)
-        self.sortByCost_btn.place(relx=0.20, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
+        self.sortByCost_btn.place(relx=0.15, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
         self.listbox.place(relx=0.8, rely=0.55, relheight=0.50, relwidth=0.1, anchor=CENTER)
-        self.searchByCost_btn.place(relx=0.4, rely=0.57, relwidth=0.1, relheight=0.05, anchor=CENTER)
+        self.searchByCost_btn.place(relx=0.45, rely=0.57, relwidth=0.1, relheight=0.05, anchor=CENTER)
         self.clear_btn.place(relx=0.15, rely=0.57, relwidth=0.2, relheight=0.05, anchor=CENTER)
 
         for i in range(len(allPlayers)):
@@ -267,7 +278,7 @@ class Page3(tk.Frame):
         print("Results page")
         open("output.txt", "w").close()
         GameResults = readFile("output.txt")
-        #startGame()
+        # startGame()
         self.text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
         self.text_area.insert(tk.INSERT, applytoLabel(GameResults))
         self.text_area.configure(state='disabled')
