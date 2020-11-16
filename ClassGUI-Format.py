@@ -283,8 +283,7 @@ class Page3(tk.Frame):
         self.text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
         self.text_area.insert(tk.INSERT, applytoLabel(GameResults))
         self.text_area.configure(state='disabled')
-        startGame()
-        GameResults = readFile("output.txt")
+        #startGame()
         self.closeBtn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
         print(GameResults)
 
