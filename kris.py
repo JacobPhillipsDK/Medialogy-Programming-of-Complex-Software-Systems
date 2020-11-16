@@ -5,9 +5,17 @@ import tkinter.font as font
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import tkinter.scrolledtext as st
+
+from GameMechanics.main2 import *
+from GameMechanics.PlayerRole import *
+from GameMechanics.gameSimulator import *
+from GameMechanics.gameSimulator import *
+
 from main2 import *
 from PlayerRole import *
 from gameSimulator import *
+
+
 
 root = Tk()
 root.title("Sim League")
@@ -173,7 +181,7 @@ buy_btn3 = tk.Button(root, font=myFont3, bg=btncolor, highlightthickness=0, bd='
                     command=frame4)
 Restart_btn = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="RESTART",
                         command=reStart)
-sortByCost_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="SORT",
+sortByCost_btn = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="SORT",
                     command=Sort)
 searchByCost_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="SEARCH",
                     command=Search1)
@@ -227,8 +235,8 @@ def SinglePLayerPage():
     Search_cost.place(relx=0.4, rely=0.475, relwidth=0.2, relheight=0.1, anchor=CENTER)
     buy_btn.place(relx=0.45, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
     sortByCost_btn.place(relx=0.20,rely=0.85,relwidth=0.2,relheight=0.1,anchor=CENTER)
-    searchByCost_btn.place(relx=0.4,rely=0.57,relwidth=0.1,relheight=0.05,anchor=CENTER)
-    clear_btn.place(relx=0.15,rely=0.57,relwidth=0.1,relheight=0.05,anchor=CENTER)
+    searchByCost_btn.place(relx=0.45,rely=0.57,relwidth=0.09,relheight=0.05,anchor=CENTER)
+    clear_btn.place(relx=0.35,rely=0.57,relwidth=0.09,relheight=0.05,anchor=CENTER)
 
     #scrollbar.place(relx=0.4, rely=0.3, anchor=CENTER)
     listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
