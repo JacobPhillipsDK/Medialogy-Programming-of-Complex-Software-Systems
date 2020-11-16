@@ -16,7 +16,6 @@ def SearchCost(list, value):
 def sortafterCost(sorted):
     for i in range(len(allPlayers) - 1, 0, -1):
         for j in range(i):
-
             if allPlayers[j].getExperience() > allPlayers[j + 1].getExperience():
                 sorted[j], sorted[j + 1] = sorted[j + 1], sorted[j]
 
