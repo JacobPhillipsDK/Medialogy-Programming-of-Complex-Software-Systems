@@ -1,5 +1,6 @@
-from GameMechanics.PlayerRole import *
+from PlayerRole import *
 from typing import List
+
 
 class Team:
     __name = "LoL team"
@@ -10,7 +11,7 @@ class Team:
         self.__players = players
 
     for i in range(5):
-        __players.append(PlayerRole("faker",5,7,9,1))
+        __players.append(PlayerRole("faker", 5, 7, 9, 1))
 
     def get_Player(self, num: int):
         return self.__players[num]
@@ -29,6 +30,3 @@ class Team:
 
     def getName(self):
         return self.__name
-
-
-
