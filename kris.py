@@ -65,6 +65,7 @@ def frame2():
 
 
 def frame3():
+    players1.clear()
     return SinglePLayerPage()
 
 
@@ -73,10 +74,10 @@ def frame4():
     global TotalMoney
     if TotalMoney - allPlayers[number].getCost() >= 0:
         players1.append(allPlayers[number])
+        print(players1)
         TotalMoney -= allPlayers[number].getCost()
         moneytext = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
         moneytext.place(relx=0.1, rely=0.1, anchor=CENTER)
-        print("total: ",TotalMoney)
         if len(players1) == 5:
             sortByCost_btn.place_forget()
             moneytext.place_forget()
