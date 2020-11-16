@@ -11,9 +11,9 @@ serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Printer de sockets der er blevet lavet.
 print("socket created")
 try:
-    port = 30000
+    port = 4050
 except:
-    port = 40000
+    port = 5050
 
 # Henter local maksine navn
 myHostName = socket.gethostname()
