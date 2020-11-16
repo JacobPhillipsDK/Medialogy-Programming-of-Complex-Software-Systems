@@ -2,7 +2,7 @@ import socket
 
 
 #Laver ny socket
-c = socket.socket()
+c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 #Virker kun hvis server kører på egen computer, ellers skal der difeneres hvilken ipv4 adresse serveren kører på
 hostname = socket.gethostname()

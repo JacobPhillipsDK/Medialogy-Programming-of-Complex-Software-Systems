@@ -3,7 +3,7 @@ from _thread import *
 
 ThreadCount = 0
 
-s = socket.socket()
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 print("socket created")
 try:
