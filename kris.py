@@ -5,12 +5,6 @@ import tkinter.font as font
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import tkinter.scrolledtext as st
-
-from GameMechanics.main2 import *
-from GameMechanics.PlayerRole import *
-from GameMechanics.gameSimulator import *
-from GameMechanics.gameSimulator import *
-
 from main2 import *
 from PlayerRole import *
 from gameSimulator import *
