@@ -9,7 +9,7 @@ from Team import *
 SmallFont = ("Verdana", 20, "bold")
 myFont = ("Helvetica", 50)
 
-backgroundColor = '#350f58'
+backgroundColor = '#320041'
 btncolor = '#884dbc'
 
 TotalMoney = 100
@@ -144,24 +144,21 @@ class Page2(tk.Frame):
 
         # Labels
         self.Total_money = Label(self, font=SmallFont, text="Total gold:", bg=backgroundColor, foreground='white')
-        self.PlayerCost = Label(self, font=SmallFont, text="Cost", bg=backgroundColor, foreground='white')
+        self.PlayerCost = Label(self, font=SmallFont, text="Cost", bg=backgroundColor,foreground='white')
         self.SearchCost_Text = Label(self, font=SmallFont, text="Type to search after cost", bg=backgroundColor,
-                                     foreground='white')
+                                    foreground='white')
         self.Money = Label(self, font=myFont, text=TotalMoney, bg=backgroundColor, foreground='white')
         self.sortByCost_btn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0',
-                                        text="Sort After Cost",
-                                        command=self.Sort)
+                                        text="Sort After Cost", foreground='white', command=self.Sort)
 
         # Buttons
-        self.buy_btn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
+        self.buy_btn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="BUY", foreground='white',
                                  command=self.BuyMenu)
         self.startGame = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="Start Game",
                                    command=lambda: controller.show_frame(Page3))
         self.searchByCost_btn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0',
-                                          text="SEARCH",
-                                          command=self.Search1)
-        self.clear_btn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="CLEAR SEARCH",
-                                   command=self.clearSearch)
+                                          text="SEARCH", foreground = 'white',command=self.Search1)
+        self.clear_btn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="CLEAR SEARCH", foreground='white', command=self.clearSearch)
 
         # Entry
         self.Search_cost = tk.Entry(self, bg=btncolor, font=SmallFont, foreground='white')
@@ -286,6 +283,8 @@ class Page3(tk.Frame):
         self.text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
         self.text_area.insert(tk.INSERT, applytoLabel(GameResults))
         self.text_area.configure(state='disabled')
+        startGame()
+        GameResults = readFile("output.txt")
         self.closeBtn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
         print(GameResults)
 
