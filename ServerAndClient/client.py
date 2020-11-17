@@ -9,14 +9,11 @@ address = socket.gethostbyname(hostname)
 
 print(address)
 # Port skal matches med server port
-port1 = 30000
-port2 = 40000
 
-# Sættes til IPv4 som serveren køres på
-try:
-    c.connect((address, port1))
-except:
-    c.connect((address, port2))
+port2 = 4050
+
+
+c.connect((address, port2))
 
 # Buffer size skal være 4096 eller derover ellers bliver alt data ikke sendt.
 Message = c.recv(4096)
