@@ -35,6 +35,42 @@ TotalMoney = 100
 newplayers = []
 searchedPlayers = []
 
+def send_msg(msg):
+    message = msg.encode(FORMAT)
+    msg_length = len(message)
+    send_length = str(msg_length).encode(FORMAT)
+    send_length += b' ' * (HEADER - len(send_length))
+    client.send(send_length)
+    client.send(message)
+    print(client.recv(2048).decode(FORMAT))
+
+
+def PickleHandler():
+    while True:
+        full_msg = b''
+        new_msg = True
+        while True:
+            msg = client.recv(16)
+            if new_msg:
+                # print("new msg len:",msg[:HEADERSIZE])
+                msglen = int(msg[:HEADERSIZE])
+                new_msg = False
+            # print(f"full message length: {msglen}")
+            full_msg += msg
+            # print(len(full_msg))
+            if len(full_msg) - HEADERSIZE == msglen:
+                print("I can received message from [SERVER]")
+                print(full_msg[HEADERSIZE:])
+                print(pickle.loads(full_msg[HEADERSIZE:]))
+                GemSata(pickle.loads(full_msg[HEADERSIZE:]))
+                new_msg = True
+                full_msg = b""
+
+
+
+
+
+
 
 # Reads TXT file and saves it Into a List
 def readFile(fileName):
@@ -88,6 +124,7 @@ def frame2():
 
 
 def frame3():
+    players1.clear()
     return SinglePLayerPage()
 
 
@@ -103,6 +140,10 @@ def frame4():
         moneytext.place(relx=0.1, rely=0.1, anchor=CENTER)
 
         if len(players1) == 5:
+            d = readFile("DataGem.txt")
+            msg = pickle.dumps(d)
+            msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
+            client.send(msg)
             sortByCost_btn.place_forget()
             moneytext.place_forget()
             return NextSinglePlayerPage()
@@ -297,38 +338,6 @@ def NextSinglePlayerPage():
     text_area.configure(state='disabled')
     exit_btn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
     print(GameResults)
-
-
-def send_msg(msg):
-    message = msg.encode(FORMAT)
-    msg_length = len(message)
-    send_length = str(msg_length).encode(FORMAT)
-    send_length += b' ' * (HEADER - len(send_length))
-    client.send(send_length)
-    client.send(message)
-    print(client.recv(2048).decode(FORMAT))
-
-
-def PickleHandler():
-    while True:
-        full_msg = b''
-        new_msg = True
-        while True:
-            msg = client.recv(16)
-            if new_msg:
-                # print("new msg len:",msg[:HEADERSIZE])
-                msglen = int(msg[:HEADERSIZE])
-                new_msg = False
-            # print(f"full message length: {msglen}")
-            full_msg += msg
-            # print(len(full_msg))
-            if len(full_msg) - HEADERSIZE == msglen:
-                print("I can received message from [SERVER]")
-                print(full_msg[HEADERSIZE:])
-                print(pickle.loads(full_msg[HEADERSIZE:]))
-                GemSata(pickle.loads(full_msg[HEADERSIZE:]))
-                new_msg = True
-                full_msg = b""
 
 
 def multiplayer_connect():

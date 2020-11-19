@@ -3,9 +3,9 @@ from main2 import *
 import threading
 import pickle
 from GameMechanics import gameSimulator as GS
+
 global playerNames
 global USER_COUNT
-
 
 # 64 byte
 HEADERSIZE = 10
@@ -19,10 +19,7 @@ ADDR = (SERVER, PORT)
 FORMAT = 'utf-8'
 # Hvis en person sender denne besked, vil clienten bliver afbrudt fra serveren.
 DISCONNECT_MESSAGE = "!DISCONNECT"
-
 # String saved for Teams.
-
-
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
 
@@ -34,17 +31,22 @@ def readFile(fileName):
     return words
 
 
+def GemSata(InputData):
+    file2Write = open("DataGem.txt", "a")
+    file2Write.write(f"{InputData}")
+    file2Write.close()
+    return None
+
 
 players1 = []
 players2 = []
-
-player11 = str("Player")
 
 def StartGameMultiplayer():
     Player1 = GS.Team("Player 1", players1)
     Player2 = GS.Team("PLayer 2", players2)
     game = GS.gameSimulator()
     game.game_start(Player1, Player2)
+
 
 # Gør det mulig at sende beskeder til client som string format i console
 def handle_client(conn, addr):
@@ -63,6 +65,28 @@ def handle_client(conn, addr):
     conn.close()
 
 
+def PickleHandler():
+    while True:
+        full_msg = b''
+        new_msg = True
+        while True:
+            msg = server.recv(16)
+            if new_msg:
+                # print("new msg len:",msg[:HEADERSIZE])
+                msglen = int(msg[:HEADERSIZE])
+                new_msg = False
+            # print(f"full message length: {msglen}")
+            full_msg += msg
+            # print(len(full_msg))
+            if len(full_msg) - HEADERSIZE == msglen:
+                print("I can received message from [SERVER]")
+                print(full_msg[HEADERSIZE:])
+                print(pickle.loads(full_msg[HEADERSIZE:]))
+                GemSata(pickle.loads(full_msg[HEADERSIZE:]))
+                new_msg = True
+                full_msg = b""
+
+
 # Starer socket server
 # Lytter efter forbindelse anmodninger
 def start():
@@ -75,11 +99,10 @@ def start():
         print(f"[ACTIVE CONNECTIONS]   {threading.active_count() - 1}")
         USER_COUNT = int((threading.active_count() - 1))
         print(f"[ACTIVE USER_COUNT:]  {USER_COUNT}")
-        #d = readFile("DataSend.txt")
-        #msg = pickle.dumps(d)
-        #msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
-        #print(msg)
-
+        # d = readFile("DataSend.txt")
+        # msg = pickle.dumps(d)
+        # msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
+        # print(msg)
 
 
 print("[SERVER] Server is starting.....")
