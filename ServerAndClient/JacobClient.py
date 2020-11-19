@@ -21,5 +21,3 @@ def send(msg):
     print(client.recv(2048).decode(FORMAT))
 
 
-send("Hello World")
-send("Hello Cake")

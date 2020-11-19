@@ -1,4 +1,4 @@
-import socket, pickle
+import socket, pickle, threading
 from tkinter import *
 import tkinter as tk
 import tkinter.font as font
@@ -8,16 +8,14 @@ from main2 import *
 
 # Networking Stuff:
 HEADER = 64
-PORT = 5050
+PORT = 4050
+HEADERSIZE = 10
 # Hvilken formatering som programmet vil blive kørt i
 FORMAT = 'utf-8'
-
 DISCONNECT_MESSAGE = "!DISCONNECT"
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 SERVER = socket.gethostbyname(socket.gethostname())
 ADDR = (SERVER, PORT)
-
-playerNames = str()
 
 root = Tk()
 root.title("Sim League")
@@ -46,11 +44,17 @@ def readFile(fileName):
     return words
 
 
-def applytoLabel(input):
-    n = len(input)
+def GemSata(InputData):
+    file2Write = open("DataGem.txt", "w")
+    file2Write.write(str(list(InputData)))
+    file2Write.close()
+
+
+def applytoLabel(SetInput):
+    n = len(SetInput)
     element = ''
     for i in range(n):
-        element = element + input[i] + '\n'
+        element = element + SetInput[i] + '\n'
     return element
 
 
@@ -207,8 +211,6 @@ SearchCost_Text = Label(root, font=SearchFont, text="Type to search after cost",
 text_area = st.ScrolledText(root, width=52, height=20, font=SearchFont, bg=backgroundColor,
                             foreground='white', relief=GROOVE, bd=0)
 
-multiplayer_name = Label(root, font=myFont2, text=playerNames, bg=backgroundColor, foreground='white')
-
 # Entry box
 Search_name = tk.Entry(root, bg=btncolor, font=SearchFont, foreground='white')
 Search_cost = tk.Entry(root, bg=btncolor, font=SearchFont, foreground='white')
@@ -287,16 +289,37 @@ def send_msg(msg):
     print(client.recv(2048).decode(FORMAT))
 
 
+def RecvDaty():
+    while True:
+        full_msg = b''
+        new_msg = True
+        while True:
+            msg = client.recv(16)
+            if new_msg:
+                # print("new msg len:",msg[:HEADERSIZE])
+                msglen = int(msg[:HEADERSIZE])
+                new_msg = False
+            # print(f"full message length: {msglen}")
+            full_msg += msg
+            # print(len(full_msg))
+            if len(full_msg) - HEADERSIZE == msglen:
+                print("I can received message from [SERVER]")
+                print(full_msg[HEADERSIZE:])
+                print(pickle.loads(full_msg[HEADERSIZE:]))
+                GemSata(pickle.loads(full_msg[HEADERSIZE:]))
+                new_msg = True
+                full_msg = b""
+
+
 def multiplayer_connect():
+    client.connect(ADDR)
+    print(f" [SERVER ]You have connected successfully to {SERVER}")
     frame2_btn1.place_forget()
     frame2_btn2.place_forget()
-    client.connect(ADDR)
+    thread = threading.Thread(target=RecvDaty)
+    thread.start()
     send_msg("[USER] A user have connected to server")
 
-    multiplayer_name.place(relx=0.9, rely=0.1, anchor=CENTER)
 
-
-
-# Remeber to change this to the StartPage
 startProgram(frame1)
 root.mainloop()

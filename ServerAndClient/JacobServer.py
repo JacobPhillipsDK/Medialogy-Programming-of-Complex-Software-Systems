@@ -7,9 +7,10 @@ global playerNames
 global USER_COUNT
 
 # 64 byte
+HEADERSIZE = 10
 HEADER = 64
 # Port
-PORT = 5050
+PORT = 4050
 SERVER = socket.gethostbyname(socket.gethostname())
 # Adress
 ADDR = (SERVER, PORT)
@@ -24,6 +25,12 @@ DISCONNECT_MESSAGE = "!DISCONNECT"
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
 
+
+def readFile(fileName):
+    fileObj = open(fileName, "r")  # opens the file in read mode
+    words = fileObj.read().splitlines()  # puts the file into an array
+    fileObj.close()
+    return words
 
 
 allPlayers = []
@@ -67,7 +74,6 @@ def StartGameMultiplayer():
 # Gør det mulig at sende beskeder til client som string format i console
 def handle_client(conn, addr):
     print(f"[NEW CONNECTION] {addr} connected")
-
     connected = True
     while connected:
         # Siger længden af beskeden er 64 byte og skal formateres som utf-8
@@ -79,14 +85,13 @@ def handle_client(conn, addr):
                 connected = False
             print(f"[{addr}] {msg}")
             conn.send(f"[SERVER] You have connected to {SERVER}".encode(FORMAT))
-            conn.send(f"[SERVER]  Test")
     conn.close()
 
 
 # Starer socket server
 # Lytter efter forbindelse anmodninger
 def start():
-    server.listen(2)
+    server.listen(5)
     print(f"[LISTENING] Server is listening on {SERVER}")
     while True:
         conn, addr = server.accept()
@@ -95,8 +100,11 @@ def start():
         print(f"[ACTIVE CONNECTIONS]   {threading.active_count() - 1}")
         USER_COUNT = int((threading.active_count() - 1))
         print(f"[ACTIVE USER_COUNT:]   {USER_COUNT}")
-        if USER_COUNT == 2:
-            StartGameMultiplayer()
+        d = readFile("DataSend.txt")
+        msg = pickle.dumps(d)
+        msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
+        print(msg)
+        conn.send(msg)
 
 
 print("[SERVER] Server is starting.....")
