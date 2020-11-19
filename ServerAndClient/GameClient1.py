@@ -16,7 +16,6 @@ DISCONNECT_MESSAGE = "!DISCONNECT"
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 SERVER = socket.gethostbyname(socket.gethostname())
 ADDR = (SERVER, PORT)
-client.connect(ADDR)
 
 root = Tk()
 root.title("Sim League")
@@ -46,9 +45,18 @@ def readFile(fileName):
 
 
 def GemSata(InputData):
-    file2Write = open("DataGem.txt", "w")
-    file2Write.write(str(list(InputData)))
+    file2Write = open("DataGem.txt", "a")
+    file2Write.write(f"{InputData}")
     file2Write.close()
+    return None
+
+
+def ReadLinesTxt():
+    InputData = open("DataGem.txt", "a")
+    for line in InputData:
+        # Should print each line of
+        print(line)
+    InputData.close()
 
 
 def applytoLabel(SetInput):
@@ -57,6 +65,13 @@ def applytoLabel(SetInput):
     for i in range(n):
         element = element + SetInput[i] + '\n'
     return element
+
+
+def readStringExecutive(String):
+    a = str(String)
+    # Was used for debugging purposes
+    # print(a)
+    exec(a)
 
 
 def startProgram(frame):
@@ -73,7 +88,6 @@ def frame2():
 
 
 def frame3():
-    players1.clear()
     return SinglePLayerPage()
 
 
@@ -82,10 +96,12 @@ def frame4():
     global TotalMoney
     if TotalMoney - allPlayers[number].getCost() >= 0:
         players1.append(allPlayers[number])
-        print(players1)
+        GemSata(f"players1.append(allPlayers[{number}]\n")
+        print(f"Wrote Number: {number} to file")
         TotalMoney -= allPlayers[number].getCost()
         moneytext = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
         moneytext.place(relx=0.1, rely=0.1, anchor=CENTER)
+
         if len(players1) == 5:
             sortByCost_btn.place_forget()
             moneytext.place_forget()
@@ -137,11 +153,14 @@ def Buysearch():
     global TotalMoney
     if TotalMoney - searchedPlayers[number].getCost() >= 0:
         players1.append(searchedPlayers[number])
+        GemSata(f"players1.append(allPlayers[{number}]\n")
+        print(f"Wrote Number: {number} to file")
         TotalMoney -= searchedPlayers[number].getCost()
         moneytext = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
         moneytext.place(relx=0.1, rely=0.1, anchor=CENTER)
         print("total: ", TotalMoney)
         if len(players1) == 5:
+            ReadLinesTxt()
             moneytext.place_forget()
             sortByCost_btn.place_forget()
             return NextSinglePlayerPage()
@@ -290,14 +309,7 @@ def send_msg(msg):
     print(client.recv(2048).decode(FORMAT))
 
 
-
-
-
-
-def multiplayer_connect():
-    print(f" [SERVER ]You have connected successfully to {SERVER}")
-    frame2_btn1.place_forget()
-    frame2_btn2.place_forget()
+def PickleHandler():
     while True:
         full_msg = b''
         new_msg = True
@@ -317,7 +329,15 @@ def multiplayer_connect():
                 GemSata(pickle.loads(full_msg[HEADERSIZE:]))
                 new_msg = True
                 full_msg = b""
+
+
+def multiplayer_connect():
+    client.connect(ADDR)
+    open("DataGem.txt", "w").close()
+    # PickleHandler()
     send_msg("[USER] A user have connected to server")
+    readStringExecutive('print("hello world")')
+    frame3()
 
 
 startProgram(frame1)
