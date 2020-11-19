@@ -8,7 +8,7 @@ global playerNames
 global USER_COUNT
 
 # 64 byte
-HEADERSIZE = 10
+HEADERSIZE = 64
 HEADER = 64
 # Port
 PORT = 4050
@@ -22,6 +22,12 @@ DISCONNECT_MESSAGE = "!DISCONNECT"
 # String saved for Teams.
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
+
+def readStringExecutive(String):
+    a = str(String)
+    # Was used for debugging purposes
+    # print(a)
+    exec(a)
 
 
 def readFile(fileName):
@@ -46,6 +52,7 @@ def StartGameMultiplayer():
     Player2 = GS.Team("PLayer 2", players2)
     game = GS.gameSimulator()
     game.game_start(Player1, Player2)
+
 
 
 # Gør det mulig at sende beskeder til client som string format i console
@@ -94,11 +101,14 @@ def start():
     print(f"[LISTENING] Server is listening on {SERVER}")
     while True:
         conn, addr = server.accept()
+        thead_pickle = threading.Thread(target=PickleHandler, args=(conn,addr))
         thread = threading.Thread(target=handle_client, args=(conn, addr))
+        thead_pickle.start()
         thread.start()
         print(f"[ACTIVE CONNECTIONS]   {threading.active_count() - 1}")
         USER_COUNT = int((threading.active_count() - 1))
         print(f"[ACTIVE USER_COUNT:]  {USER_COUNT}")
+        #PickleHandler()
         # d = readFile("DataSend.txt")
         # msg = pickle.dumps(d)
         # msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg

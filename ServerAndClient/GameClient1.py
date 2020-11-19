@@ -9,7 +9,7 @@ from main2 import *
 # Networking Stuff:
 HEADER = 64
 PORT = 4050
-HEADERSIZE = 10
+HEADERSIZE = 64
 # Hvilken formatering som programmet vil blive kørt i
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
@@ -35,15 +35,6 @@ TotalMoney = 100
 newplayers = []
 searchedPlayers = []
 
-def send_msg(msg):
-    message = msg.encode(FORMAT)
-    msg_length = len(message)
-    send_length = str(msg_length).encode(FORMAT)
-    send_length += b' ' * (HEADER - len(send_length))
-    client.send(send_length)
-    client.send(message)
-    print(client.recv(2048).decode(FORMAT))
-
 
 def PickleHandler():
     while True:
@@ -67,6 +58,15 @@ def PickleHandler():
                 full_msg = b""
 
 
+def send_msg(msg):
+    message = msg.encode(FORMAT)
+    msg_length = len(message)
+    send_length = str(msg_length).encode(FORMAT)
+    send_length += b' ' * (HEADER - len(send_length))
+    client.send(send_length)
+    client.send(message)
+    print(client.recv(2048).decode(FORMAT))
+
 
 
 
@@ -79,14 +79,14 @@ def readFile(fileName):
     fileObj.close()
     return words
 
-
+# Gemmer data til DataGem
 def GemSata(InputData):
     file2Write = open("DataGem.txt", "a")
     file2Write.write(f"{InputData}")
     file2Write.close()
     return None
 
-
+# Læser linjer fra TXT fil
 def ReadLinesTxt():
     InputData = open("DataGem.txt", "a")
     for line in InputData:
@@ -337,15 +337,13 @@ def NextSinglePlayerPage():
     text_area.insert(tk.INSERT, applytoLabel(GameResults))
     text_area.configure(state='disabled')
     exit_btn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
-    print(GameResults)
+    # print(GameResults)
 
 
 def multiplayer_connect():
     client.connect(ADDR)
     open("DataGem.txt", "w").close()
-    # PickleHandler()
     send_msg("[USER] A user have connected to server")
-    readStringExecutive('print("hello world")')
     frame3()
 
 
