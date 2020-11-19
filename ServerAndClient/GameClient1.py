@@ -16,6 +16,7 @@ DISCONNECT_MESSAGE = "!DISCONNECT"
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 SERVER = socket.gethostbyname(socket.gethostname())
 ADDR = (SERVER, PORT)
+client.connect(ADDR)
 
 root = Tk()
 root.title("Sim League")
@@ -289,7 +290,14 @@ def send_msg(msg):
     print(client.recv(2048).decode(FORMAT))
 
 
-def RecvDaty():
+
+
+
+
+def multiplayer_connect():
+    print(f" [SERVER ]You have connected successfully to {SERVER}")
+    frame2_btn1.place_forget()
+    frame2_btn2.place_forget()
     while True:
         full_msg = b''
         new_msg = True
@@ -309,15 +317,6 @@ def RecvDaty():
                 GemSata(pickle.loads(full_msg[HEADERSIZE:]))
                 new_msg = True
                 full_msg = b""
-
-
-def multiplayer_connect():
-    client.connect(ADDR)
-    print(f" [SERVER ]You have connected successfully to {SERVER}")
-    frame2_btn1.place_forget()
-    frame2_btn2.place_forget()
-    thread = threading.Thread(target=RecvDaty)
-    thread.start()
     send_msg("[USER] A user have connected to server")
 
 
