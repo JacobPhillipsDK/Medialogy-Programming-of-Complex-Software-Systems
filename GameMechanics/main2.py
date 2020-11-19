@@ -63,4 +63,5 @@ def startGame():
     game = GS.gameSimulator()
     game.game_start(blueteam, redteam)
 
+
 startGame()
