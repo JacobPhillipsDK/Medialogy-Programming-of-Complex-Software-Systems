@@ -140,7 +140,7 @@ def SecondPage():
     nameframe_btn.place_forget()
     frame2_btn1.place(relx=0.5, rely=0.35, relwidth=0.40, relheight=0.20, anchor=CENTER)
     frame2_btn2.place(relx=0.5, rely=0.65, relwidth=0.40, relheight=0.20, anchor=CENTER)
-    open("../useless.txt", "w").close()
+    open("useless.txt", "w").close()
 
 
 def SinglePLayerPage():
@@ -158,7 +158,7 @@ def SinglePLayerPage():
 
 def NextSinglePlayerPage():
     print("Results page")
-    open("../useless.txt", "w").close()
+    open("useless.txt", "w").close()
     startGame()
     canvas.forget()
     frame.place_forget()
@@ -167,7 +167,7 @@ def NextSinglePlayerPage():
     SearchCost_Text.place_forget()
     Search_cost.place_forget()
     buy_btn.place_forget()
-    GameResults = readFile("../useless.txt")
+    GameResults = readFile("useless.txt")
     text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
     text_area.insert(tk.INSERT, applytoLabel(GameResults))
     text_area.configure(state='disabled')

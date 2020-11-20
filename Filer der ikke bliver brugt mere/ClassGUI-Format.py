@@ -21,7 +21,7 @@ def close_window():
 
 
 def PlaceImage(self):
-    load = Image.open("BackgroundPic.png")
+    load = Image.open("../Assets/BackgroundPic.png")
     render = ImageTk.PhotoImage(load)
     # labels can be text or images
     img = Label(self, image=render)
@@ -30,7 +30,7 @@ def PlaceImage(self):
 
 
 def PlaceImage2(self):
-    load = Image.open("Assets/Background2.jpg")
+    load = Image.open("../Assets/Background2.jpg")
     render = ImageTk.PhotoImage(load)
     # labels can be text or images
     img = Label(self, image=render)
@@ -276,8 +276,8 @@ class Page3(tk.Frame):
         self.closeBtn = tk.Button(self, font=SmallFont, bg=btncolor, highlightthickness=0, bd='0', text="Exit",
                                   command=close_window)
         print("Results page")
-        open("output.txt", "w").close()
-        GameResults = readFile("output.txt")
+        open("../GameMechanics/output.txt", "w").close()
+        GameResults = readFile("../GameMechanics/output.txt")
         self.text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
         self.text_area.insert(tk.INSERT, applytoLabel(GameResults))
         self.text_area.configure(state='disabled')
