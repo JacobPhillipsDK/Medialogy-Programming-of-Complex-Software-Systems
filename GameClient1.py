@@ -216,11 +216,11 @@ def Buysearch():
                 return MultiPlayerResult()
             else:
                 return NextSinglePlayerPage()
-        else:
-            failtekst = Label(root, font=myFont2, text="You don't have enough money!", bg=textColor,
-                              foreground="white")
-            FailText = + 1
-            failtekst.place(relx=0.3, rely=0.3, anchor=CENTER)
+    else:
+        failtekst = Label(root, font=myFont2, text="You don't have enough money!", bg=textColor,
+                          foreground="white")
+        FailText = + 1
+        failtekst.place(relx=0.3, rely=0.3, anchor=CENTER)
 
 
 def clearSearch():
