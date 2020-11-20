@@ -1,0 +1,5 @@
+players1.append(allPlayers[4]
+players1.append(allPlayers[10]
+players1.append(allPlayers[12]
+players1.append(allPlayers[14]
+players1.append(allPlayers[16]

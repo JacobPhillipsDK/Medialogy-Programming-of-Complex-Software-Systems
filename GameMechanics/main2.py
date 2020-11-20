@@ -1,23 +1,6 @@
 from GameMechanics import gameSimulator as GS
 
 
-def Search(arry, value):
-    for i in range(len(players1)):
-        if arry[i].getName() == value:
-            print(arry[i].getName())
-
-
-def SearchCost(list, value):
-    for i in range(len(players1)):
-        if list[i].getCost() == value:
-            print(list[i].getName() + " The value was found at", i + 1)
-
-
-def sortafterCost(sorted):
-    for i in range(len(allPlayers) - 1, 0, -1):
-        for j in range(i):
-            if allPlayers[j].getExperience() > allPlayers[j + 1].getExperience():
-                sorted[j], sorted[j + 1] = sorted[j + 1], sorted[j]
 
 
 allPlayers = []
@@ -55,7 +38,11 @@ players2.append(allPlayers[9])
 players2.append(allPlayers[17])
 
 players1 = []
-
+players1.append(allPlayers[2])
+players1.append(allPlayers[2])
+players1.append(allPlayers[2])
+players1.append(allPlayers[2])
+players1.append(allPlayers[2])
 
 def startGame():
     redteam = GS.Team("red FC", players1)

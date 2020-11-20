@@ -20,15 +20,15 @@ ADDR = (SERVER, PORT)
 root = Tk()
 root.title("Sim League")
 root.geometry("1500x720")
-root.iconbitmap(
-    "C:/Users/Jacob/Desktop/GITHUB-REPO/Medialogy-Programming-of-Complex Software-Systems/Assets/poro-icon.ico")
+#root.iconbitmap(
+    #"C:/Users/Jacob/Desktop/GITHUB-REPO/Medialogy-Programming-of-Complex Software-Systems/Assets/poro-icon.ico")
 backgroundColor = '#350f58'
 btncolor = '#884dbc'
 root.config(background=backgroundColor)
 root.resizable(width=False, height=False)
 
-backgroundImage = ImageTk.PhotoImage(
-    file="C:/Users/Jacob/Desktop/GITHUB-REPO/Medialogy-Programming-of-Complex Software-Systems/Assets/Shape 3.png")
+#backgroundImage = ImageTk.PhotoImage(
+    #file="C:/Users/Jacob/Desktop/GITHUB-REPO/Medialogy-Programming-of-Complex Software-Systems/Assets/Shape 3.png")
 
 global TotalMoney
 TotalMoney = 100
@@ -84,6 +84,7 @@ def frame1():
 
 
 def frame2():
+    players1.clear()
     return SecondPage()
 
 
@@ -190,12 +191,12 @@ def close_window():
 
 
 canvas = tk.Canvas(root, width=1500, height=720, highlightthickness=0, borderwidth=0)
-img = ImageTk.PhotoImage(Image.open(
-    "C:/Users/Jacob\Desktop/GITHUB-REPO\Medialogy-Programming-of-Complex Software-Systems/Assets/BackgroundPic.png"),
-    Image.ANTIALIAS)
-canvas.background = img  # Keep a reference in case this code is put in a function.
-bg = canvas.create_image(0, 0, anchor=tk.NW, image=img)
-frame = Frame(root)
+#img = ImageTk.PhotoImage(Image.open(
+    #"C:/Users/Jacob\Desktop/GITHUB-REPO\Medialogy-Programming-of-Complex Software-Systems/Assets/BackgroundPic.png"),
+    #Image.ANTIALIAS)
+#canvas.background = img  # Keep a reference in case this code is put in a function.
+#bg = canvas.create_image(0, 0, anchor=tk.NW, image=img)
+#frame = Frame(root)
 
 myFont = font.Font(family='Helvetica', size=50, weight='bold')
 myFont2 = font.Font(family='Helvetica', size=30, weight='bold')
@@ -260,7 +261,7 @@ def SinglePLayerPage():
     frame2_btn1.place_forget()
     frame2_btn2.place_forget()
     canvas.pack()
-    frame.pack()
+    #frame.pack()
     MoneyText.place(relx=0.1, rely=0.1, anchor=CENTER)
     PlayerCost.place(relx=0.895, rely=0.1, anchor=CENTER)
     SearchCost_Text.place(relx=0.4, rely=0.39, anchor=CENTER)
@@ -284,7 +285,7 @@ def NextSinglePlayerPage():
     open("output.txt", "w").close()
     startGame()
     canvas.forget()
-    frame.place_forget()
+    #frame.place_forget()
     MoneyText.place_forget()
     listbox.place_forget()
     PlayerCost.place_forget()
