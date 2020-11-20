@@ -58,6 +58,10 @@ def ReadLinesTxt():
         print(line)
     InputData.close()
 
+def resetMoney():
+    global TotalMoney
+    TotalMoney = 100
+    players1.clear()
 
 def applytoLabel(SetInput):
     n = len(SetInput)
@@ -97,7 +101,7 @@ def frame4():
     global TotalMoney
     if TotalMoney - allPlayers[number].getCost() >= 0:
         players1.append(allPlayers[number])
-        GemSata(f"players1.append(allPlayers[{number}]\n")
+        GemSata(f"players4.append(allPlayers[{number}]\n")
         print(f"Wrote Number: {number} to file")
         TotalMoney -= allPlayers[number].getCost()
         moneytext = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
@@ -154,7 +158,7 @@ def Buysearch():
     global TotalMoney
     if TotalMoney - searchedPlayers[number].getCost() >= 0:
         players1.append(searchedPlayers[number])
-        GemSata(f"players1.append(allPlayers[{number}]\n")
+        GemSata(f"players4.append(allPlayers[{number}]\n")
         print(f"Wrote Number: {number} to file")
         TotalMoney -= searchedPlayers[number].getCost()
         moneytext = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
@@ -223,6 +227,8 @@ searchByCost_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness
                              command=Search1)
 clear_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="CLEAR SEARCH",
                       command=clearSearch)
+reset_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
+                    command=resetMoney())
 
 # Texts
 MoneyText = Label(root, font=myFont3, text=TotalMoney, bg=backgroundColor, foreground='white')
@@ -270,7 +276,7 @@ def SinglePLayerPage():
     sortByCost_btn.place(relx=0.20, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
     searchByCost_btn.place(relx=0.45, rely=0.57, relwidth=0.09, relheight=0.05, anchor=CENTER)
     clear_btn.place(relx=0.35, rely=0.57, relwidth=0.09, relheight=0.05, anchor=CENTER)
-
+    reset_btn.place(relx=0.15, rely=0.57, relwidth=0.09, relheight=0.05, anchor=CENTER)
     # scrollbar.place(relx=0.4, rely=0.3, anchor=CENTER)
     listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
 

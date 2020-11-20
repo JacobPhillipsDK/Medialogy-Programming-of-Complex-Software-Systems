@@ -76,6 +76,11 @@ def ReadLinesTxt():
     InputData.close()
     return SavedLines
 
+def resetMoney():
+    global TotalMoney
+    TotalMoney = 100
+    players1.clear()
+
 
 def applytoLabel(SetInput):
     n = len(SetInput)
@@ -263,6 +268,8 @@ searchByCost_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness
                     command=Search1)
 clear_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="CLEAR SEARCH",foreground='white',
                     command=clearSearch)
+reset_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
+                    command=resetMoney())
 
 # Texts
 MoneyText = Label(root, font=myFont3, text=TotalMoney, bg=textColor, foreground='white')
@@ -316,7 +323,7 @@ def SinglePLayerPage():
     sortByCost_btn.place(relx=0.15, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
     searchByCost_btn.place(relx=0.35, rely=0.57, relwidth=0.09, relheight=0.05, anchor=CENTER)
     clear_btn.place(relx=0.25, rely=0.57, relwidth=0.09, relheight=0.05, anchor=CENTER)
-
+    reset_btn.place(relx=0.15, rely=0.57, relwidth=0.09, relheight=0.05, anchor=CENTER)
     # scrollbar.place(relx=0.4, rely=0.3, anchor=CENTER)
     listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
 
