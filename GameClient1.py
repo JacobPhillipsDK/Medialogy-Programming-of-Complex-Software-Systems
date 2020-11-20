@@ -377,10 +377,10 @@ def NextMultiplayerPage():
     TotalmoneyText.place_forget()
     clear_btn.place_forget()
     buy_btn.place_forget()
-    GameResults = "Look at server console for the game results"
-    backgroundlabel = Label(root, bg=backgroundColor, foreground='white')
+    GameResults = "Look at server console for thqe game results"
+    backgroundlabel = Label(root, bg=textColor, foreground='white')
     backgroundlabel.place(relx=0.3, rely=0.3, relwidth=0.6, relheight=0.08, anchor=CENTER)
-    f = Label(root, font=myFont2, text=GameResults, bg=backgroundColor, foreground='white')
+    f = Label(root, font=myFont2, text=GameResults, bg=textColor, foreground='white')
     f.place(relx=0.5, rely=0.1, relwidth=10, relheight=0.2, anchor=CENTER)
     exit_btn.place(relx=0.5, rely=0.4, relwidth=0.3, relheight=0.1, anchor=CENTER)
 
