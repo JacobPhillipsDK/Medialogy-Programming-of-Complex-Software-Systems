@@ -1,5 +1,0 @@
-players1.append(allPlayers[9]
-players1.append(allPlayers[9]
-players1.append(allPlayers[15]
-players1.append(allPlayers[17]
-players1.append(allPlayers[8]
