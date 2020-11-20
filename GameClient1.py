@@ -74,12 +74,6 @@ def ReadLinesTxt():
         # print(line)
         SavedLines.append(line[:-1])
     InputData.close()
-    return SavedLines
-
-def resetMoney():
-    global TotalMoney
-    TotalMoney = 100
-    players1.clear()
 
 
 def applytoLabel(SetInput):
@@ -118,6 +112,7 @@ def frame3():
 def frame4():
     number = listbox.index(ANCHOR)
     global TotalMoney
+    global failtekst
     if TotalMoney - allPlayers[number].getCost() >= 0:
         players1.append(allPlayers[number])
         if Clicked == True:
@@ -126,9 +121,10 @@ def frame4():
         print(f"Wrote Number: {number} to file")
         TotalMoney -= allPlayers[number].getCost()
         moneytext = Label(root, font=myFont2, text=TotalMoney, bg=textColor, foreground='white')
-        moneytext.place(relx=0.3, rely=0.1,relwidth=0.2, anchor=CENTER)
+        moneytext.place(relx=0.3, rely=0.1, relwidth=0.2, anchor=CENTER)
         if len(players1) == 5:
             moneytext.place_forget()
+            failtekst.place_forget()
             sortByCost_btn.place_forget()
             if Clicked == 1:
                 return MultiPlayerResult()
@@ -188,6 +184,7 @@ def Buysearch():
     listbox.delete(first=0, last=len(searchedPlayers))
     number = listboxsearch.index(ANCHOR)
     global TotalMoney
+    global failtekst
     if TotalMoney - searchedPlayers[number].getCost() >= 0:
         players1.append(searchedPlayers[number])
         if Clicked == True:
@@ -199,9 +196,8 @@ def Buysearch():
         moneytext.place(relx=0.3, rely=0.1, relwidth=0.2, anchor=CENTER)
         print("total: ", TotalMoney)
         if len(players1) == 5:
-            ReadLinesTxt()
-            send_msg(ReadLinesTxt().encode(FORMAT))
-            moneytext.place_forget()
+            moneytext.destroy()
+            failtekst.place_forget()
             sortByCost_btn.place_forget()
             if Clicked == 1:
                 return NextMultiplayerPage()
@@ -231,17 +227,17 @@ def clearSearch():
 def close_window():
     root.destroy()
 
+
 canvas = tk.Canvas(root, width=1500, height=720, highlightthickness=0, borderwidth=0)
 img = ImageTk.PhotoImage(Image.open("Assets/BackgroundPic.png"), Image.ANTIALIAS)
-canvas2 = tk.Canvas(root,width=1500, height=720, highlightthickness=0, borderwidth=0)
-img2 =ImageTk.PhotoImage(Image.open("Assets/Background2.jpg"), Image.ANTIALIAS)
+canvas2 = tk.Canvas(root, width=1500, height=720, highlightthickness=0, borderwidth=0)
+img2 = ImageTk.PhotoImage(Image.open("Assets/Background2.jpg"), Image.ANTIALIAS)
 img = ImageTk.PhotoImage(Image.open("Assets/BackgroundPic.png"))
 canvas2.background = img2
 canvas.background = img  # Keep a reference in case this code is put in a function.
 bg = canvas.create_image(0, 0, anchor=tk.NW, image=img)
-bg2 = canvas2.create_image(0,0, anchor =tk.NW, image = img2)
+bg2 = canvas2.create_image(0, 0, anchor=tk.NW, image=img2)
 frame = Frame(root)
-
 
 myFont = font.Font(family='Helvetica', size=50, weight='bold')
 myFont2 = font.Font(family='Helvetica', size=30, weight='bold')
@@ -249,34 +245,38 @@ myFont3 = font.Font(family='Helvetica', size=20, weight='bold')
 SearchFont = font.Font(family='Helvetica', size=20, weight='bold')
 buy_btn = font.Font(family='Helvetica', size=30, weight='bold')
 # Buttons
-frame1_btn1 = frame1_btn1 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="START", command=frame2, foreground='white')
-frame2_btn1 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="Single-player",foreground='white',
+frame1_btn1 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="START",
+                        command=frame2, foreground='white')
+frame2_btn1 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="Single-player",
+                        foreground='white',
                         command=frame3)
-frame2_btn2 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="MultiPlayer",foreground='white',
+frame2_btn2 = tk.Button(root, font=myFont, bg=btncolor, highlightthickness=0, bd='0', text="MultiPlayer",
+                        foreground='white',
                         command=multiplayer_frame)
-buy_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="BUY",foreground='white',
+buy_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="BUY", foreground='white',
                     command=frame4)
-buy_btn2 = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="BUY",foreground='white',
+buy_btn2 = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="BUY", foreground='white',
                      command=Buysearch)
-uy_btn3 = tk.Button(root, font=myFont3, bg=btncolor, highlightthickness=0, bd='0', text="BUY",foreground='white',
+uy_btn3 = tk.Button(root, font=myFont3, bg=btncolor, highlightthickness=0, bd='0', text="BUY", foreground='white',
                     command=frame4)
-exit_btn = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="EXIT",foreground='white',
+exit_btn = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="EXIT", foreground='white',
                      command=close_window)
-sortByCost_btn = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="SORT",foreground='white',
-                    command=Sort)
-searchByCost_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="SEARCH",foreground='white',
-                    command=Search1)
-clear_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="CLEAR SEARCH",foreground='white',
-                    command=clearSearch)
-reset_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
-                    command=resetMoney())
+sortByCost_btn = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="SORT",
+                           foreground='white',
+                           command=Sort)
+searchByCost_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="SEARCH",
+                             foreground='white',
+                             command=Search1)
+clear_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="CLEAR SEARCH",
+                      foreground='white',
+                      command=clearSearch)
 
 # Texts
 MoneyText = Label(root, font=myFont3, text=TotalMoney, bg=textColor, foreground='white')
 PlayerName = Label(root, font=myFont2, text="Name", bg=textColor, foreground='white')
 PlayerCost = Label(root, font=myFont2, text="Cost", bg=textColor, foreground='white')
 SearchCost_Text = Label(root, font=SearchFont, text="Type to search after cost", bg=textColor, foreground='white')
-text_area = st.ScrolledText(root, width=52, height=20, font=SearchFont, bg=textColor,
+text_area = st.ScrolledText(root, width=52, height=20, font=SearchFont, bg=backgroundColor,
                             foreground='white', relief=GROOVE, bd=0)
 TotalmoneyText = Label(root, font=myFont2, text="Total money:", bg=textColor, foreground='white')
 
@@ -323,7 +323,6 @@ def SinglePLayerPage():
     sortByCost_btn.place(relx=0.15, rely=0.85, relwidth=0.2, relheight=0.1, anchor=CENTER)
     searchByCost_btn.place(relx=0.35, rely=0.57, relwidth=0.09, relheight=0.05, anchor=CENTER)
     clear_btn.place(relx=0.25, rely=0.57, relwidth=0.09, relheight=0.05, anchor=CENTER)
-    reset_btn.place(relx=0.15, rely=0.57, relwidth=0.09, relheight=0.05, anchor=CENTER)
     # scrollbar.place(relx=0.4, rely=0.3, anchor=CENTER)
     listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
 
@@ -331,7 +330,6 @@ def SinglePLayerPage():
         listbox.insert(i, allPlayers[i].getName() + "        cost:" + str(allPlayers[i].getCost()))
     listbox.config(yscrollcommand=scrollbar.set)
     scrollbar.config(command=listbox.yview)
-
 
 def NextSinglePlayerPage():
     print("Results page")
@@ -345,13 +343,14 @@ def NextSinglePlayerPage():
     SearchCost_Text.place_forget()
     Search_cost.place_forget()
     buy_btn.place_forget()
+    TotalmoneyText.place_forget()
+    clear_btn.place_forget()
     GameResults = readFile("output.txt")
     text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
     text_area.insert(tk.INSERT, applytoLabel(GameResults))
     text_area.configure(state='disabled')
-    TotalmoneyText.place_forget()
-    clear_btn.place_forget()
-    exit_btn.place(relx=0.8, rely=0.3, relwidth=0.6, relheight=0.1, anchor=CENTER)
+    exit_btn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
+
 
 
 
@@ -367,7 +366,9 @@ def NextMultiplayerPage():
     TotalmoneyText.place_forget()
     clear_btn.place_forget()
     buy_btn.place_forget()
-    GameResults = "Look at console for results"
+    GameResults = "Look at server console for the game results"
+    backgroundlabel = Label(root, bg=backgroundColor, foreground='white')
+    backgroundlabel.place(relx=0.3, rely=0.3, relwidth=0.6, relheight=0.08, anchor=CENTER)
     f = Label(root, font=myFont2, text=GameResults, bg=backgroundColor, foreground='white')
     f.place(relx=0.5, rely=0.1, relwidth=10, relheight=0.2, anchor=CENTER)
     exit_btn.place(relx=0.5, rely=0.4, relwidth=0.3, relheight=0.1, anchor=CENTER)
