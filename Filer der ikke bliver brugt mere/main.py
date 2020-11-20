@@ -1,5 +1,5 @@
 debug = False
-from GameMechanics import gameSimulator as GS
+import gameSimulator as GS
 
 #
 players1 = [GS.PlayerRole("Kristian", "top", 8, 8, 9), GS.PlayerRole("Jacob", "supp", 10, 10, 10),

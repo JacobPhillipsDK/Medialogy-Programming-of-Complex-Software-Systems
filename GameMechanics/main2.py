@@ -1,4 +1,4 @@
-from GameMechanics import gameSimulator as GS
+import gameSimulator as GS
 
 
 def Search(arry, value):
@@ -68,5 +68,3 @@ def startGame():
     game = GS.gameSimulator()
     game.game_start(blueteam, redteam)
 
-
-startGame()

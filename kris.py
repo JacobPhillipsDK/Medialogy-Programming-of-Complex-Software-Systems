@@ -1,4 +1,3 @@
-import os
 from tkinter import *
 import tkinter as tk
 import tkinter.font as font
@@ -6,10 +5,6 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 import tkinter.scrolledtext as st
 from main2 import *
-from PlayerRole import *
-from gameSimulator import *
-
-
 
 root = Tk()
 root.title("Sim League")

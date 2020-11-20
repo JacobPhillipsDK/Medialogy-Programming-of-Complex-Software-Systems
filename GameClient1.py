@@ -5,6 +5,7 @@ import tkinter.font as font
 from PIL import Image, ImageTk
 import tkinter.scrolledtext as st
 from main2 import *
+import os
 
 # Networking Stuff:
 HEADER = 64
@@ -20,20 +21,22 @@ ADDR = (SERVER, PORT)
 root = Tk()
 root.title("Sim League")
 root.geometry("1500x720")
-root.iconbitmap(
-    "C:/Users/Jacob/Desktop/GITHUB-REPO/Medialogy-Programming-of-Complex Software-Systems/Assets/poro-icon.ico")
+#root.iconbitmap("/Medialogy-Programming-of-Complex Software-Systems/Assets/poro-icon.ico")
 backgroundColor = '#350f58'
 btncolor = '#884dbc'
 root.config(background=backgroundColor)
 root.resizable(width=False, height=False)
 
 backgroundImage = ImageTk.PhotoImage(
-    file="C:/Users/Jacob/Desktop/GITHUB-REPO/Medialogy-Programming-of-Complex Software-Systems/Assets/Shape 3.png")
+    file="Assets/Shape 3.png")
 
+global Clicked
+Clicked = 0
 global TotalMoney
 TotalMoney = 100
 newplayers = []
 searchedPlayers = []
+
 
 def send_msg(msg):
     message = msg.encode(FORMAT)
@@ -55,7 +58,7 @@ def readFile(fileName):
 
 # Gemmer data til DataGem
 def GemSata(InputData):
-    file2Write = open("DataGem.txt", "a")
+    file2Write = open("Filer der ikke bliver brugt mere/DataGem.txt", "a")
     file2Write.write(f"{InputData}")
     file2Write.close()
     return None
@@ -64,7 +67,7 @@ def GemSata(InputData):
 # Læser linjer fra TXT fil
 def ReadLinesTxt():
     SavedLines = send_msg()
-    InputData = open("DataGem.txt", "r")
+    InputData = open("Filer der ikke bliver brugt mere/DataGem.txt", "r")
     for line in InputData:
         # Should print each line of
         # print(line)
@@ -111,14 +114,14 @@ def frame4():
     global TotalMoney
     if TotalMoney - allPlayers[number].getCost() >= 0:
         players1.append(allPlayers[number])
-        send_msg(f"players1.append(allPlayers[{number}])")
-        #GemSata(f"players1.append(allPlayers[{number}]\n")
+        send_msg(f"players3.append(allPlayers[{number}])")
+        # GemSata(f"players1.append(allPlayers[{number}]\n")
         print(f"Wrote Number: {number} to file")
         TotalMoney -= allPlayers[number].getCost()
         moneytext = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
         moneytext.place(relx=0.1, rely=0.1, anchor=CENTER)
         if len(players1) == 5:
-            #send_PickleMessage(d)
+            # send_PickleMessage(d)
             sortByCost_btn.place_forget()
             moneytext.place_forget()
             return NextSinglePlayerPage()
@@ -129,7 +132,9 @@ def frame4():
 
 
 def multiplayer_frame():
-    return multiplayer_connect()
+    global Clicked
+    Clicked += 1
+    return multiplayer_connect(),
 
 
 def Sort():
@@ -169,7 +174,7 @@ def Buysearch():
     global TotalMoney
     if TotalMoney - searchedPlayers[number].getCost() >= 0:
         players1.append(searchedPlayers[number])
-        GemSata(f"players1.append(allPlayers[{number}]\n")
+        GemSata(f"players3.append(allPlayers[{number}]\n")
         print(f"Wrote Number: {number} to file")
         TotalMoney -= searchedPlayers[number].getCost()
         moneytext = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
@@ -208,7 +213,7 @@ def close_window():
 
 canvas = tk.Canvas(root, width=1500, height=720, highlightthickness=0, borderwidth=0)
 img = ImageTk.PhotoImage(Image.open(
-    "C:/Users/Jacob\Desktop/GITHUB-REPO\Medialogy-Programming-of-Complex Software-Systems/Assets/BackgroundPic.png"),
+    "Assets/BackgroundPic.png"),
     Image.ANTIALIAS)
 canvas.background = img  # Keep a reference in case this code is put in a function.
 bg = canvas.create_image(0, 0, anchor=tk.NW, image=img)
@@ -298,8 +303,9 @@ def SinglePLayerPage():
 
 def NextSinglePlayerPage():
     print("Results page")
-    open("output.txt", "w").close()
-    startGame()
+    #open("output.txt", "w").close()
+    if Clicked == 0:
+        startGame()
     canvas.forget()
     frame.place_forget()
     MoneyText.place_forget()
@@ -308,18 +314,21 @@ def NextSinglePlayerPage():
     SearchCost_Text.place_forget()
     Search_cost.place_forget()
     buy_btn.place_forget()
-    GameResults = readFile("output.txt")
-    text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
-    text_area.insert(tk.INSERT, applytoLabel(GameResults))
+    if os.stat("output.txt").st_size > 0:
+        print("Testing")
+        GameResults = readFile("output.txt")
+        text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
+        text_area.insert(tk.INSERT, applytoLabel(GameResults))
     text_area.configure(state='disabled')
     exit_btn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
-    # print(GameResults)
+
 
 
 def multiplayer_connect():
     client.connect(ADDR)
-    #send_msg("[USER] A user have connected to server")
+    # send_msg("[USER] A user have connected to server")
     frame3()
+    print(Clicked)
 
 
 startProgram(frame1)

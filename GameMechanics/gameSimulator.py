@@ -61,7 +61,8 @@ class gameSimulator:
                 else:
                     killSuccess = False
 
-                print(str(Time) + "min: " + "Seems like " + bptk.getName() + " is trying to kill " + rptd.getName(), file=open('output.txt', 'a'))
+                print(str(Time) + "min: " + "Seems like " + bptk.getName() + " is trying to kill " + rptd.getName(), file=open(
+                    'output.txt', 'a'))
 
                 if killSuccess:
                     self.__killsBlue += 1
@@ -78,7 +79,8 @@ class gameSimulator:
                 else:
                     killSuccess = False
 
-                print(str(Time) + "min: " + "Seems like " + rptd.getName() + " is trying to kill " + bptk.getName(), file=open('output.txt', 'a'))
+                print(str(Time) + "min: " + "Seems like " + rptd.getName() + " is trying to kill " + bptk.getName(), file=open(
+                    'output.txt', 'a'))
 
                 if killSuccess:
                     self.__killsRed += 1
@@ -87,8 +89,11 @@ class gameSimulator:
                 else:
                     print(bptk.getName() + " defends, very nice!", file=open('output.txt', 'a'))
             if gameRuns == False and self.__killsBlue > self.__killsRed:
-                print("Blue team wins! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed), file=open('output.txt', 'a'))
+                print("Blue team wins! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed), file=open(
+                    'output.txt', 'a'))
             if gameRuns == False and self.__killsRed > self.__killsBlue:
-                print("Red team wins! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed), file=open('output.txt', 'a'))
+                print("Red team wins! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed), file=open(
+                    'output.txt', 'a'))
             if gameRuns == False and self.__killsBlue == self.__killsRed:
-                print("The game ends in a draw! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed),file=open('output.txt', 'a'))
+                print("The game ends in a draw! Final result: \n" + "Blue kills:" + str(self.__killsBlue) + " " + "Red kills:" + str(self.__killsRed), file=open(
+                    'output.txt', 'a'))
