@@ -25,7 +25,7 @@ root.iconbitmap("Assets/poro-icon.ico")
 backgroundColor = '#350f58'
 btncolor = '#884dbc'
 textColor = '#31013F'
-root.config(background=backgroundColor)
+root.config(background=textColor)
 root.resizable(width=False, height=False)
 
 backgroundImage = ImageTk.PhotoImage(
@@ -34,15 +34,16 @@ backgroundImage = ImageTk.PhotoImage(
 global Clicked
 Clicked = 0
 global TotalMoney
-global moneytext
+global newClicked
+newClicked = 0
+
 TotalMoney = 100
 newplayers = []
 searchedPlayers = []
 
-
-
 global FailText
 FailText = 0
+
 
 def send_msg(msg):
     message = msg.encode(FORMAT)
@@ -117,7 +118,9 @@ def frame3():
 def frame4():
     number = listbox.index(ANCHOR)
     global TotalMoney
-    global failtekst    global FailText
+    global failtekst
+    global FailText
+    global newClicked
     if TotalMoney - allPlayers[number].getCost() >= 0:
         players1.append(allPlayers[number])
         if Clicked == True:
@@ -128,6 +131,8 @@ def frame4():
         moneytext = Label(root, font=myFont2, text=TotalMoney, bg=textColor, foreground='white')
         moneytext.place(relx=0.3, rely=0.1, relwidth=0.2, anchor=CENTER)
         if len(players1) == 5:
+            moneytext = Label(root, font=myFont2, text='Game Results', bg=textColor, foreground='white')
+            moneytext.place(relx=0.3, rely=0.1, relwidth=0.2, anchor=CENTER)
             if FailText == 1:
                 failtekst.place_forget()
             sortByCost_btn.place_forget()
@@ -138,7 +143,7 @@ def frame4():
     else:
         failtekst = Label(root, font=myFont2, text="You don't have enough money!", bg=textColor,
                           foreground="white")
-        FailText =+ 1
+        FailText = + 1
         failtekst.place(relx=0.3, rely=0.3, anchor=CENTER)
 
 
@@ -196,28 +201,26 @@ def Buysearch():
         players1.append(searchedPlayers[number])
         if Clicked == True:
             send_msg(f"players3.append(allPlayers[{number}])")
-        GemSata(f"players3.append(allPlayers[{number}]\n")
         print(f"Wrote Number: {number} to file")
         TotalMoney -= searchedPlayers[number].getCost()
         moneytext = Label(root, font=myFont2, text=TotalMoney, bg=textColor, foreground='white')
         moneytext.place(relx=0.3, rely=0.1, relwidth=0.2, anchor=CENTER)
         print("total: ", TotalMoney)
         if len(players1) == 5:
-            moneytext.destroy()
+            moneytext = Label(root, font=myFont2, text='Game Results', bg=textColor, foreground='white')
+            moneytext.place(relx=0.3, rely=0.1, relwidth=0.2, anchor=CENTER)
             if FailText == 1:
                 failtekst.place_forget()
-            failtekst.place_forget()
             sortByCost_btn.place_forget()
             if Clicked == 1:
-                return NextMultiplayerPage()
+                return MultiPlayerResult()
             else:
                 return NextSinglePlayerPage()
-    else:
-        failtekst = Label(root, font=myFont2, text="You don't have enough money!", bg=backgroundColor,
-                          foreground="white")
-        FailText += 1
-        failtekst.place(relx=0.1, rely=0.1, anchor=CENTER)
-    return
+        else:
+            failtekst = Label(root, font=myFont2, text="You don't have enough money!", bg=textColor,
+                              foreground="white")
+            FailText = + 1
+            failtekst.place(relx=0.3, rely=0.3, anchor=CENTER)
 
 
 def clearSearch():
@@ -286,7 +289,7 @@ MoneyText = Label(root, font=myFont3, text=TotalMoney, bg=textColor, foreground=
 PlayerName = Label(root, font=myFont2, text="Name", bg=textColor, foreground='white')
 PlayerCost = Label(root, font=myFont2, text="Cost", bg=textColor, foreground='white')
 SearchCost_Text = Label(root, font=SearchFont, text="Type to search after cost", bg=textColor, foreground='white')
-text_area = st.ScrolledText(root, width=52, height=20, font=SearchFont, bg=backgroundColor,
+text_area = st.ScrolledText(root, width=52, height=20, font=SearchFont, bg=textColor,
                             foreground='white', relief=GROOVE, bd=0)
 TotalmoneyText = Label(root, font=myFont2, text="Total money:", bg=textColor, foreground='white')
 
@@ -335,11 +338,11 @@ def SinglePLayerPage():
     clear_btn.place(relx=0.25, rely=0.57, relwidth=0.09, relheight=0.05, anchor=CENTER)
     # scrollbar.place(relx=0.4, rely=0.3, anchor=CENTER)
     listbox.place(relx=0.8, rely=0.55, relheight=0.50, anchor=CENTER)
-
     for i in range(len(allPlayers)):
         listbox.insert(i, allPlayers[i].getName() + "        cost:" + str(allPlayers[i].getCost()))
     listbox.config(yscrollcommand=scrollbar.set)
     scrollbar.config(command=listbox.yview)
+
 
 def NextSinglePlayerPage():
     print("Results page")
@@ -354,15 +357,12 @@ def NextSinglePlayerPage():
     Search_cost.place_forget()
     buy_btn.place_forget()
     TotalmoneyText.place_forget()
-    moneytext.place_forget()
     clear_btn.place_forget()
     GameResults = readFile("output.txt")
-    text_area.place(relx=0.275, rely=0.5, anchor=CENTER)
+    text_area.place(relx=0.275, rely=0.6, anchor=CENTER)
     text_area.insert(tk.INSERT, applytoLabel(GameResults))
     text_area.configure(state='disabled')
     exit_btn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
-
-
 
 
 def NextMultiplayerPage():
