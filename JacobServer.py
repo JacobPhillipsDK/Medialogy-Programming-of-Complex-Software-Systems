@@ -9,7 +9,7 @@ global players2
 HEADERSIZE = 64
 HEADER = 64
 # Port
-PORT = 4050
+PORT = 5060
 SERVER = socket.gethostbyname(socket.gethostname())
 # Adress
 ADDR = (SERVER, PORT)
@@ -20,7 +20,8 @@ DISCONNECT_MESSAGE = "!DISCONNECT"
 # String saved for Teams.
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
-
+global asda
+asda = False
 
 def readStringExecutive(String):
     a = str(String)
@@ -72,6 +73,8 @@ def handle_client(conn, addr):
             if len(players3) == 5 and len(players4) == 5:
                 print("Starting gameSimulator")
                 StartGameMultiplayer()
+                global asda
+                asda = True
             conn.send(f"[SERVER] You have connected to {SERVER}".encode(FORMAT))
     conn.close()
 
@@ -93,6 +96,8 @@ def start():
         print(f"[ACTIVE CONNECTIONS]   {threading.active_count() - 1}")
         USER_COUNT = int((threading.active_count() - 1))
         print(f"[ACTIVE USER_COUNT:]  {USER_COUNT}")
+        if asda == True:
+            conn.send("Update bitch")
 
 
 

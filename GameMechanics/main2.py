@@ -21,7 +21,7 @@ def sortafterCost(sorted):
 
 
 allPlayers = []
-allPlayers.append(GS.PlayerRole("BioFrost", 5, 7, 6, 15))
+allPlayers.append(GS.PlayerRole("BioFrost", 1, 1, 1, 0))
 allPlayers.append(GS.PlayerRole("Bjergsen", 6, 9, 7, 19))
 allPlayers.append(GS.PlayerRole("Broken_Blade", 6, 7, 7, 16))
 allPlayers.append(GS.PlayerRole("DoubleLift", 7, 9, 6, 18))
