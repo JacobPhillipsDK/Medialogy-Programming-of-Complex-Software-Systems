@@ -2,36 +2,47 @@ import socket
 from tkinter import *
 import tkinter as tk
 import tkinter.font as font
-from tkinter import messagebox
 from PIL import Image, ImageTk
 import tkinter.scrolledtext as st
 from main2 import *
 
+# Networking Stuff:
 HEADER = 64
-PORT = 5050
+PORT = 4050
+HEADERSIZE = 64
+# Hvilken formatering som programmet vil blive kørt i
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 SERVER = socket.gethostbyname(socket.gethostname())
 ADDR = (SERVER, PORT)
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 root = Tk()
 root.title("Sim League")
 root.geometry("1500x720")
 root.iconbitmap(
-    "C:/Users/Jacob\Desktop/GITHUB-REPO\Medialogy-Programming-of-Complex Software-Systems/Assets/poro-icon.ico")
+    "C:/Users/Jacob/Desktop/GITHUB-REPO/Medialogy-Programming-of-Complex Software-Systems/Assets/poro-icon.ico")
 backgroundColor = '#350f58'
 btncolor = '#884dbc'
 root.config(background=backgroundColor)
 root.resizable(width=False, height=False)
 
 backgroundImage = ImageTk.PhotoImage(
-    file="C:/Users/Jacob\Desktop/GITHUB-REPO\Medialogy-Programming-of-Complex Software-Systems/Assets/Shape 3.png")
+    file="C:/Users/Jacob/Desktop/GITHUB-REPO/Medialogy-Programming-of-Complex Software-Systems/Assets/Shape 3.png")
 
 global TotalMoney
 TotalMoney = 100
 newplayers = []
 searchedPlayers = []
+
+def send_msg(msg):
+    message = msg.encode(FORMAT)
+    msg_length = len(message)
+    send_length = str(msg_length).encode(FORMAT)
+    send_length += b' ' * (HEADER - len(send_length))
+    client.send(send_length)
+    client.send(message)
+    print(client.recv(2048).decode(FORMAT))
 
 
 # Reads TXT file and saves it Into a List
@@ -42,22 +53,39 @@ def readFile(fileName):
     return words
 
 
-def send(msg):
-    message = msg.encode(FORMAT)
-    msg_length = len(message)
-    send_length = str(msg_length).encode(FORMAT)
-    send_length += b' ' * (HEADER - len(send_length))
-    client.send(send_length)
-    client.send(message)
-    print(client.recv(2048).decode(FORMAT))
+# Gemmer data til DataGem
+def GemSata(InputData):
+    file2Write = open("DataGem.txt", "a")
+    file2Write.write(f"{InputData}")
+    file2Write.close()
+    return None
 
 
-def applytoLabel(input):
-    n = len(input)
+# Læser linjer fra TXT fil
+def ReadLinesTxt():
+    SavedLines = send_msg()
+    InputData = open("DataGem.txt", "r")
+    for line in InputData:
+        # Should print each line of
+        # print(line)
+        SavedLines.append(line[:-1])
+    InputData.close()
+    return SavedLines
+
+
+def applytoLabel(SetInput):
+    n = len(SetInput)
     element = ''
     for i in range(n):
-        element = element + input[i] + '\n'
+        element = element + SetInput[i] + '\n'
     return element
+
+
+def readStringExecutive(String):
+    a = str(String)
+    # Was used for debugging purposes
+    # print(a)
+    exec(a)
 
 
 def startProgram(frame):
@@ -83,11 +111,14 @@ def frame4():
     global TotalMoney
     if TotalMoney - allPlayers[number].getCost() >= 0:
         players1.append(allPlayers[number])
-        print(players1)
+        send_msg(f"players2.append(allPlayers[{number}])")
+        #GemSata(f"players1.append(allPlayers[{number}]\n")
+        print(f"Wrote Number: {number} to file")
         TotalMoney -= allPlayers[number].getCost()
         moneytext = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
         moneytext.place(relx=0.1, rely=0.1, anchor=CENTER)
         if len(players1) == 5:
+            #send_PickleMessage(d)
             sortByCost_btn.place_forget()
             moneytext.place_forget()
             return NextSinglePlayerPage()
@@ -138,11 +169,15 @@ def Buysearch():
     global TotalMoney
     if TotalMoney - searchedPlayers[number].getCost() >= 0:
         players1.append(searchedPlayers[number])
+        GemSata(f"players1.append(allPlayers[{number}]\n")
+        print(f"Wrote Number: {number} to file")
         TotalMoney -= searchedPlayers[number].getCost()
         moneytext = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
         moneytext.place(relx=0.1, rely=0.1, anchor=CENTER)
         print("total: ", TotalMoney)
         if len(players1) == 5:
+            ReadLinesTxt()
+            send_msg(ReadLinesTxt().encode(FORMAT))
             moneytext.place_forget()
             sortByCost_btn.place_forget()
             return NextSinglePlayerPage()
@@ -197,7 +232,7 @@ buy_btn2 = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='
 buy_btn3 = tk.Button(root, font=myFont3, bg=btncolor, highlightthickness=0, bd='0', text="BUY",
                      command=frame4)
 exit_btn = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="EXIT",
-                        command=close_window)
+                     command=close_window)
 sortByCost_btn = tk.Button(root, font=myFont2, bg=btncolor, highlightthickness=0, bd='0', text="SORT",
                            command=Sort)
 searchByCost_btn = tk.Button(root, font=buy_btn, bg=btncolor, highlightthickness=0, bd='0', text="SEARCH",
@@ -212,7 +247,6 @@ PlayerCost = Label(root, font=myFont2, text="Cost", bg=backgroundColor, foregrou
 SearchCost_Text = Label(root, font=SearchFont, text="Type to search after cost", bg=backgroundColor, foreground='white')
 text_area = st.ScrolledText(root, width=52, height=20, font=SearchFont, bg=backgroundColor,
                             foreground='white', relief=GROOVE, bd=0)
-root.update_idletasks()
 
 # Entry box
 Search_name = tk.Entry(root, bg=btncolor, font=SearchFont, foreground='white')
@@ -279,25 +313,15 @@ def NextSinglePlayerPage():
     text_area.insert(tk.INSERT, applytoLabel(GameResults))
     text_area.configure(state='disabled')
     exit_btn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
-    print(GameResults)
-
-def send(msg):
-    message = msg.encode(FORMAT)
-    msg_length = len(message)
-    send_length = str(msg_length).encode(FORMAT)
-    send_length += b' ' * (HEADER - len(send_length))
-    client.send(send_length)
-    client.send(message)
-    print(client.recv(2048).decode(FORMAT))
+    # print(GameResults)
 
 
 def multiplayer_connect():
-    frame2_btn1.place_forget()
-    frame2_btn2.place_forget()
     client.connect(ADDR)
-    send("Player have connected to the server")
+    #send_msg("[USER] A user have connected to server")
+    open("DataGem.txt", "w").close()
+    frame3()
 
 
-# Remeber to change this to the StartPage
 startProgram(frame1)
 root.mainloop()

@@ -1,4 +1,4 @@
-import socket, pickle, threading
+import socket
 from tkinter import *
 import tkinter as tk
 import tkinter.font as font
@@ -9,7 +9,7 @@ from main2 import *
 # Networking Stuff:
 HEADER = 64
 PORT = 4050
-HEADERSIZE = 10
+HEADERSIZE = 64
 # Hvilken formatering som programmet vil blive kørt i
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
@@ -45,33 +45,6 @@ def send_msg(msg):
     print(client.recv(2048).decode(FORMAT))
 
 
-def PickleHandler():
-    while True:
-        full_msg = b''
-        new_msg = True
-        while True:
-            msg = client.recv(16)
-            if new_msg:
-                # print("new msg len:",msg[:HEADERSIZE])
-                msglen = int(msg[:HEADERSIZE])
-                new_msg = False
-            # print(f"full message length: {msglen}")
-            full_msg += msg
-            # print(len(full_msg))
-            if len(full_msg) - HEADERSIZE == msglen:
-                print("I can received message from [SERVER]")
-                print(full_msg[HEADERSIZE:])
-                print(pickle.loads(full_msg[HEADERSIZE:]))
-                GemSata(pickle.loads(full_msg[HEADERSIZE:]))
-                new_msg = True
-                full_msg = b""
-
-
-
-
-
-
-
 # Reads TXT file and saves it Into a List
 def readFile(fileName):
     fileObj = open(fileName, "r")  # opens the file in read mode
@@ -80,6 +53,7 @@ def readFile(fileName):
     return words
 
 
+# Gemmer data til DataGem
 def GemSata(InputData):
     file2Write = open("DataGem.txt", "a")
     file2Write.write(f"{InputData}")
@@ -87,12 +61,16 @@ def GemSata(InputData):
     return None
 
 
+# Læser linjer fra TXT fil
 def ReadLinesTxt():
-    InputData = open("DataGem.txt", "a")
+    SavedLines = send_msg()
+    InputData = open("DataGem.txt", "r")
     for line in InputData:
         # Should print each line of
-        print(line)
+        # print(line)
+        SavedLines.append(line[:-1])
     InputData.close()
+    return SavedLines
 
 
 def applytoLabel(SetInput):
@@ -133,17 +111,14 @@ def frame4():
     global TotalMoney
     if TotalMoney - allPlayers[number].getCost() >= 0:
         players1.append(allPlayers[number])
-        GemSata(f"players1.append(allPlayers[{number}]\n")
+        send_msg(f"players1.append(allPlayers[{number}])")
+        #GemSata(f"players1.append(allPlayers[{number}]\n")
         print(f"Wrote Number: {number} to file")
         TotalMoney -= allPlayers[number].getCost()
         moneytext = Label(root, font=myFont2, text=TotalMoney, bg=backgroundColor, foreground='white')
         moneytext.place(relx=0.1, rely=0.1, anchor=CENTER)
-
         if len(players1) == 5:
-            d = readFile("DataGem.txt")
-            msg = pickle.dumps(d)
-            msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
-            client.send(msg)
+            #send_PickleMessage(d)
             sortByCost_btn.place_forget()
             moneytext.place_forget()
             return NextSinglePlayerPage()
@@ -202,6 +177,7 @@ def Buysearch():
         print("total: ", TotalMoney)
         if len(players1) == 5:
             ReadLinesTxt()
+            send_msg(ReadLinesTxt().encode(FORMAT))
             moneytext.place_forget()
             sortByCost_btn.place_forget()
             return NextSinglePlayerPage()
@@ -337,15 +313,12 @@ def NextSinglePlayerPage():
     text_area.insert(tk.INSERT, applytoLabel(GameResults))
     text_area.configure(state='disabled')
     exit_btn.place(relx=0.8, rely=0.3, relwidth=0.3, relheight=0.1, anchor=CENTER)
-    print(GameResults)
+    # print(GameResults)
 
 
 def multiplayer_connect():
     client.connect(ADDR)
-    open("DataGem.txt", "w").close()
-    # PickleHandler()
-    send_msg("[USER] A user have connected to server")
-    readStringExecutive('print("hello world")')
+    #send_msg("[USER] A user have connected to server")
     frame3()
 
 
