@@ -3,8 +3,6 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import tkinter.scrolledtext as st
 from main2 import *
-from gameSimulator import *
-from Team import *
 
 SmallFont = ("Verdana", 20, "bold")
 myFont = ("Helvetica", 50)
@@ -23,7 +21,7 @@ def close_window():
 
 
 def PlaceImage(self):
-    load = Image.open("Assets/BackgroundPic.png")
+    load = Image.open("BackgroundPic.png")
     render = ImageTk.PhotoImage(load)
     # labels can be text or images
     img = Label(self, image=render)

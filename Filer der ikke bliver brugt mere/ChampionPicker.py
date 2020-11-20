@@ -1,5 +1,5 @@
 import random
-from GameMechanics.Champions import champion
+from Champions import champion
 from colorama import Fore, Style
 
 __TopChamp = champion()

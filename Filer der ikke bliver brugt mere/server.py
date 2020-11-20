@@ -27,7 +27,7 @@ print("socket is listening for request......")
 
 
 # Sletter data i output før et nyt spil startes
-# open("output.txt", "w").close()
+# open("213213213.txt", "w").close()
 
 # Kører et spil på serveren
 # startGame()

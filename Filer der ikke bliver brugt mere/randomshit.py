@@ -1,4 +1,4 @@
-from GameMechanics.PlayerRole import PlayerRole
+from PlayerRole import PlayerRole
 
 list = [6,4,8,1,3,5]
 players1 = []

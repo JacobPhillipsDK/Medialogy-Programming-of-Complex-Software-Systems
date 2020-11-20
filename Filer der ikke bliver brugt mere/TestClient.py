@@ -23,8 +23,8 @@ Message = c.recv(4096)
 # Str skal decodes når de bliver modtaget
 print(Message.decode('ascii'))
 
-# Åbner output.txt i write mode for at slette content, derefter lukkes den
-open("../output.txt", "w").close()
+# Åbner 213213213.txt i write mode for at slette content, derefter lukkes den
+open("../../output.txt", "w").close()
 
 # Lukker socket connecetion
 while True:
